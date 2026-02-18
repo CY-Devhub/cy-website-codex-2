@@ -1,0 +1,21 @@
+.galerieblock {
+  display: inline-block;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 15px;
+
+  border-style: solid;
+  border-width: 1px;
+  border-color: hsla(81.95121951219512, 65.08%, 37.06%, 1.00);
+  border-radius: 8px;
+}
+
+.galerieblock.textbox {
+  width: 600px;
+}
+
+@media screen and (max-width: 767px) {
+  .galerieblock.textbox {
+    width: 100%;
+  }
+}

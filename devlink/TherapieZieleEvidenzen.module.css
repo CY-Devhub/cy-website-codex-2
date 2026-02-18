@@ -1,0 +1,263 @@
+.tabs {
+  display: flex;
+  width: auto;
+  height: auto;
+  max-width: 1400px;
+  min-width: 990px;
+  flex-direction: column;
+  justify-content: flex-start;
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+}
+
+@media screen and (max-width: 991px) {
+  .tabs {
+    width: 90%;
+    height: 65vw;
+    align-items: stretch;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .tabs {
+    align-items: stretch;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .tabs {
+    overflow: visible;
+    height: 70vh;
+  }
+}
+
+.tabs-menu {
+  align-self: center;
+}
+
+@media screen and (max-width: 767px) {
+  .tabs-menu {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .tabs-menu {
+    width: 90%;
+    flex-direction: column;
+    align-self: center;
+  }
+}
+
+.tabwindow {
+  background-color: hsla(0, 0.00%, 100.00%, 1.00);
+}
+
+.tabwindow:global(.w--current) {
+  border-bottom: 1px solid hsla(81.95121951219512, 65.08%, 37.06%, 1.00);
+
+  background-color: hsla(0, 0.00%, 100.00%, 0.00);
+
+  opacity: 1;
+  outline-color: hsla(0, 0.00%, 100.00%, 1.00);
+  outline-offset: 0px;
+  outline-style: none;
+  outline-width: 3px;
+
+  -webkit-text-stroke-color: hsla(0, 0.00%, 100.00%, 1.00);
+}
+
+@media screen and (max-width: 479px) {
+  .tabwindow {
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .tabwindow:global(.w--current) {
+    padding-right: 10px;
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: hsla(81.95121951219512, 65.08%, 37.06%, 1.00);
+    border-radius: 8px;
+
+    opacity: 1;
+    outline-width: 0px;
+  }
+}
+
+.tabs-heading {
+  font-family: Roboto;
+  font-size: 2vw;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 991px) {
+  .tabs-heading {
+    font-size: 1.3em;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .tabs-heading {
+    font-size: 2.5vw;
+    font-weight: 500;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .tabs-heading {
+    font-size: 4vw;
+  }
+}
+
+.tabs-content {
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: scroll;
+  width: 90%;
+  height: 500px;
+  max-width: 1400px;
+  min-width: 990px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 5px;
+  align-self: flex-start;
+
+  border-style: solid;
+  border-width: 1px;
+  border-color: hsla(81.95121951219512, 65.08%, 37.06%, 1.00);
+  border-radius: 8px;
+}
+
+@media screen and (max-width: 991px) {
+  .tabs-content {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .tabs-content {
+    width: 95%;
+    align-self: center;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .tabs-content {
+    overflow: scroll;
+    width: 90%;
+    height: 50vh;
+    align-self: center;
+    border-radius: 8px;
+  }
+}
+
+.tab-pane-tab-1 {
+  overflow: scroll;
+}
+
+.paragraph-1 {
+  font-family: Roboto;
+  font-size: 1.45vw;
+  line-height: 1.35em;
+  text-align: center;
+}
+
+@media screen and (max-width: 991px) {
+  .paragraph-1 {
+    font-size: 1.75vw;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .paragraph-1 {
+    font-size: 1.9vw;
+    text-align: justify;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .paragraph-1 {
+    overflow: visible;
+    font-family: Roboto;
+    font-size: 4vw;
+    text-align: justify;
+  }
+}
+
+.paragraph-white {
+  width: 100%;
+  margin-bottom: 0px;
+  align-self: center;
+
+  font-family: Roboto;
+  color: hsla(0, 0.00%, 100.00%, 1.00);
+  font-size: 1.25em;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 991px) {
+  .paragraph-white {
+    font-size: 1.75vw;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .paragraph-white {
+    font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .paragraph-white {
+    font-size: 4vw;
+  }
+}
+
+.paragraph-1.left {
+  display: flex;
+  justify-content: center;
+}
+
+.paragraph-1.left.vertical {
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.align-center {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.paragraph-1.centered {
+  text-align: justify;
+}
+
+.paragraph-1.centered.space {
+  padding: 0px 10px;
+}
+
+.paragraph-1.align-left {
+  text-align: left;
+}
+
+.tab-pane-tab-2 {
+  height: 100%;
+}
+
+@media screen and (max-width: 479px) {
+  .tab-pane-tab-2 {
+    overflow: visible;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .paragraph-6 {
+    font-size: 12px;
+  }
+}

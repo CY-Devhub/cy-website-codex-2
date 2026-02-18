@@ -1,0 +1,235 @@
+.div-block-257 {
+  display: flex;
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  grid-column-gap: 19px;
+  grid-row-gap: 19px;
+}
+
+.cureo-heading-0 {
+  display: block;
+  margin: 0px auto;
+  justify-content: center;
+
+  font-family: Roboto;
+  color: var(--cureo-grey);
+  font-size: 56px;
+  line-height: 70px;
+  font-weight: 700;
+  text-align: left;
+}
+
+@media screen and (max-width: 991px) {
+  .cureo-heading-0 {
+    font-size: 50px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .cureo-heading-0 {
+    font-size: 45px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .cureo-heading-0 {
+    margin-top: 5px;
+    padding-right: 5px;
+    padding-left: 5px;
+
+    font-family: Roboto;
+    font-size: 32px;
+    line-height: 45px;
+    text-align: left;
+  }
+}
+
+.cureo-heading-0.align-middle {
+  display: block;
+  align-self: center;
+  background-color: hsla(0, 0.00%, 0.00%, 0.00);
+  text-align: center;
+}
+
+@media screen and (max-width: 479px) {
+  .cureo-heading-0.align-middle {
+    display: block;
+    line-height: 28px;
+    font-weight: 500;
+    text-align: center;
+  }
+}
+
+.cureo-heading-0.align-middle.white {
+  color: hsla(0, 0.00%, 100.00%, 1.00);
+}
+
+@media screen and (max-width: 479px) {
+  .cureo-heading-0.align-middle.white.lowerspace {
+    margin-bottom: 5px;
+  }
+}
+
+.cureo-heading-0.align-middle.white.outline {
+  outline-color: white;
+  outline-offset: 0px;
+  outline-style: none;
+  outline-width: 3px;
+
+  -webkit-text-stroke-width: 0.1px;
+  -webkit-text-stroke-color: hsla(0, 0.00%, 0.00%, 1.00);
+}
+
+.cureo-heading-0.align-middle.white.outline.shadow {
+  font-size: 46px;
+  -webkit-text-stroke-width: 0.1px;
+  text-shadow: -5px 5px 0 rgba(0,0,0,0.2);
+}
+
+.cureo-heading-0.align-middle.white.outline.shadow.margin {
+  margin-top: 0px;
+}
+
+@media screen and (max-width: 479px) {
+  .cureo-heading-0.align-middle.white.outline.shadow.margin {
+    line-height: 65px;
+    text-shadow: -2px 2px 0 rgba(0,0,0,0.2);
+  }
+}
+
+.cureo-heading-0.align-middle.margin {
+  display: block;
+}
+
+.cureo-heading-0.align-middle.margin-bottom {
+  margin-bottom: 30px;
+}
+
+@media screen and (max-width: 479px) {
+  .cureo-heading-0.first {
+    order: -1;
+  }
+}
+
+.cureo-heading-0.align-left {
+  justify-content: flex-start;
+}
+
+.cureo-heading-0.justify-left {
+  justify-content: flex-start;
+}
+
+.cureo-heading-0.align-center {
+  color: var(--cureo-grey);
+  font-weight: 700;
+  text-align: center;
+}
+
+.cureo-heading-0.align-center:lang(de-de) {
+  color: var(--cureo-grey);
+}
+
+@media screen and (max-width: 991px) {
+  .cureo-heading-0.align-center {
+    font-size: 45px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .cureo-heading-0.align-center {
+    width: 80%;
+    font-size: 40px;
+    word-break: normal;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .cureo-heading-0.align-center {
+    width: 95%;
+    margin-top: 5px;
+    font-size: 32px;
+    line-height: 45px;
+  }
+}
+
+.align-center {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.cureo-heading-0.align-center.white:lang(de-de) {
+  color: var(--lynx-white);
+  -webkit-text-stroke-color: hsla(0, 0.00%, 100.00%, 1.00);
+}
+
+.cureo-heading-0.green {
+  color: var(--cureo_green);
+  font-weight: 700;
+}
+
+@media screen and (max-width: 479px) {
+  .cureo-heading-0.green {
+    padding-left: 0px;
+    font-size: 42px;
+  }
+}
+
+.cureo-heading-0.green.align-left {
+  margin-left: 0px;
+  align-self: flex-start;
+}
+
+.cureo-heading-0.green.align-left.margin-bottom {
+  margin-bottom: 30px;
+}
+
+@media screen and (max-width: 479px) {
+  .cureo-heading-0.green.align-left.margin-bottom {
+    font-size: 28px;
+    line-height: 28px;
+  }
+}
+
+.cureo-heading-0.white {
+  color: hsla(0, 0.00%, 100.00%, 1.00);
+}
+
+.cureo-heading-0.white.align-center.flex {
+  display: flex;
+  margin-right: 0px;
+  margin-left: 0px;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+@media screen and (max-width: 479px) {
+  .cureo-heading-0.wrapanywhere {
+    overflow-wrap: anywhere;
+  }
+}
+
+.text-span-5 {
+  text-decoration: none;
+}
+
+.code-embed-2 {
+  height: 1000px;
+}
+
+.cureo-paragraph-3 {
+  font-family: Roboto;
+  font-size: 14px;
+  text-align: left;
+}
+
+.cureo-paragraph-3.align-stretch {
+  align-self: stretch;
+}
+
+.cureo-paragraph-3.align-center {
+  display: none;
+}

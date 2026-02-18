@@ -1,0 +1,54 @@
+"use client";
+
+console.warn(
+  "⚠️ Avoid importing components from 'index.js' for better performance. This practice is deprecated and may be removed in the future."
+);
+
+export * as _Builtin from "./_Builtin";
+export * from "./AboutTabSection";
+export * from "./Accordion";
+export * from "./AutoRefCmsSection";
+export * from "./AwardSection";
+export * from "./ContactFormAlternative";
+export * from "./ContactSection";
+export * from "./ConteactFormProcedure";
+export * from "./CureoFeature";
+export * from "./CureoFeaturesectionAdvantages";
+export * from "./CureoFooter";
+export * from "./CureoInDerPraxis";
+export * from "./CureoMap";
+export * from "./CureoNavbar";
+export * from "./CureoRefSlideImageHeadTextButton";
+export * from "./devlink";
+export * from "./devlinkContext";
+export * from "./DevLinkProvider";
+export * from "./FaqCureo";
+export * from "./FeatureComponent";
+export * from "./FooterLp";
+export * from "./GalerieBlock";
+export * from "./GeneralContactSection";
+export * from "./GroupSectionFull";
+export * from "./HeadsetScrollAnimation";
+export * from "./InstitutionWrittenExample";
+export * from "./interactions";
+export * from "./Locations";
+export * from "./LookingForMoreDiv";
+export * from "./LottieHeadsetMobileSection";
+export * from "./ManualRefSliderCms";
+export * from "./NavBar";
+export * from "./NewContactSectionMeetergo";
+export * from "./ReferenceInstitutionsSector";
+export * from "./ReferenceSlider";
+export * from "./Selektor";
+export * from "./Slide";
+export * from "./SlideReference";
+export * from "./SliderReferences2";
+export * from "./SliderReferencesContainer";
+export * from "./SliderReferenceSection";
+export * from "./SonnenBlickGroup";
+export * from "./SpaceDiv";
+export * from "./SplitTabView";
+export * from "./TestimonialsCitations";
+export * from "./TherapieZieleEvidenzen";
+export * from "./utils";
+export * from "./WhyCureOshortItem";

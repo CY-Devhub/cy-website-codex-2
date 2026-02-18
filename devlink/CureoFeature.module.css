@@ -1,0 +1,56 @@
+.div-block-20 {
+  display: flex;
+  width: 75%;
+  margin-right: 0px;
+  flex-direction: column;
+  align-self: center;
+
+  border-style: solid;
+  border-width: 1px;
+  border-color: hsla(90.82568807339449, 55.90%, 38.24%, 1.00);
+  border-radius: 8px;
+}
+
+.image-9 {
+  max-width: 30%;
+  align-self: center;
+}
+
+.heading-6 {
+  align-self: center;
+}
+
+.paragraph-white {
+  width: 100%;
+  margin-bottom: 0px;
+  align-self: center;
+
+  font-family: Roboto;
+  color: hsla(0, 0.00%, 100.00%, 1.00);
+  font-size: 1.25em;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 991px) {
+  .paragraph-white {
+    font-size: 1.75vw;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .paragraph-white {
+    font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .paragraph-white {
+    font-size: 4vw;
+  }
+}
+
+.paragraph-white.contactform-succes {
+  color: hsla(0, 0.00%, 0.00%, 1.00);
+  font-size: 16px;
+  font-weight: 400;
+}
