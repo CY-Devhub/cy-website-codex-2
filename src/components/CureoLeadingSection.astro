@@ -1,0 +1,144 @@
+---
+const imageUrl =
+  "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/68d6870e6b2f61363e152ec7_RelaxSpiegeltherapie.jpg";
+
+const keywords = [
+  "Leading VR therapy system",
+  "300+ institutions",
+  "50+ therapy programs",
+  "Sensorimotor therapy",
+  "Cognitive therapy",
+  "Perceptive therapy",
+  "Neurology",
+  "Orthopedics",
+  "Geriatrics"
+];
+---
+
+<section class="leading">
+  <div class="leading-shell">
+    <article class="leading-grid">
+      <div class="leading-media">
+        <img src={imageUrl} alt="CUREO VR mirror therapy session" loading="lazy" />
+      </div>
+
+      <div class="leading-content">
+        <p class="eyebrow">CUREO PLATFORM</p>
+        <h2>CUREO - Leading VR Therapy</h2>
+        <p>
+          CUREO is the leading VR therapy system for medical institutions.
+        </p>
+        <p>
+          Over 300 institutions already use CUREO with more than 50 therapy
+          programs for sensorimotor, cognitive, and perceptive therapy.
+        </p>
+        <p>
+          Designed for clinical reality across neurology, orthopedics,
+          geriatrics, and related specialties.
+        </p>
+
+        <div class="keywords" aria-label="CUREO keywords">
+          {
+            keywords.map((item) => (
+              <span class="chip">{item}</span>
+            ))
+          }
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<style>
+  .leading {
+    background: linear-gradient(180deg, #f3f9eb 0%, #f8fcf2 100%);
+    padding: 1rem 1.2rem 2rem;
+  }
+
+  .leading-shell {
+    margin: 0 auto;
+    max-width: 1240px;
+  }
+
+  .leading-grid {
+    background: #fff;
+    border: 1px solid rgba(124, 165, 59, 0.34);
+    border-radius: 20px;
+    box-shadow: 0 12px 28px rgba(88, 126, 50, 0.1);
+    display: grid;
+    grid-template-columns: minmax(320px, 1.05fr) minmax(340px, 1fr);
+    overflow: hidden;
+  }
+
+  .leading-media {
+    min-height: 420px;
+  }
+
+  .leading-media img {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .leading-content {
+    align-self: center;
+    padding: clamp(1.2rem, 3vw, 2.2rem);
+  }
+
+  .eyebrow {
+    color: #688247;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    margin: 0 0 0.55rem;
+  }
+
+  .leading-content h2 {
+    color: #1d2f1d;
+    font-size: clamp(1.45rem, 2.8vw, 2.4rem);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin: 0 0 1rem;
+  }
+
+  .leading-content p {
+    color: #425641;
+    line-height: 1.56;
+    margin: 0 0 0.7rem;
+  }
+
+  .keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.95rem;
+  }
+
+  .chip {
+    background: rgba(142, 188, 72, 0.13);
+    border: 1px solid rgba(124, 165, 59, 0.45);
+    border-radius: 999px;
+    color: #2f4a2d;
+    font-size: 0.84rem;
+    font-weight: 600;
+    padding: 0.36rem 0.72rem;
+  }
+
+  @media (max-width: 960px) {
+    .leading-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .leading-media {
+      max-height: 420px;
+      min-height: 300px;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .leading {
+      padding: 0.85rem 0.8rem 1.6rem;
+    }
+  }
+</style>

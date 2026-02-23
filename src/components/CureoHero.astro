@@ -1,0 +1,97 @@
+---
+const heroImage =
+  "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/68d6747e333b7248b8879b4c_DSC09351%20(1).webp";
+---
+
+<section class="hero">
+  <div class="hero-shell">
+    <div class="hero-media">
+      <img src={heroImage} alt="VR therapy session in rehabilitation setting" loading="eager" />
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p>CUREO VR THERAPY</p>
+        <h1>VR Therapy for Rehabilitation and Therapy Professionals</h1>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    --cureo-green: hsl(81.95, 65.08%, 37.06%);
+    background:
+      radial-gradient(circle at 10% -20%, rgba(164, 209, 87, 0.22), transparent 50%),
+      linear-gradient(180deg, #fbfef8 0%, #f4f9ec 100%);
+    padding: 1.5rem 1.2rem 2rem;
+  }
+
+  .hero-shell {
+    margin: 0 auto;
+    max-width: 1240px;
+  }
+
+  .hero-media {
+    border: 1px solid rgba(132, 177, 60, 0.45);
+    border-radius: 24px;
+    min-height: 420px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 16px 38px rgba(82, 114, 44, 0.18);
+  }
+
+  .hero-media img {
+    display: block;
+    height: 100%;
+    min-height: 420px;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .hero-overlay {
+    background:
+      linear-gradient(105deg, rgba(16, 37, 20, 0.78) 0%, rgba(16, 37, 20, 0.26) 62%, rgba(16, 37, 20, 0.2) 100%),
+      linear-gradient(180deg, rgba(0, 0, 0, 0.12), transparent 42%);
+    inset: 0;
+    position: absolute;
+  }
+
+  .hero-content {
+    bottom: clamp(1.4rem, 5vw, 3rem);
+    color: #fff;
+    left: clamp(1.2rem, 4vw, 3rem);
+    max-width: min(760px, 90%);
+    position: absolute;
+    z-index: 1;
+  }
+
+  .hero-content p {
+    color: #d3f19d;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    margin: 0 0 0.85rem;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(1.8rem, 4.3vw, 3.7rem);
+    letter-spacing: -0.02em;
+    line-height: 1.07;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  @media (max-width: 700px) {
+    .hero {
+      padding: 1rem 0.8rem 1.5rem;
+    }
+
+    .hero-media,
+    .hero-media img {
+      min-height: 360px;
+    }
+
+    .hero-content h1 {
+      max-width: 96%;
+    }
+  }
+</style>

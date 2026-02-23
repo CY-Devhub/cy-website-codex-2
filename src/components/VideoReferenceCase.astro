@@ -1,0 +1,467 @@
+---
+const metrics = [
+  {
+    icon: "document",
+    title: "Therapieformat",
+    text: "Immersive VR-Therapie mit klarer Anleitung und messbaren Aufgaben"
+  },
+  {
+    icon: "users",
+    title: "Einsatzorte",
+    text: "Neurologische Reha, Kliniken, Ambulanzen und spezialisierte Zentren"
+  },
+  {
+    icon: "clock",
+    title: "Patientennutzen",
+    text: "Hohe Motivation durch spielerisches Training und direktes Feedback"
+  },
+  {
+    icon: "bolt",
+    title: "Teamnutzen",
+    text: "Standardisierbare Therapieablaeufe und transparente Verlaufsdaten"
+  }
+];
+---
+
+<section class="case-section">
+  <div class="case-shell">
+    <div class="case-grid">
+      <div class="case-left">
+        <span class="case-badge">CUREO Referenzfall</span>
+        <p class="brand">CUREOSITY</p>
+        <h1>VR-Therapie in der Neuro-Reha<br />klar erklaert</h1>
+
+        <article class="note note-highlight">
+          <h2><span></span>Die Herausforderung</h2>
+          <p>
+            Komplexe Therapiekonzepte muessen in kurzer Zeit verstaendlich
+            kommuniziert werden - klinischer Mehrwert soll sofort sichtbar sein.
+          </p>
+        </article>
+
+        <article class="note note-muted">
+          <h2><span></span>Der CUREO Ansatz</h2>
+          <p>
+            Strukturierte Videocases zeigen Therapie, Workflow und Outcome in
+            einem klaren Format fuer Entscheider, Therapeuten und Teams.
+          </p>
+        </article>
+
+        <a class="cta" href="#">CUREO entdecken <strong>&gt;</strong></a>
+        <p class="meta">Unverbindlich anfragen - Einfache Integration in bestehende Reha-Prozesse</p>
+      </div>
+
+      <div class="case-right">
+        <article class="video-card">
+          <div class="video-layer"></div>
+          <h2>Video: CUREO in der Praxis</h2>
+          <button class="play-btn" type="button" aria-label="Video abspielen">
+            <span class="play-triangle"></span>
+          </button>
+          <div class="speaker">
+            <div class="speaker-avatar"></div>
+            <p>Case Analyse</p>
+          </div>
+        </article>
+
+        <div class="metrics">
+          {
+            metrics.map((item) => (
+              <article class="metric">
+                <h3>
+                  <span class={`icon icon-${item.icon}`}></span>
+                  {item.title}
+                </h3>
+                <p>{item.text}</p>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .case-section {
+    --cureo-green: hsl(81.95, 65.08%, 37.06%);
+    --cureo-green-soft: hsl(81.49, 60.91%, 56.86%);
+    --surface: #ffffff;
+    --surface-soft: #f5f9ee;
+    --line: #d8e7c0;
+    --ink: #1b2a1e;
+    --copy: #4c5e52;
+    --cta-text: #163322;
+    background:
+      radial-gradient(circle at 90% 4%, rgba(165, 210, 89, 0.2), transparent 40%),
+      radial-gradient(circle at 8% 96%, rgba(157, 203, 76, 0.16), transparent 42%),
+      linear-gradient(180deg, #fcfef9 0%, #f3f8ec 100%);
+    color: var(--ink);
+    min-height: 100vh;
+    padding: 5rem 1.5rem;
+  }
+
+  .case-shell {
+    margin: 0 auto;
+    max-width: 1240px;
+  }
+
+  .case-grid {
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: minmax(320px, 0.95fr) minmax(420px, 1.25fr);
+    align-items: start;
+  }
+
+  .case-left h1 {
+    font-size: clamp(2.1rem, 3vw, 3.4rem);
+    line-height: 1.05;
+    margin: 1.25rem 0 2rem;
+    letter-spacing: -0.03em;
+    max-width: 15ch;
+  }
+
+  .case-badge {
+    display: inline-block;
+    border: 1px solid var(--cureo-green-soft);
+    border-radius: 999px;
+    color: #2d4b31;
+    font-weight: 500;
+    padding: 0.4rem 0.95rem;
+    background: rgba(201, 228, 151, 0.24);
+  }
+
+  .brand {
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    font-size: 1.5rem;
+    margin: 1.75rem 0 0.75rem;
+    color: #2d5034;
+  }
+
+  .note {
+    border-radius: 16px;
+    padding: 1.4rem 1.5rem 1.45rem;
+    margin-bottom: 1.1rem;
+    border: 1px solid var(--line);
+  }
+
+  .note h2 {
+    align-items: center;
+    display: flex;
+    font-size: 1.5rem;
+    gap: 0.6rem;
+    margin: 0 0 0.65rem;
+  }
+
+  .note h2 span {
+    border-radius: 999px;
+    height: 10px;
+    width: 10px;
+  }
+
+  .note p {
+    color: var(--copy);
+    font-size: 1.34rem;
+    line-height: 1.55;
+    margin: 0;
+    max-width: 46ch;
+  }
+
+  .note-highlight {
+    background: var(--surface);
+    border-left: 4px solid var(--line);
+    box-shadow: 0 8px 30px rgba(85, 117, 44, 0.07);
+  }
+
+  .note-highlight h2 span {
+    background: var(--cureo-green);
+  }
+
+  .note-muted {
+    background: var(--surface-soft);
+    border-left: 4px solid var(--cureo-green-soft);
+  }
+
+  .note-muted h2 span {
+    background: var(--cureo-green-soft);
+  }
+
+  .cta {
+    align-items: center;
+    background: linear-gradient(120deg, var(--cureo-green) 0%, #7fa43b 100%);
+    border-radius: 14px;
+    color: var(--cta-text);
+    display: inline-flex;
+    font-size: 1.8rem;
+    font-weight: 700;
+    gap: 1rem;
+    margin-top: 0.2rem;
+    padding: 1rem 2.25rem;
+    text-decoration: none;
+    transition: transform 180ms ease, box-shadow 180ms ease;
+    box-shadow: 0 10px 24px rgba(109, 150, 49, 0.34);
+  }
+
+  .cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 14px 28px rgba(109, 150, 49, 0.42);
+  }
+
+  .cta strong {
+    font-size: 1.6rem;
+    margin-top: -1px;
+  }
+
+  .meta {
+    color: #5f715f;
+    font-size: 1.2rem;
+    margin-top: 1.1rem;
+  }
+
+  .video-card {
+    background:
+      linear-gradient(130deg, rgba(18, 49, 29, 0.84), rgba(38, 67, 35, 0.66)),
+      radial-gradient(circle at 18% 88%, rgba(184, 223, 119, 0.34), transparent 55%),
+      linear-gradient(160deg, #1f3f24 0%, #3f5e3f 50%, #6e7e5d 100%);
+    border: 2px solid rgba(150, 190, 84, 0.65);
+    border-radius: 20px;
+    min-height: 420px;
+    overflow: hidden;
+    padding: 2.2rem;
+    position: relative;
+    box-shadow: 0 16px 38px rgba(64, 90, 41, 0.22);
+  }
+
+  .video-layer {
+    background:
+      linear-gradient(90deg, rgba(14, 22, 16, 0.86), rgba(14, 22, 16, 0.08)),
+      radial-gradient(circle at 78% 18%, rgba(122, 154, 108, 0.7), transparent 33%),
+      linear-gradient(155deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0));
+    inset: 0;
+    position: absolute;
+  }
+
+  .video-card h2 {
+    color: #fff;
+    font-size: clamp(1.7rem, 2.4vw, 3rem);
+    font-style: italic;
+    letter-spacing: -0.02em;
+    margin: 0;
+    position: relative;
+    text-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
+    z-index: 1;
+  }
+
+  .play-btn {
+    align-items: center;
+    background: linear-gradient(140deg, #87ad43 0%, var(--cureo-green) 100%);
+    border: 0;
+    border-radius: 20px;
+    bottom: 37%;
+    box-shadow: 0 12px 26px rgba(64, 105, 28, 0.44);
+    cursor: pointer;
+    display: inline-flex;
+    height: 84px;
+    justify-content: center;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+    width: 130px;
+    z-index: 2;
+  }
+
+  .play-triangle {
+    border-bottom: 15px solid transparent;
+    border-left: 24px solid #fff;
+    border-top: 15px solid transparent;
+    margin-left: 8px;
+  }
+
+  .speaker {
+    align-items: center;
+    background: rgba(16, 35, 19, 0.78);
+    border: 2px solid rgba(172, 217, 96, 0.9);
+    border-radius: 14px;
+    bottom: 0.8rem;
+    color: #f8fff3;
+    display: flex;
+    gap: 0.8rem;
+    padding: 0.55rem 0.8rem;
+    position: absolute;
+    right: 0.8rem;
+    z-index: 2;
+  }
+
+  .speaker-avatar {
+    background: linear-gradient(145deg, #d8e8c9, #8ca874);
+    border-radius: 999px;
+    height: 38px;
+    width: 38px;
+  }
+
+  .speaker p {
+    font-size: 1.3rem;
+    margin: 0;
+  }
+
+  .metrics {
+    display: grid;
+    gap: 0.9rem;
+    grid-template-columns: repeat(2, minmax(150px, 1fr));
+    margin-top: 1.1rem;
+  }
+
+  .metric {
+    background: rgba(255, 255, 255, 0.88);
+    border-radius: 14px;
+    border: 1px solid var(--line);
+    padding: 1rem 1.1rem;
+    box-shadow: 0 7px 20px rgba(88, 126, 50, 0.08);
+  }
+
+  .metric h3 {
+    align-items: center;
+    display: flex;
+    font-size: 1.6rem;
+    gap: 0.6rem;
+    margin: 0 0 0.65rem;
+  }
+
+  .metric p {
+    color: #576656;
+    font-size: 1.3rem;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  .icon {
+    display: inline-block;
+    height: 1.1rem;
+    position: relative;
+    width: 1.1rem;
+  }
+
+  .icon::before,
+  .icon::after {
+    content: "";
+    position: absolute;
+  }
+
+  .icon-document {
+    border: 1.5px solid var(--cureo-green);
+    border-radius: 2px;
+  }
+
+  .icon-document::before {
+    border-top: 1.5px solid var(--cureo-green);
+    left: 2px;
+    right: 2px;
+    top: 3px;
+  }
+
+  .icon-users::before,
+  .icon-users::after {
+    border: 1.5px solid var(--cureo-green);
+    border-radius: 999px;
+    height: 5px;
+    top: 0;
+    width: 5px;
+  }
+
+  .icon-users::before {
+    left: 0;
+  }
+
+  .icon-users::after {
+    right: 0;
+  }
+
+  .icon-users {
+    border-bottom: 1.5px solid var(--cureo-green);
+    border-radius: 8px;
+    height: 9px;
+    margin-top: 2px;
+  }
+
+  .icon-clock {
+    border: 1.5px solid var(--cureo-green);
+    border-radius: 999px;
+  }
+
+  .icon-clock::before {
+    background: var(--cureo-green);
+    height: 4px;
+    left: 5px;
+    top: 1px;
+    width: 1.5px;
+  }
+
+  .icon-clock::after {
+    background: var(--cureo-green);
+    height: 1.5px;
+    left: 5px;
+    top: 5px;
+    width: 3px;
+  }
+
+  .icon-bolt::before {
+    border-left: 5px solid transparent;
+    border-right: 3px solid transparent;
+    border-top: 8px solid var(--cureo-green);
+    left: 1px;
+    top: 0;
+    transform: skewX(-14deg);
+  }
+
+  .icon-bolt::after {
+    border-left: 3px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 8px solid var(--cureo-green);
+    left: 2px;
+    top: 5px;
+    transform: rotate(180deg) skewX(-10deg);
+  }
+
+  @media (max-width: 1020px) {
+    .case-grid {
+      gap: 2rem;
+      grid-template-columns: 1fr;
+    }
+
+    .video-card {
+      min-height: 360px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .case-section {
+      padding: 2.2rem 1rem 3rem;
+    }
+
+    .case-left h1 {
+      margin-bottom: 1.4rem;
+    }
+
+    .note {
+      padding: 1.05rem 1rem;
+    }
+
+    .note h2 {
+      font-size: 1.24rem;
+    }
+
+    .note p {
+      font-size: 1.06rem;
+    }
+
+    .metrics {
+      grid-template-columns: 1fr;
+    }
+
+    .meta {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+  }
+</style>

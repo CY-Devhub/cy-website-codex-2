@@ -1,0 +1,148 @@
+---
+const logoModules = import.meta.glob("../assets/img/logos/partner/*.{png,jpg,jpeg,webp,svg}", {
+  eager: true,
+  import: "default"
+});
+
+const toAssetUrl = (asset) => {
+  if (typeof asset === "string") return asset;
+  if (asset && typeof asset === "object" && "src" in asset) return asset.src;
+  return "";
+};
+
+const logos = Object.entries(logoModules)
+  .map(([path, asset]) => {
+    const file = path.split("/").pop() ?? "";
+    const label = file
+      .replace(/\.[^/.]+$/, "")
+      .replace(/[_-]+/g, " ")
+      .replace(/\s+Ambulant$/i, "")
+      .trim();
+
+    return { file, src: toAssetUrl(asset), alt: `${label} logo` };
+  })
+  .sort((a, b) => a.file.localeCompare(b.file));
+
+const clinicLogos = logos.filter((logo) => !/ambulant/i.test(logo.file));
+const ambulantLogos = logos.filter((logo) => /ambulant/i.test(logo.file));
+const allLogos = [...clinicLogos, ...ambulantLogos];
+---
+
+<section class="references">
+  <div class="references-shell">
+    <header class="references-head">
+      <h2>Over 300 leading institutions trust in CUREO</h2>
+    </header>
+
+    <div class="logo-row" role="list" aria-label="Partner institutions">
+      {
+        allLogos.map((logo) => (
+          <article class="logo-card" role="listitem">
+            <img src={logo.src} alt={logo.alt} loading="lazy" />
+          </article>
+        ))
+      }
+    </div>
+
+    <div class="map-block">
+      <iframe
+        src="https://web-access-813613595328.europe-west1.run.app/map"
+        title="CUREO clinics and practices map"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
+</section>
+
+<style>
+  .references {
+    background: linear-gradient(180deg, #f8fcf2 0%, #f3f9eb 100%);
+    padding: 1.2rem 1.2rem 2.4rem;
+  }
+
+  .references-shell {
+    margin: 0 auto;
+    max-width: 1240px;
+  }
+
+  .references-head {
+    margin-bottom: 0.8rem;
+  }
+
+  .references-head h2 {
+    color: #1d2f1d;
+    font-size: clamp(1.25rem, 2vw, 1.95rem);
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+
+  .logo-row {
+    display: flex;
+    gap: 0.7rem;
+    overflow-x: auto;
+    padding: 0.1rem 0.1rem 0.55rem;
+    scrollbar-width: thin;
+  }
+
+  .logo-card {
+    align-items: center;
+    background: #fff;
+    border: 1px solid rgba(124, 165, 59, 0.3);
+    border-radius: 14px;
+    box-shadow: 0 8px 22px rgba(88, 126, 50, 0.08);
+    display: flex;
+    flex: 0 0 170px;
+    height: 88px;
+    justify-content: center;
+    padding: 0.7rem;
+    transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+  }
+
+  .logo-card img {
+    display: block;
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+  }
+
+  .logo-card:hover {
+    border-color: rgba(144, 192, 70, 0.6);
+    box-shadow: 0 12px 24px rgba(71, 109, 34, 0.16);
+    transform: translateY(-2px);
+  }
+
+  .map-block {
+    background: #fff;
+    border: 1px solid rgba(124, 165, 59, 0.3);
+    border-radius: 18px;
+    box-shadow: 0 12px 26px rgba(88, 126, 50, 0.1);
+    margin-top: 1rem;
+    overflow: hidden;
+  }
+
+  .map-block iframe {
+    border: 0;
+    display: block;
+    height: min(70vw, 840px);
+    min-height: 640px;
+    width: 100%;
+  }
+
+  @media (max-width: 700px) {
+    .references {
+      padding: 0.9rem 0.8rem 1.6rem;
+    }
+
+    .logo-card {
+      flex-basis: 150px;
+      height: 82px;
+    }
+
+    .map-block iframe {
+      height: min(95vw, 620px);
+      min-height: 460px;
+    }
+  }
+</style>

@@ -1,0 +1,243 @@
+---
+const groups = [
+  {
+    title: "In-Patient Facilities",
+    description: "Structured VR therapy modules for clinical teams and high-intensity rehab workflows.",
+    items: [
+      {
+        name: "Acute Clinics",
+        detail: "Early activation protocols and guided bedside sessions.",
+        image:
+          "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/68de6d9e0bc26e4b64672f16_PatientenBettJPG.jpg"
+      },
+      {
+        name: "Rehabilitation Clinics",
+        detail: "Goal-oriented neuro-rehab programs with measurable progression.",
+        image:
+          "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/69032049a209d4dfd000f27d_DSC02952.jpg"
+      }
+    ]
+  },
+  {
+    title: "Out-Patient Facilities",
+    description: "Flexible VR therapy for day-to-day practice, documentation, and patient engagement.",
+    items: [
+      {
+        name: "Occupational Therapy",
+        detail: "Task-based upper-limb and cognitive-motor training in immersive scenarios.",
+        image:
+          "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/6603f187bc897ec6711edc0e_Screenshot%202024-03-27%20at%2011.13.46.jpeg"
+      },
+      {
+        name: "Physical Therapy",
+        detail: "Movement-focused therapy with controlled repetition and feedback.",
+        image:
+          "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/68da60a30662ac4f4cd799d3_Single_Therapy_PatientinAwe.jpg"
+      }
+    ]
+  }
+];
+---
+
+<section class="facility-selection">
+  <div class="facility-shell">
+    <header class="facility-head">
+      <p>FACILITY SELECTION</p>
+      <h2>Choose Your Care Setting</h2>
+    </header>
+
+    <div class="facility-groups">
+      {
+        groups.map((group) => (
+          <article class="group-card">
+            <div class="group-top">
+              <h3>{group.title}</h3>
+              <p>{group.description}</p>
+            </div>
+
+            <div class="group-split">
+              {group.items.map((item) => (
+                <button class="facility-tile" type="button" aria-label={item.name}>
+                  <img src={item.image} alt={item.name} loading="lazy" />
+                  <div class="tile-overlay"></div>
+                  <div class="tile-content">
+                    <h4>{item.name}</h4>
+                    <p>{item.detail}</p>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .facility-selection {
+    --cureo-green: hsl(81.95, 65.08%, 37.06%);
+    --cureo-green-soft: hsl(81.49, 60.91%, 56.86%);
+    background: linear-gradient(180deg, #f4f9ec 0%, #f8fcf2 100%);
+    padding: 1.4rem 1.2rem 2.4rem;
+  }
+
+  .facility-shell {
+    margin: 0 auto;
+    max-width: 1240px;
+  }
+
+  .facility-head {
+    margin-bottom: 1rem;
+  }
+
+  .facility-head p {
+    color: #688247;
+    font-size: 0.84rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    margin: 0 0 0.35rem;
+  }
+
+  .facility-head h2 {
+    color: #1d2f1d;
+    font-size: clamp(1.35rem, 2vw, 2rem);
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+
+  .facility-groups {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+  }
+
+  .group-card {
+    background: #fff;
+    border: 1px solid rgba(124, 165, 59, 0.34);
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(88, 126, 50, 0.1);
+    overflow: hidden;
+  }
+
+  .group-top {
+    padding: 1rem 1rem 0.75rem;
+  }
+
+  .group-top h3 {
+    color: #1f3221;
+    font-size: clamp(1.08rem, 1.5vw, 1.35rem);
+    margin: 0 0 0.4rem;
+  }
+
+  .group-top p {
+    color: #59715a;
+    font-size: 0.95rem;
+    line-height: 1.45;
+    margin: 0;
+    max-width: 62ch;
+  }
+
+  .group-split {
+    display: grid;
+    gap: 0.7rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 0.7rem 0.7rem 0.8rem;
+  }
+
+  .facility-tile {
+    background: #203529;
+    border: 1px solid rgba(172, 206, 111, 0.75);
+    border-radius: 14px;
+    cursor: pointer;
+    min-height: 230px;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    text-align: left;
+    transition: transform 220ms ease, opacity 220ms ease, box-shadow 220ms ease,
+      border-color 220ms ease;
+    width: 100%;
+  }
+
+  .facility-tile img {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .tile-overlay {
+    background:
+      linear-gradient(180deg, rgba(10, 28, 15, 0.2) 0%, rgba(10, 28, 15, 0.82) 100%),
+      linear-gradient(115deg, rgba(76, 124, 42, 0.4), rgba(76, 124, 42, 0.05));
+    inset: 0;
+    position: absolute;
+  }
+
+  .tile-content {
+    bottom: 0.75rem;
+    color: #f7ffee;
+    left: 0.75rem;
+    position: absolute;
+    right: 0.75rem;
+    z-index: 1;
+  }
+
+  .tile-content h4 {
+    font-size: clamp(1.02rem, 1.2vw, 1.22rem);
+    line-height: 1.2;
+    margin: 0 0 0.4rem;
+  }
+
+  .tile-content p {
+    color: #d9efc9;
+    font-size: 0.84rem;
+    line-height: 1.42;
+    margin: 0;
+  }
+
+  .group-split:hover .facility-tile {
+    opacity: 0.72;
+    transform: scale(0.985);
+  }
+
+  .group-split .facility-tile:hover {
+    border-color: rgba(186, 230, 114, 0.95);
+    box-shadow: 0 14px 34px rgba(50, 75, 27, 0.34);
+    opacity: 1;
+    transform: translateY(-4px) scale(1.02);
+    z-index: 2;
+  }
+
+  .group-split .facility-tile:hover .tile-overlay {
+    background:
+      linear-gradient(180deg, rgba(12, 30, 16, 0.12) 0%, rgba(12, 30, 16, 0.7) 100%),
+      linear-gradient(115deg, rgba(94, 152, 50, 0.44), rgba(94, 152, 50, 0.1));
+  }
+
+  .facility-tile:focus-visible {
+    outline: 3px solid var(--cureo-green-soft);
+    outline-offset: 2px;
+  }
+
+  @media (max-width: 980px) {
+    .facility-groups {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .facility-selection {
+      padding: 1rem 0.8rem 1.8rem;
+    }
+
+    .group-split {
+      grid-template-columns: 1fr;
+    }
+
+    .facility-tile {
+      min-height: 210px;
+    }
+  }
+</style>
