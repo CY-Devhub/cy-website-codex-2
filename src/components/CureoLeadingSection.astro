@@ -1,49 +1,38 @@
 ---
-const imageUrl =
-  "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/68d6870e6b2f61363e152ec7_RelaxSpiegeltherapie.jpg";
-
-const keywords = [
-  "Leading VR therapy system",
-  "300+ institutions",
-  "50+ therapy programs",
-  "Sensorimotor therapy",
-  "Cognitive therapy",
-  "Perceptive therapy",
-  "Neurology",
-  "Orthopedics",
-  "Geriatrics"
-];
+import cureoHandImage from "../assets/img/CUREO5/Hand-CUREO-5.jpg";
 ---
 
-<section class="leading">
+<section class="leading" data-reveal>
   <div class="leading-shell">
     <article class="leading-grid">
       <div class="leading-media">
-        <img src={imageUrl} alt="CUREO VR mirror therapy session" loading="lazy" />
+        <img src={cureoHandImage.src} alt="CUREO Hand module therapy session" loading="lazy" />
       </div>
 
       <div class="leading-content">
         <p class="eyebrow">CUREO PLATFORM</p>
-        <h2>CUREO - Leading VR Therapy</h2>
+        <h2>VR Therapy for Sensorimotor, Cognitive and Perceptual Rehabilitation</h2>
         <p>
-          CUREO is the leading VR therapy system for medical institutions.
+          CUREO is a certified therapy software that digitally supports motor,
+          sensory and cognitive functions. More than 50 interactive exercises
+          across seven modules (Active, Hand, Moto, Cogni, Relax, Activities
+          and ADL) enable individually customizable therapy planning.
         </p>
         <p>
-          Over 300 institutions already use CUREO with more than 50 therapy
-          programs for sensorimotor, cognitive, and perceptive therapy.
-        </p>
-        <p>
-          Designed for clinical reality across neurology, orthopedics,
-          geriatrics, and related specialties.
+          The system is used in over 300 clinics, rehabilitation centers and
+          therapy practices. Patients train with a VR headset in motivating
+          scenarios. Gamification elements promote therapy adherence and
+          increase motivation.
         </p>
 
-        <div class="keywords" aria-label="CUREO keywords">
-          {
-            keywords.map((item) => (
-              <span class="chip">{item}</span>
-            ))
-          }
-        </div>
+        <a
+          class="book-btn"
+          href="https://meetings-eu1.hubspot.com/cureosity/terminbuchungstool-de"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Book appointment
+        </a>
       </div>
     </article>
   </div>
@@ -108,21 +97,22 @@ const keywords = [
     margin: 0 0 0.7rem;
   }
 
-  .keywords {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 0.95rem;
+  .book-btn {
+    background: linear-gradient(120deg, #7ea43d 0%, #6d9130 100%);
+    border: 1px solid rgba(109, 145, 48, 0.9);
+    border-radius: 12px;
+    color: #ffffff;
+    display: inline-block;
+    font-weight: 700;
+    margin-top: 0.2rem;
+    padding: 0.62rem 1rem;
+    text-decoration: none;
+    transition: transform 160ms ease, box-shadow 160ms ease;
   }
 
-  .chip {
-    background: rgba(142, 188, 72, 0.13);
-    border: 1px solid rgba(124, 165, 59, 0.45);
-    border-radius: 999px;
-    color: #2f4a2d;
-    font-size: 0.84rem;
-    font-weight: 600;
-    padding: 0.36rem 0.72rem;
+  .book-btn:hover {
+    box-shadow: 0 10px 20px rgba(73, 106, 28, 0.25);
+    transform: translateY(-1px);
   }
 
   @media (max-width: 960px) {

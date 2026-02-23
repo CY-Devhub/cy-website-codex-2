@@ -1,0 +1,140 @@
+---
+import singleTherapy from "../assets/img/CUREO5/Single_Therapy.jpg";
+import parallelTherapy from "../assets/img/CUREO5/Parallel-Therapy.jpg";
+import groupTherapy from "../assets/img/CUREO5/Group-Therapy.jpg";
+---
+
+<section class="flex" data-reveal>
+  <div class="flex-shell">
+    <h2>Made for clinics and practices, that's how flexible CUREO is</h2>
+
+    <div class="cards">
+      <article class="card">
+        <img src={singleTherapy.src} alt="Single therapy with CUREO" loading="lazy" />
+        <h3>Single therapy</h3>
+      </article>
+      <article class="card">
+        <img src={parallelTherapy.src} alt="Parallel therapy with CUREO" loading="lazy" />
+        <h3>Parallel therapy</h3>
+      </article>
+      <article class="card">
+        <img src={groupTherapy.src} alt="Group therapy with CUREO" loading="lazy" />
+        <h3>Group therapy, up to 6 patients</h3>
+      </article>
+    </div>
+
+    <p class="copy">
+      CUREO is suitable for both inpatient and outpatient care. Whether in individual,
+      group or parallel therapy sessions, the system ensures efficient workflows and
+      reduces therapist workload. Up to six patients can be treated simultaneously with
+      individually tailored content. Progress is automatically documented, providing
+      transparency and seamless integration into existing processes. The CUREO software
+      is CE-certified as a medical device, and CUREOSITY operates according to the ISO
+      13485 quality standard. This ensures compliance with strict medical and therapeutic
+      requirements and guarantees the highest level of reliability.
+    </p>
+
+    <div class="actions">
+      <a href="#" class="action">For practices</a>
+      <a href="#" class="action">For clinics</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .flex {
+    background: #ffffff;
+    padding: 1.1rem 1.2rem 2.1rem;
+  }
+
+  .flex-shell {
+    margin: 0 auto;
+    max-width: 1240px;
+  }
+
+  .flex-shell h2 {
+    color: #2b2f34;
+    font-size: clamp(1.35rem, 2.3vw, 2.35rem);
+    letter-spacing: -0.03em;
+    line-height: 1.06;
+    margin: 0 0 1.2rem;
+  }
+
+  .cards {
+    display: grid;
+    gap: 0.65rem;
+    grid-template-columns: repeat(3, minmax(220px, 1fr));
+    margin-bottom: 0.8rem;
+  }
+
+  .card {
+    background: transparent;
+  }
+
+  .card img {
+    border-radius: 14px;
+    display: block;
+    height: clamp(190px, 24vw, 320px);
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .card h3 {
+    color: #313237;
+    font-size: clamp(1.02rem, 1.55vw, 1.58rem);
+    letter-spacing: -0.02em;
+    line-height: 1.06;
+    margin: 0.75rem 0 0;
+    text-wrap: balance;
+  }
+
+  .copy {
+    color: #131517;
+    font-size: clamp(0.96rem, 1.05vw, 1.08rem);
+    line-height: 1.5;
+    margin: 0.8rem 0 1rem;
+  }
+
+  .actions {
+    display: flex;
+    gap: 0.7rem;
+    justify-content: center;
+    margin-top: 0.65rem;
+  }
+
+  .action {
+    background: linear-gradient(120deg, #7ea43d 0%, #6d9130 100%);
+    border-radius: 13px;
+    color: #fff;
+    font-size: 1.07rem;
+    font-weight: 700;
+    padding: 0.66rem 1.55rem;
+    text-decoration: none;
+    transition: transform 160ms ease, box-shadow 160ms ease;
+  }
+
+  .action:hover {
+    box-shadow: 0 10px 20px rgba(73, 106, 28, 0.25);
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: 980px) {
+    .cards {
+      grid-template-columns: 1fr;
+    }
+
+    .card img {
+      height: clamp(200px, 55vw, 330px);
+    }
+  }
+
+  @media (max-width: 700px) {
+    .flex {
+      padding: 0.85rem 0.8rem 1.6rem;
+    }
+
+    .actions {
+      justify-content: flex-start;
+    }
+  }
+</style>

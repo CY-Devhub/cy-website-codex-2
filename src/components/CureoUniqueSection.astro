@@ -1,0 +1,140 @@
+---
+import uniqueImage from "../assets/img/CUREO5/Patient-Therapeut-Happy1.jpg";
+---
+
+<section class="unique" data-reveal>
+  <div class="unique-shell">
+    <article class="unique-grid">
+      <div class="unique-content">
+        <p class="eyebrow">THERAPY IMPACT</p>
+        <h2>What Makes Virtual Reality Therapy Unique?</h2>
+        <p>
+          VR therapy provides immersive training sessions that engage multiple
+          senses at once. The combination of visual, auditory and physical
+          stimuli activates targeted neurocognitive and motor functions.
+        </p>
+        <p>
+          Compared to traditional methods, active participation is
+          significantly increased, with proven effects on motivation, therapy
+          adherence and treatment quality. Therapists remain in control of all
+          processes via tablet.
+        </p>
+        <p>
+          CUREO is based on three key principles for therapeutic success:
+          gamification, virtual reality (VR), and embodiment. Gamification uses
+          game-like elements to increase motivation and therapy adherence.
+        </p>
+        <p>
+          Through targeted incentives such as points, progress indicators, and
+          new challenges, therapy becomes an engaging and activating experience.
+          This playful approach encourages repetition, helping to consolidate
+          movement patterns and achieve lasting training results.
+        </p>
+
+        <div class="principles" aria-label="Core principles">
+          <span>Gamification</span>
+          <span>Virtual Reality</span>
+          <span>Embodiment</span>
+        </div>
+      </div>
+
+      <div class="unique-media">
+        <img src={uniqueImage.src} alt="Therapist and patient using CUREO VR therapy" loading="lazy" />
+      </div>
+    </article>
+  </div>
+</section>
+
+<style>
+  .unique {
+    background: linear-gradient(180deg, #f8fcf2 0%, #f3f9eb 100%);
+    padding: 0 1.2rem 2rem;
+  }
+
+  .unique-shell {
+    margin: 0 auto;
+    max-width: 1240px;
+  }
+
+  .unique-grid {
+    background: #fff;
+    border: 1px solid rgba(124, 165, 59, 0.34);
+    border-radius: 20px;
+    box-shadow: 0 12px 28px rgba(88, 126, 50, 0.1);
+    display: grid;
+    grid-template-columns: minmax(340px, 1fr) minmax(320px, 1.05fr);
+    overflow: hidden;
+  }
+
+  .unique-content {
+    align-self: center;
+    padding: clamp(1.2rem, 3vw, 2.2rem);
+  }
+
+  .eyebrow {
+    color: #688247;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    margin: 0 0 0.55rem;
+  }
+
+  .unique-content h2 {
+    color: #1d2f1d;
+    font-size: clamp(1.4rem, 2.7vw, 2.2rem);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin: 0 0 1rem;
+  }
+
+  .unique-content p {
+    color: #425641;
+    line-height: 1.56;
+    margin: 0 0 0.7rem;
+  }
+
+  .principles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.9rem;
+  }
+
+  .principles span {
+    background: rgba(142, 188, 72, 0.13);
+    border: 1px solid rgba(124, 165, 59, 0.45);
+    border-radius: 999px;
+    color: #2f4a2d;
+    font-size: 0.84rem;
+    font-weight: 600;
+    padding: 0.36rem 0.72rem;
+  }
+
+  .unique-media {
+    min-height: 420px;
+  }
+
+  .unique-media img {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  @media (max-width: 960px) {
+    .unique-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .unique-media {
+      max-height: 420px;
+      min-height: 300px;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .unique {
+      padding: 0 0.8rem 1.6rem;
+    }
+  }
+</style>

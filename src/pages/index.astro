@@ -3,7 +3,11 @@ import Layout from '../layouts/Layout.astro';
 import CureoHero from '../components/CureoHero.astro';
 import FacilitySelector from '../components/FacilitySelector.astro';
 import PartnerReferences from '../components/PartnerReferences.astro';
+import KnownFromSection from '../components/KnownFromSection.astro';
 import CureoLeadingSection from '../components/CureoLeadingSection.astro';
+import CureoUniqueSection from '../components/CureoUniqueSection.astro';
+import CureoFlexSection from '../components/CureoFlexSection.astro';
+import CureoModulesSection from '../components/CureoModulesSection.astro';
 import VideoReferenceCase from '../components/VideoReferenceCase.astro';
 import { CureoNavbar } from '../../devlink/CureoNavbar.jsx';
 import { CureoFooter } from '../../devlink/CureoFooter.jsx';
@@ -14,7 +18,11 @@ import { CureoFooter } from '../../devlink/CureoFooter.jsx';
   <CureoHero />
   <FacilitySelector />
   <PartnerReferences />
+  <KnownFromSection />
   <CureoLeadingSection />
+  <CureoUniqueSection />
+  <CureoFlexSection />
+  <CureoModulesSection />
   <VideoReferenceCase />
   <CureoFooter client:load />
 </Layout>

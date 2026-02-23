@@ -1,0 +1,336 @@
+---
+import zdfLogo from "../assets/img/MediaLogos/zdf.png";
+import managementKrankenhausLogo from "../assets/img/MediaLogos/ManagementKrankenhaus.png";
+import bbcLogo from "../assets/img/MediaLogos/BBC.png";
+import rpLogo from "../assets/img/MediaLogos/RP.png";
+import wiWocheLogo from "../assets/img/MediaLogos/WiWoche.png";
+import sat1Logo from "../assets/img/MediaLogos/Sat1.png";
+import neuroARehaLogo from "../assets/img/MediaLogos/NeuroAReha.png";
+import mdrLogo from "../assets/img/MediaLogos/MDR.jpg";
+import handelsblattLogo from "../assets/img/MediaLogos/Handelsblatt.png";
+import wazLogo from "../assets/img/MediaLogos/WAZ Logo.png";
+import bzLogo from "../assets/img/MediaLogos/BZ Logo.png";
+import bildLogo from "../assets/img/MediaLogos/BILD_Logo.png";
+import morgenpostLogo from "../assets/img/MediaLogos/Morgenpost.png";
+import niederbayernLogo from "../assets/img/MediaLogos/NiederBayern.png";
+
+const mediaItems = [
+  {
+    name: "ZDF",
+    logo: zdfLogo.src
+  },
+  {
+    name: "Management & Krankenhaus",
+    logo: managementKrankenhausLogo.src
+  },
+  {
+    name: "WDR",
+    logo: "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/66041505ea1ceed77349505c_WDR_Dachmarke.svg"
+  },
+  {
+    name: "BBC",
+    logo: bbcLogo.src
+  },
+  {
+    name: "Rheinische Post",
+    logo: rpLogo.src
+  },
+  {
+    name: "WirtschaftsWoche",
+    logo: wiWocheLogo.src
+  },
+  {
+    name: "Sat.1 NRW",
+    logo: sat1Logo.src,
+    link: "https://sat1nrw.de/beitrag/spielerisch-zurueck-ins-leben"
+  },
+  {
+    name: "Neurologie & Rehabilitation",
+    logo: neuroARehaLogo.src
+  },
+  {
+    name: "National Geographic",
+    logo: "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/67ceac113bfb70da888f7361_National-Geographic-Logo.svg",
+    link: "https://www.linkedin.com/posts/cureosity-gmbh_cureo-in-national-geographic-activity-7305548314190512129-sXEn/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEqLo3YBW4RYEdSPIK3oq-73KVyO_YZxIXg"
+  },
+  {
+    name: "MDR",
+    logo: mdrLogo.src
+  },
+  {
+    name: "NDR",
+    logo: "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/65cc798d2cb44ac656d019e3_NDR_Dachmarke.svg",
+    link: "https://www.ndr.de/ratgeber/gesundheit/medizinische-forschung,medizinischeforschung101.html"
+  },
+  {
+    name: "Handelsblatt",
+    logo: handelsblattLogo.src,
+    link: "https://www.handelsblatt.com/technik/medizin/inside-digital-health/start-up-cureosity-wie-virtual-reality-patienten-mit-schlaganfall-helfen-soll/28394600.html"
+  },
+  {
+    name: "WAZ",
+    logo: wazLogo.src,
+    link: "https://www.waz.de/gesundheit/article235863109/Was-eine-Post-Covid-Reha-fuer-Betroffene-bedeutet.html"
+  },
+  {
+    name: "BZ Die Stimme Berlins",
+    logo: bzLogo.src
+  },
+  {
+    name: "BILD",
+    logo: bildLogo.src,
+    link: "https://www.bild.de/ratgeber/2022/ratgeber/schlaganfall-behandlung-schnelle-reaktion-rettete-horst-das-leben-79990898.bild.html"
+  },
+  {
+    name: "Morgenpost",
+    logo: morgenpostLogo.src,
+    link: "https://www.morgenpost.de/berlin/article235316811/Charite-und-Unfallkrankenhaus-neue-Kooperation.html"
+  },
+  {
+    name: "c't / Heise",
+    logo: "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/67ceacd1a38eb5182cb1afec_Ct_logo.svg",
+    link: "https://www.heise.de/select/ct/2025/5/2501511142507247347"
+  },
+  {
+    name: "Niederbayern TV",
+    logo: niederbayernLogo.src
+  }
+];
+
+const chunkSize = 4;
+const slides = [];
+for (let i = 0; i < mediaItems.length; i += chunkSize) {
+  slides.push(mediaItems.slice(i, i + chunkSize));
+}
+---
+
+<section class="known" data-reveal>
+  <div class="known-shell">
+    <header class="known-head">
+      <p>MEDIA & BROADCASTERS</p>
+      <h2>Known From</h2>
+    </header>
+
+    <div class="known-slider" data-known-slider>
+      <div class="known-track" data-known-track>
+        {
+          slides.map((slide) => (
+            <div class="known-slide" role="list" aria-label="CUREO media references">
+              {slide.map((item) =>
+                item.link ? (
+                  <a
+                    class="known-card"
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${item.name} article`}
+                    role="listitem"
+                  >
+                    <span class="logo-frame">
+                      <img src={item.logo} alt={`${item.name} logo`} loading="lazy" />
+                    </span>
+                  </a>
+                ) : (
+                  <div class="known-card known-card-static" role="listitem" aria-label={item.name}>
+                    <span class="logo-frame">
+                      <img src={item.logo} alt={`${item.name} logo`} loading="lazy" />
+                    </span>
+                  </div>
+                )
+              )}
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="known-dots" aria-label="Known from slides">
+        {
+          slides.map((_, index) => (
+            <button
+              type="button"
+              class={`known-dot ${index === 0 ? "is-active" : ""}`}
+              data-dot={index}
+              aria-label={`Go to slide ${index + 1}`}
+            ></button>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  (() => {
+    const root = document.querySelector("[data-known-slider]");
+    if (!root) return;
+
+    const track = root.querySelector("[data-known-track]");
+    const dots = Array.from(root.querySelectorAll("[data-dot]"));
+    if (!track || dots.length === 0) return;
+
+    let current = 0;
+    let intervalId;
+
+    const setSlide = (index) => {
+      current = (index + dots.length) % dots.length;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      dots.forEach((dot, i) => dot.classList.toggle("is-active", i === current));
+    };
+
+    const start = () => {
+      clearInterval(intervalId);
+      intervalId = setInterval(() => setSlide(current + 1), 4200);
+    };
+
+    dots.forEach((dot) => {
+      dot.addEventListener("click", () => {
+        setSlide(Number(dot.dataset.dot || 0));
+        start();
+      });
+    });
+
+    root.addEventListener("mouseenter", () => clearInterval(intervalId));
+    root.addEventListener("mouseleave", start);
+    root.addEventListener("focusin", () => clearInterval(intervalId));
+    root.addEventListener("focusout", start);
+
+    setSlide(0);
+    start();
+  })();
+</script>
+
+<style>
+  .known {
+    background: #ffffff;
+    padding: 0 1.2rem 2rem;
+  }
+
+  .known-shell {
+    margin: 0 auto;
+    max-width: 1240px;
+  }
+
+  .known-head {
+    margin-bottom: 0.75rem;
+  }
+
+  .known-head p {
+    color: #688247;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    margin: 0 0 0.3rem;
+  }
+
+  .known-head h2 {
+    color: #1d2f1d;
+    font-size: clamp(1.35rem, 2.1vw, 2rem);
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+
+  .known-slider {
+    overflow: hidden;
+  }
+
+  .known-track {
+    display: flex;
+    transition: transform 380ms ease;
+    width: 100%;
+  }
+
+  .known-slide {
+    box-sizing: border-box;
+    display: grid;
+    flex: 0 0 100%;
+    gap: 0.6rem;
+    grid-template-columns: repeat(4, minmax(170px, 1fr));
+  }
+
+  .known-card {
+    align-items: center;
+    background: #fff;
+    border: 1px solid rgba(124, 165, 59, 0.32);
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(88, 126, 50, 0.08);
+    display: flex;
+    height: 92px;
+    justify-content: center;
+    padding: 0.75rem;
+    text-decoration: none;
+    transition: transform 170ms ease, box-shadow 170ms ease, border-color 170ms ease;
+  }
+
+  .logo-frame {
+    align-items: center;
+    display: flex;
+    height: 52px;
+    justify-content: center;
+    width: 190px;
+  }
+
+  .known-card img {
+    display: block;
+    height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    width: 100%;
+  }
+
+  .known-card:not(.known-card-static):hover {
+    border-color: rgba(144, 192, 70, 0.6);
+    box-shadow: 0 12px 24px rgba(71, 109, 34, 0.16);
+    transform: translateY(-2px);
+  }
+
+  .known-card-static {
+    cursor: default;
+  }
+
+  .known-dots {
+    align-items: center;
+    display: flex;
+    gap: 0.42rem;
+    justify-content: center;
+    margin-top: 0.9rem;
+  }
+
+  .known-dot {
+    background: rgba(34, 42, 38, 0.28);
+    border: 0;
+    border-radius: 999px;
+    cursor: pointer;
+    height: 12px;
+    padding: 0;
+    width: 12px;
+  }
+
+  .known-dot.is-active {
+    background: rgba(34, 42, 38, 0.9);
+  }
+
+  @media (max-width: 980px) {
+    .known-slide {
+      grid-template-columns: repeat(3, minmax(150px, 1fr));
+    }
+  }
+
+  @media (max-width: 700px) {
+    .known {
+      padding: 0 0.8rem 1.6rem;
+    }
+
+    .known-slide {
+      grid-template-columns: repeat(2, minmax(130px, 1fr));
+    }
+
+    .known-card {
+      height: 86px;
+    }
+
+    .logo-frame {
+      height: 46px;
+      width: 160px;
+    }
+  }
+</style>
