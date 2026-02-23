@@ -1,0 +1,370 @@
+---
+const lang = Astro.props.lang === "de" ? "de" : "en";
+const base = import.meta.env.BASE_URL || "/";
+const normalizedBase = base.endsWith("/") ? base : `${base}/`;
+const enHref = normalizedBase;
+const deHref = `${normalizedBase}de`;
+const isGerman = lang === "de";
+
+const copy = isGerman
+  ? {
+      primaryNav: "Hauptnavigation",
+      cureo: "CUREO",
+      solution: "Unsere Therapielösung",
+      inpatient: "Für stationäre Reha",
+      outpatient: "Für ambulante Reha",
+      patients: "Für Patienten",
+      news: "NEWS & EVENTS",
+      about: "ÜBER UNS",
+      company: "Unternehmen",
+      career: "Karriere",
+      contact: "KONTAKT",
+      login: "LOGIN",
+      openMenu: "Menü öffnen",
+      switchLanguage: "Zu Englisch wechseln",
+      languageCode: "EN",
+      languageFlag: "\ud83c\uddec\ud83c\udde7"
+    }
+  : {
+      primaryNav: "Primary navigation",
+      cureo: "CUREO",
+      solution: "Our therapy solution",
+      inpatient: "For inpatient rehab",
+      outpatient: "For outpatient rehab",
+      patients: "For patients",
+      news: "NEWS & EVENTS",
+      about: "ABOUT",
+      company: "Company",
+      career: "Career",
+      contact: "CONTACT",
+      login: "LOGIN",
+      openMenu: "Open menu",
+      switchLanguage: "Switch to German",
+      languageCode: "DE",
+      languageFlag: "\ud83c\udde9\ud83c\uddea"
+    };
+
+const brandHref = isGerman ? deHref : enHref;
+const switchHref = isGerman ? enHref : deHref;
+---
+
+<header class="topnav">
+  <div class="topnav-shell">
+    <a class="brand" href={brandHref}>
+      <img
+        src="https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/6548de993ba0822e0f5dd3f1__CU_Logo_CUREosity_rgb.png"
+        alt="CUREOSITY"
+      />
+    </a>
+
+    <nav class="desktop-nav" aria-label={copy.primaryNav}>
+      <div class="nav-item has-submenu">
+        <button type="button">{copy.cureo}</button>
+        <div class="submenu">
+          <a href="#">{copy.solution}</a>
+          <a href="#">{copy.inpatient}</a>
+          <a href="#">{copy.outpatient}</a>
+          <a href="#">{copy.patients}</a>
+        </div>
+      </div>
+
+      <a class="nav-item" href="#">{copy.news}</a>
+
+      <div class="nav-item has-submenu">
+        <button type="button">{copy.about}</button>
+        <div class="submenu">
+          <a href="#">{copy.company}</a>
+          <a href="#">{copy.career}</a>
+        </div>
+      </div>
+
+      <a class="nav-item" href="#">{copy.contact}</a>
+      <a class="nav-item" href="https://cureo-center.com/knowledge-dashboard" target="_blank" rel="noopener noreferrer">
+        {copy.login}
+      </a>
+
+      <a class="lang lang-link" href={switchHref} aria-label={copy.switchLanguage}>
+        <span>{copy.languageFlag}</span>
+        <span>{copy.languageCode}</span>
+      </a>
+    </nav>
+
+    <details class="mobile-nav">
+      <summary aria-label={copy.openMenu}>
+        <span class="burger" aria-hidden="true"></span>
+      </summary>
+      <div class="mobile-panel">
+        <details>
+          <summary>{copy.cureo}</summary>
+          <a href="#">{copy.solution}</a>
+          <a href="#">{copy.inpatient}</a>
+          <a href="#">{copy.outpatient}</a>
+          <a href="#">{copy.patients}</a>
+        </details>
+
+        <a href="#">{copy.news}</a>
+
+        <details>
+          <summary>{copy.about}</summary>
+          <a href="#">{copy.company}</a>
+          <a href="#">{copy.career}</a>
+        </details>
+
+        <a href="#">{copy.contact}</a>
+        <a href="https://cureo-center.com/knowledge-dashboard" target="_blank" rel="noopener noreferrer">{copy.login}</a>
+        <a class="mobile-lang" href={switchHref}>{copy.languageFlag} {copy.languageCode}</a>
+      </div>
+    </details>
+  </div>
+</header>
+
+<style>
+  .topnav {
+    background: #ffffff;
+    border-bottom: 0;
+    box-shadow: none;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .topnav-shell {
+    align-items: center;
+    display: flex;
+    gap: 1rem;
+    margin: 0 auto;
+    max-width: 1240px;
+    min-height: 80px;
+    padding: 0.55rem 1.2rem;
+  }
+
+  .brand {
+    align-items: center;
+    display: inline-flex;
+    flex: 0 0 auto;
+  }
+
+  .brand img {
+    display: block;
+    height: auto;
+    max-height: 48px;
+    width: clamp(180px, 22vw, 260px);
+  }
+
+  .desktop-nav {
+    align-items: center;
+    display: flex;
+    gap: 0.15rem;
+    margin-left: auto;
+  }
+
+  .nav-item {
+    color: #243826;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    padding: 0.62rem 0.78rem;
+    text-decoration: none;
+  }
+
+  .has-submenu {
+    position: relative;
+  }
+
+  .has-submenu > button {
+    background: transparent;
+    border: 0;
+    color: #243826;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    padding: 0.62rem 0.78rem;
+  }
+
+  .submenu {
+    background: #ffffff;
+    border: 0;
+    border-radius: 8px;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    left: 0;
+    min-width: 210px;
+    opacity: 0;
+    padding: 0.34rem;
+    pointer-events: none;
+    position: absolute;
+    top: calc(100% + 0.2rem);
+    transform: translateY(8px);
+    transition: opacity 160ms ease, transform 160ms ease;
+  }
+
+  .submenu a {
+    border-radius: 8px;
+    color: #274129;
+    font-size: 0.9rem;
+    font-weight: 400;
+    padding: 0.52rem 0.62rem;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .submenu a:hover {
+    background: rgba(142, 188, 72, 0.13);
+  }
+
+  .has-submenu:hover .submenu,
+  .has-submenu:focus-within .submenu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .lang {
+    align-items: center;
+    background: rgba(142, 188, 72, 0.13);
+    border: 0;
+    border-radius: 8px;
+    color: #29442b;
+    cursor: pointer;
+    display: inline-flex;
+    font-size: 0.85rem;
+    font-weight: 700;
+    gap: 0.35rem;
+    margin-left: 0.35rem;
+    padding: 0.44rem 0.55rem;
+  }
+
+  .lang-link {
+    text-decoration: none;
+  }
+
+  .mobile-nav {
+    display: none;
+    margin-left: auto;
+    position: relative;
+  }
+
+  .mobile-nav > summary {
+    background: rgba(142, 188, 72, 0.13);
+    border: 0;
+    border-radius: 8px;
+    color: #2d4a2d;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    width: 42px;
+    height: 40px;
+  }
+
+  .mobile-nav > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .burger {
+    background: #2d4a2d;
+    border-radius: 999px;
+    display: block;
+    height: 2px;
+    position: relative;
+    width: 18px;
+  }
+
+  .burger::before,
+  .burger::after {
+    background: #2d4a2d;
+    border-radius: 999px;
+    content: "";
+    height: 2px;
+    left: 0;
+    position: absolute;
+    transition: transform 160ms ease, opacity 160ms ease;
+    width: 18px;
+  }
+
+  .burger::before {
+    top: -6px;
+  }
+
+  .burger::after {
+    top: 6px;
+  }
+
+  .mobile-nav[open] .burger {
+    background: transparent;
+  }
+
+  .mobile-nav[open] .burger::before {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  .mobile-nav[open] .burger::after {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  .mobile-panel {
+    background: #fff;
+    border: 0;
+    border-radius: 8px;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    min-width: 240px;
+    padding: 0.42rem;
+    position: absolute;
+    right: 0;
+    top: calc(100% + 0.4rem);
+  }
+
+  .mobile-panel > a,
+  .mobile-panel details > summary,
+  .mobile-panel details > a {
+    border-radius: 8px;
+    color: #274129;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.5rem 0.55rem;
+    text-decoration: none;
+  }
+
+  .mobile-panel > a:hover,
+  .mobile-panel details > summary:hover,
+  .mobile-panel details > a:hover {
+    background: rgba(142, 188, 72, 0.13);
+  }
+
+  .mobile-panel details {
+    display: grid;
+  }
+
+  .mobile-lang {
+    font-weight: 700;
+    margin-top: 0.2rem;
+  }
+
+  @media (max-width: 1080px) {
+    .desktop-nav {
+      display: none;
+    }
+
+    .mobile-nav {
+      display: block;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .topnav-shell {
+      min-height: 68px;
+      padding: 0.45rem 0.8rem;
+    }
+
+    .brand img {
+      width: min(56vw, 220px);
+    }
+  }
+</style>

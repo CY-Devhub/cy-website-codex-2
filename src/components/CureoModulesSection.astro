@@ -1,38 +1,43 @@
 ---
 import navigatorImage from "../assets/img/CUREO5/CUREO-Therapie-Navigator.jpg";
+const lang = Astro.props.lang === "de" ? "de" : "en";
+const copy = lang === "de"
+  ? {
+      heading: "CUREO verstehen: Module und Einsatzbereiche",
+      body1:
+        "CUREO bietet Übungen zur Verbesserung von Fein- und Grobmotorik, sensorischer Wahrnehmung (z. B. Raumwahrnehmung) sowie Kognition (z. B. Gedächtnis, Aufmerksamkeit). Alle Inhalte lassen sich an die individuellen Bedürfnisse der Patienten anpassen.",
+      body2:
+        "Ergänzende Tests wie Reaktion, Präzision oder Reichweite unterstützen das Therapiemonitoring. Eine diagnostische Nutzung ist ausdrücklich ausgeschlossen. CUREO adressiert sensomotorische, kognitive und perzeptive Beeinträchtigungen.",
+      body3:
+        "Die hochfrequente, immersive Therapie mit multimodalem Feedback wirkt sich positiv auf neuronale Prozesse aus und unterstützt die Wiederherstellung motorischer und kognitiver Fähigkeiten sowie die Verbesserung sensorischer Funktionen. Erhöhte Motivation durch Gamification, schnell sichtbare Trainingsfortschritte und aktive Entspannungs-Tools tragen wesentlich zum Therapieerfolg bei.",
+      imageAlt: "CUREO Therapie-Navigator mit Übersicht der VR-Übungen"
+    }
+  : {
+      heading: "Understanding CUREO, Modules and Areas of Application",
+      body1:
+        "CUREO offers exercises to improve fine and gross motor skills, sensory perception (e.g. spatial awareness), and cognition (e.g. memory, attention). All content can be adapted to the individual needs of each patient.",
+      body2:
+        "Complementary tests such as reaction, precision or reach support therapy monitoring. Diagnostic use is explicitly excluded. CUREO targets sensorimotor, cognitive, and perceptual impairments.",
+      body3:
+        "The high-frequency, immersive therapy with multimodal feedback has a positive effect on neuronal processes, supporting the recovery of motor and cognitive abilities as well as the improvement of sensory functions - ultimately enhancing everyday capabilities. Increased motivation through gamification, rapidly visible training progress, and active relaxation tools all contribute to therapeutic success.",
+      imageAlt: "CUREO therapy navigator interface and VR exercise overview"
+    };
 ---
 
 <section class="modules" data-reveal>
   <div class="modules-shell">
     <article class="modules-grid">
       <div class="modules-content">
-        <p class="eyebrow">MODULES AND USE CASES</p>
-        <h2>Understanding CUREO, Modules and Areas of Application</h2>
-        <p>
-          CUREO offers exercises to improve fine and gross motor skills,
-          sensory perception (e.g. spatial awareness), and cognition (e.g.
-          memory, attention). All content can be adapted to the individual
-          needs of each patient.
-        </p>
-        <p>
-          Complementary tests such as reaction, precision or reach support
-          therapy monitoring. Diagnostic use is explicitly excluded. CUREO
-          targets sensorimotor, cognitive, and perceptual impairments.
-        </p>
-        <p>
-          The high-frequency, immersive therapy with multimodal feedback has a
-          positive effect on neuronal processes, supporting the recovery of
-          motor and cognitive abilities as well as the improvement of sensory
-          functions - ultimately enhancing everyday capabilities. Increased
-          motivation through gamification, rapidly visible training progress,
-          and active relaxation tools all contribute to therapeutic success.
-        </p>
+        <h2>{copy.heading}</h2>
+        <p>{copy.body1}</p>
+        <p>{copy.body2}</p>
+        <p>{copy.body3}</p>
       </div>
 
       <div class="modules-media">
         <img
           src={navigatorImage.src}
-          alt="CUREO therapy navigator interface and VR exercise overview"
+          alt={copy.imageAlt}
           loading="lazy"
         />
       </div>
@@ -53,9 +58,7 @@ import navigatorImage from "../assets/img/CUREO5/CUREO-Therapie-Navigator.jpg";
 
   .modules-grid {
     background: #fff;
-    border: 1px solid rgba(124, 165, 59, 0.34);
     border-radius: 20px;
-    box-shadow: 0 12px 28px rgba(88, 126, 50, 0.1);
     display: grid;
     grid-template-columns: minmax(360px, 1.1fr) minmax(320px, 1fr);
     overflow: hidden;
@@ -64,14 +67,6 @@ import navigatorImage from "../assets/img/CUREO5/CUREO-Therapie-Navigator.jpg";
   .modules-content {
     align-self: center;
     padding: clamp(1.2rem, 3vw, 2.2rem);
-  }
-
-  .eyebrow {
-    color: #688247;
-    font-size: 0.82rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    margin: 0 0 0.55rem;
   }
 
   .modules-content h2 {
@@ -90,9 +85,11 @@ import navigatorImage from "../assets/img/CUREO5/CUREO-Therapie-Navigator.jpg";
 
   .modules-media {
     min-height: 420px;
+    padding: 0.6rem;
   }
 
   .modules-media img {
+    border-radius: 8px;
     display: block;
     height: 100%;
     object-fit: cover;

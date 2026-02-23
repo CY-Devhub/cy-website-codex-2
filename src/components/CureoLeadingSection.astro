@@ -1,29 +1,38 @@
 ---
 import cureoHandImage from "../assets/img/CUREO5/Hand-CUREO-5.jpg";
+const lang = Astro.props.lang === "de" ? "de" : "en";
+const copy = lang === "de"
+  ? {
+      imageAlt: "CUREO Hand-Modul in einer Therapiesitzung",
+      heading: "VR-Therapie für sensomotorische, kognitive und perzeptive Rehabilitation",
+      body1:
+        "CUREO ist eine zertifizierte Therapiesoftware, die motorische, sensorische und kognitive Funktionen digital unterstützt. Mehr als 50 interaktive Übungen in sieben Modulen (Active, Hand, Moto, Cogni, Relax, Activities und ADL) ermöglichen eine individuell anpassbare Therapieplanung.",
+      body2:
+        "Das System wird in über 300 Kliniken, Rehabilitationszentren und Therapiepraxen eingesetzt. Patienten trainieren mit einem VR-Headset in motivierenden Szenarien. Gamification-Elemente fördern die Therapietreue und steigern die Motivation.",
+      cta: "Termin buchen"
+    }
+  : {
+      imageAlt: "CUREO Hand module therapy session",
+      heading: "VR Therapy for Sensorimotor, Cognitive and Perceptual Rehabilitation",
+      body1:
+        "CUREO is a certified therapy software that digitally supports motor, sensory and cognitive functions. More than 50 interactive exercises across seven modules (Active, Hand, Moto, Cogni, Relax, Activities and ADL) enable individually customizable therapy planning.",
+      body2:
+        "The system is used in over 300 clinics, rehabilitation centers and therapy practices. Patients train with a VR headset in motivating scenarios. Gamification elements promote therapy adherence and increase motivation.",
+      cta: "Book appointment"
+    };
 ---
 
 <section class="leading" data-reveal>
   <div class="leading-shell">
     <article class="leading-grid">
       <div class="leading-media">
-        <img src={cureoHandImage.src} alt="CUREO Hand module therapy session" loading="lazy" />
+        <img src={cureoHandImage.src} alt={copy.imageAlt} loading="lazy" />
       </div>
 
       <div class="leading-content">
-        <p class="eyebrow">CUREO PLATFORM</p>
-        <h2>VR Therapy for Sensorimotor, Cognitive and Perceptual Rehabilitation</h2>
-        <p>
-          CUREO is a certified therapy software that digitally supports motor,
-          sensory and cognitive functions. More than 50 interactive exercises
-          across seven modules (Active, Hand, Moto, Cogni, Relax, Activities
-          and ADL) enable individually customizable therapy planning.
-        </p>
-        <p>
-          The system is used in over 300 clinics, rehabilitation centers and
-          therapy practices. Patients train with a VR headset in motivating
-          scenarios. Gamification elements promote therapy adherence and
-          increase motivation.
-        </p>
+        <h2>{copy.heading}</h2>
+        <p>{copy.body1}</p>
+        <p>{copy.body2}</p>
 
         <a
           class="book-btn"
@@ -31,7 +40,7 @@ import cureoHandImage from "../assets/img/CUREO5/Hand-CUREO-5.jpg";
           target="_blank"
           rel="noopener noreferrer"
         >
-          Book appointment
+          {copy.cta}
         </a>
       </div>
     </article>
@@ -51,9 +60,7 @@ import cureoHandImage from "../assets/img/CUREO5/Hand-CUREO-5.jpg";
 
   .leading-grid {
     background: #fff;
-    border: 1px solid rgba(124, 165, 59, 0.34);
     border-radius: 20px;
-    box-shadow: 0 12px 28px rgba(88, 126, 50, 0.1);
     display: grid;
     grid-template-columns: minmax(320px, 1.05fr) minmax(340px, 1fr);
     overflow: hidden;
@@ -61,9 +68,11 @@ import cureoHandImage from "../assets/img/CUREO5/Hand-CUREO-5.jpg";
 
   .leading-media {
     min-height: 420px;
+    padding: 0.6rem;
   }
 
   .leading-media img {
+    border-radius: 8px;
     display: block;
     height: 100%;
     object-fit: cover;
@@ -73,14 +82,6 @@ import cureoHandImage from "../assets/img/CUREO5/Hand-CUREO-5.jpg";
   .leading-content {
     align-self: center;
     padding: clamp(1.2rem, 3vw, 2.2rem);
-  }
-
-  .eyebrow {
-    color: #688247;
-    font-size: 0.82rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    margin: 0 0 0.55rem;
   }
 
   .leading-content h2 {
@@ -99,7 +100,7 @@ import cureoHandImage from "../assets/img/CUREO5/Hand-CUREO-5.jpg";
 
   .book-btn {
     background: linear-gradient(120deg, #7ea43d 0%, #6d9130 100%);
-    border: 1px solid rgba(109, 145, 48, 0.9);
+    border: 0;
     border-radius: 12px;
     color: #ffffff;
     display: inline-block;
@@ -107,11 +108,10 @@ import cureoHandImage from "../assets/img/CUREO5/Hand-CUREO-5.jpg";
     margin-top: 0.2rem;
     padding: 0.62rem 1rem;
     text-decoration: none;
-    transition: transform 160ms ease, box-shadow 160ms ease;
+    transition: transform 160ms ease;
   }
 
   .book-btn:hover {
-    box-shadow: 0 10px 20px rgba(73, 106, 28, 0.25);
     transform: translateY(-1px);
   }
 

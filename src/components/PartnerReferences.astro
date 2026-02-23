@@ -26,15 +26,27 @@ const logos = Object.entries(logoModules)
 const clinicLogos = logos.filter((logo) => !/ambulant/i.test(logo.file));
 const ambulantLogos = logos.filter((logo) => /ambulant/i.test(logo.file));
 const allLogos = [...clinicLogos, ...ambulantLogos];
+const lang = Astro.props.lang === "de" ? "de" : "en";
+const copy = lang === "de"
+  ? {
+      heading: "Ueber 300 fuehrende Einrichtungen vertrauen auf CUREO",
+      partnerAria: "Partnereinrichtungen",
+      mapTitle: "Karte der CUREO Kliniken und Praxen"
+    }
+  : {
+      heading: "Over 300 leading institutions trust in CUREO",
+      partnerAria: "Partner institutions",
+      mapTitle: "CUREO clinics and practices map"
+    };
 ---
 
 <section class="references" data-reveal>
   <div class="references-shell">
     <header class="references-head">
-      <h2>Over 300 leading institutions trust in CUREO</h2>
+      <h2>{copy.heading}</h2>
     </header>
 
-    <div class="logo-row" role="list" aria-label="Partner institutions">
+    <div class="logo-row" role="list" aria-label={copy.partnerAria}>
       {
         allLogos.map((logo) => (
           <article class="logo-card" role="listitem">
@@ -47,7 +59,7 @@ const allLogos = [...clinicLogos, ...ambulantLogos];
     <div class="map-block">
       <iframe
         src="https://web-access-813613595328.europe-west1.run.app/map"
-        title="CUREO clinics and practices map"
+        title={copy.mapTitle}
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
         allowfullscreen
@@ -89,15 +101,13 @@ const allLogos = [...clinicLogos, ...ambulantLogos];
   .logo-card {
     align-items: center;
     background: #fff;
-    border: 1px solid rgba(124, 165, 59, 0.3);
     border-radius: 14px;
-    box-shadow: 0 8px 22px rgba(88, 126, 50, 0.08);
     display: flex;
     flex: 0 0 170px;
     height: 88px;
     justify-content: center;
     padding: 0.7rem;
-    transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    transition: transform 180ms ease;
   }
 
   .logo-card img {
@@ -108,16 +118,12 @@ const allLogos = [...clinicLogos, ...ambulantLogos];
   }
 
   .logo-card:hover {
-    border-color: rgba(144, 192, 70, 0.6);
-    box-shadow: 0 12px 24px rgba(71, 109, 34, 0.16);
     transform: translateY(-2px);
   }
 
   .map-block {
     background: #fff;
-    border: 1px solid rgba(124, 165, 59, 0.3);
     border-radius: 18px;
-    box-shadow: 0 12px 26px rgba(88, 126, 50, 0.1);
     margin-top: 1rem;
     overflow: hidden;
   }

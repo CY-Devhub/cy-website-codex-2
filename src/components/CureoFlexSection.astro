@@ -2,41 +2,61 @@
 import singleTherapy from "../assets/img/CUREO5/Single_Therapy.jpg";
 import parallelTherapy from "../assets/img/CUREO5/Parallel-Therapy.jpg";
 import groupTherapy from "../assets/img/CUREO5/Group-Therapy.jpg";
+const lang = Astro.props.lang === "de" ? "de" : "en";
+
+const copy = lang === "de"
+  ? {
+      heading: "Für Kliniken und Praxen gemacht: so flexibel ist CUREO",
+      singleAlt: "Einzeltherapie mit CUREO",
+      singleTitle: "Einzeltherapie",
+      parallelAlt: "Paralleltherapie mit CUREO",
+      parallelTitle: "Paralleltherapie",
+      groupAlt: "Gruppentherapie mit CUREO",
+      groupTitle: "Gruppentherapie, bis zu 6 Patienten",
+      body:
+        "CUREO eignet sich für die stationäre und ambulante Versorgung. Ob in Einzel-, Gruppen- oder Paralleltherapie: Das System sorgt für effiziente Abläufe und reduziert die Arbeitsbelastung von Therapeuten. Bis zu sechs Patienten können gleichzeitig mit individuell angepassten Inhalten behandelt werden. Fortschritte werden automatisch dokumentiert und schaffen Transparenz sowie eine nahtlose Integration in bestehende Prozesse. Die CUREO Software ist als Medizinprodukt CE-zertifiziert, und CUREOSITY arbeitet nach dem ISO-13485-Qualitätsstandard. Das gewährleistet die Einhaltung hoher medizinischer und therapeutischer Anforderungen.",
+      practices: "Für Praxen",
+      clinics: "Für Kliniken"
+    }
+  : {
+      heading: "Made for clinics and practices, that's how flexible CUREO is",
+      singleAlt: "Single therapy with CUREO",
+      singleTitle: "Single therapy",
+      parallelAlt: "Parallel therapy with CUREO",
+      parallelTitle: "Parallel therapy",
+      groupAlt: "Group therapy with CUREO",
+      groupTitle: "Group therapy, up to 6 patients",
+      body:
+        "CUREO is suitable for both inpatient and outpatient care. Whether in individual, group or parallel therapy sessions, the system ensures efficient workflows and reduces therapist workload. Up to six patients can be treated simultaneously with individually tailored content. Progress is automatically documented, providing transparency and seamless integration into existing processes. The CUREO software is CE-certified as a medical device, and CUREOSITY operates according to the ISO 13485 quality standard. This ensures compliance with strict medical and therapeutic requirements and guarantees the highest level of reliability.",
+      practices: "For practices",
+      clinics: "For clinics"
+    };
 ---
 
 <section class="flex" data-reveal>
   <div class="flex-shell">
-    <h2>Made for clinics and practices, that's how flexible CUREO is</h2>
+    <h2>{copy.heading}</h2>
 
     <div class="cards">
       <article class="card">
-        <img src={singleTherapy.src} alt="Single therapy with CUREO" loading="lazy" />
-        <h3>Single therapy</h3>
+        <img src={singleTherapy.src} alt={copy.singleAlt} loading="lazy" />
+        <h3>{copy.singleTitle}</h3>
       </article>
       <article class="card">
-        <img src={parallelTherapy.src} alt="Parallel therapy with CUREO" loading="lazy" />
-        <h3>Parallel therapy</h3>
+        <img src={parallelTherapy.src} alt={copy.parallelAlt} loading="lazy" />
+        <h3>{copy.parallelTitle}</h3>
       </article>
       <article class="card">
-        <img src={groupTherapy.src} alt="Group therapy with CUREO" loading="lazy" />
-        <h3>Group therapy, up to 6 patients</h3>
+        <img src={groupTherapy.src} alt={copy.groupAlt} loading="lazy" />
+        <h3>{copy.groupTitle}</h3>
       </article>
     </div>
 
-    <p class="copy">
-      CUREO is suitable for both inpatient and outpatient care. Whether in individual,
-      group or parallel therapy sessions, the system ensures efficient workflows and
-      reduces therapist workload. Up to six patients can be treated simultaneously with
-      individually tailored content. Progress is automatically documented, providing
-      transparency and seamless integration into existing processes. The CUREO software
-      is CE-certified as a medical device, and CUREOSITY operates according to the ISO
-      13485 quality standard. This ensures compliance with strict medical and therapeutic
-      requirements and guarantees the highest level of reliability.
-    </p>
+    <p class="copy">{copy.body}</p>
 
     <div class="actions">
-      <a href="#" class="action">For practices</a>
-      <a href="#" class="action">For clinics</a>
+      <a href="#" class="action">{copy.practices}</a>
+      <a href="#" class="action">{copy.clinics}</a>
     </div>
   </div>
 </section>
@@ -110,11 +130,10 @@ import groupTherapy from "../assets/img/CUREO5/Group-Therapy.jpg";
     font-weight: 700;
     padding: 0.66rem 1.55rem;
     text-decoration: none;
-    transition: transform 160ms ease, box-shadow 160ms ease;
+    transition: transform 160ms ease;
   }
 
   .action:hover {
-    box-shadow: 0 10px 20px rgba(73, 106, 28, 0.25);
     transform: translateY(-1px);
   }
 

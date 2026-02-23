@@ -4,7 +4,8 @@ import * as _Builtin from "./_Builtin";
 import * as _utils from "./utils";
 import _styles from "./CureoFooter.module.css";
 
-export function CureoFooter({ as: _Component = _Builtin.Section }) {
+export function CureoFooter({ as: _Component = _Builtin.Section, lang = "en" }) {
+  const isGerman = lang === "de";
   return (
     <_Component
       className={_utils.cx(_styles, "footer")}
@@ -185,7 +186,7 @@ export function CureoFooter({ as: _Component = _Builtin.Section }) {
                       className={_utils.cx(_styles, "cureo-paragraph-1")}
                       tag="div"
                     >
-                      {"About us"}
+                      {isGerman ? "Über uns" : "About us"}
                     </_Builtin.Block>
                   </_Builtin.Link>
                   <_Builtin.Link
@@ -200,7 +201,7 @@ export function CureoFooter({ as: _Component = _Builtin.Section }) {
                       className={_utils.cx(_styles, "cureo-paragraph-1")}
                       tag="div"
                     >
-                      {"Careers"}
+                      {isGerman ? "Karriere" : "Careers"}
                     </_Builtin.Block>
                   </_Builtin.Link>
                   <_Builtin.Link
@@ -215,7 +216,7 @@ export function CureoFooter({ as: _Component = _Builtin.Section }) {
                       className={_utils.cx(_styles, "cureo-paragraph-1")}
                       tag="div"
                     >
-                      {"Privacy policy"}
+                      {isGerman ? "Datenschutz" : "Privacy policy"}
                     </_Builtin.Block>
                   </_Builtin.Link>
                   <_Builtin.Link
@@ -230,7 +231,7 @@ export function CureoFooter({ as: _Component = _Builtin.Section }) {
                       className={_utils.cx(_styles, "cureo-paragraph-1")}
                       tag="div"
                     >
-                      {"Contact"}
+                      {isGerman ? "Kontakt" : "Contact"}
                     </_Builtin.Block>
                   </_Builtin.Link>
                   <_Builtin.Link
@@ -245,7 +246,7 @@ export function CureoFooter({ as: _Component = _Builtin.Section }) {
                       className={_utils.cx(_styles, "cureo-paragraph-1")}
                       tag="div"
                     >
-                      {"Imprint"}
+                      {isGerman ? "Impressum" : "Imprint"}
                     </_Builtin.Block>
                   </_Builtin.Link>
                 </_Builtin.Block>
@@ -308,7 +309,7 @@ export function CureoFooter({ as: _Component = _Builtin.Section }) {
                     href: "#",
                   }}
                 >
-                  {"Terms"}
+                  {isGerman ? "AGB" : "Terms"}
                 </_Builtin.Link>
                 <_Builtin.Link
                   className={_utils.cx(_styles, "cureo-paragraph-1")}
@@ -318,7 +319,7 @@ export function CureoFooter({ as: _Component = _Builtin.Section }) {
                     href: "#",
                   }}
                 >
-                  {"Privacy "}
+                  {isGerman ? "Datenschutz " : "Privacy "}
                 </_Builtin.Link>
                 <_Builtin.Link
                   className={_utils.cx(_styles, "cureo-paragraph-1")}
@@ -328,7 +329,7 @@ export function CureoFooter({ as: _Component = _Builtin.Section }) {
                     href: "#",
                   }}
                 >
-                  {"Cookies"}
+                  {isGerman ? "Cookies" : "Cookies"}
                 </_Builtin.Link>
               </_Builtin.Grid>
             </_Builtin.Block>

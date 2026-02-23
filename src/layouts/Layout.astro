@@ -1,10 +1,12 @@
 ---
 import { DevLinkProvider } from '../../devlink/DevLinkProvider.js';
 import "../../devlink/global.css"; // Webflow Styles
+
+const { lang = "en", title = "CUREO" } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -13,7 +15,7 @@ import "../../devlink/global.css"; // Webflow Styles
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;800&display=swap" rel="stylesheet">
 		<meta name="generator" content={Astro.generator} />
-		<title>Webflow Cloud - Astro Starter</title>
+		<title>{title}</title>
 	</head>
 	<body>
 		<DevLinkProvider client:load>

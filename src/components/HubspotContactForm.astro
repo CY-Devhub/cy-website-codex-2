@@ -1,0 +1,199 @@
+<section class="contact-form-section" data-reveal>
+  <div class="contact-shell">
+    <div id="cureosity-hubspot"></div>
+  </div>
+</section>
+
+<script src="//js-eu1.hsforms.net/forms/embed/v2.js" charset="utf-8"></script>
+<script is:inline>
+  (() => {
+    const createForm = () => {
+      if (!window.hbspt || !window.hbspt.forms) return;
+
+      const langAttr = (document.documentElement.lang || "").toLowerCase();
+      const urlPart = (location.pathname.match(/^\/([^\/]+)/) || ["", ""])[1];
+      const lang = (langAttr || urlPart || "en").split("-")[0];
+
+      const forms = {
+        de: "c94530a2-4434-4c79-a8ab-6178c0c38b26",
+        en: "5bee38dd-c1b0-484f-8715-58c0c8f985ce"
+      };
+
+      const formId = forms[lang] || forms.en;
+
+      const target = document.querySelector("#cureosity-hubspot");
+      if (!target || target.childElementCount > 0) return;
+
+      window.hbspt.forms.create({
+        region: "eu1",
+        portalId: "144722868",
+        formId,
+        target: "#cureosity-hubspot",
+        cssClass: "cureosity-form"
+      });
+    };
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", createForm, { once: true });
+    } else {
+      createForm();
+    }
+  })();
+</script>
+
+<style>
+  .contact-form-section {
+    background: #6f9c21;
+    padding: 1.2rem 1.2rem 2rem;
+  }
+
+  .contact-shell {
+    margin: 0 auto;
+    max-width: 1240px;
+  }
+
+  /* Brand palette */
+  :global(:root) {
+    --cureosity-green: #6f9c21;
+    --cureosity-grey: #393b41;
+  }
+
+  /* Form shell */
+  :global(.cureosity-form) {
+    border: 2px solid #fff;
+    border-radius: 10px;
+    padding: 1.75rem 1.5rem;
+    max-width: 1120px;
+    margin: 0 auto;
+    font-family: system-ui, sans-serif;
+    color: #fff;
+    line-height: 1.35;
+  }
+
+  /* Labels / helper text */
+  :global(.cureosity-form label),
+  :global(.cureosity-form legend),
+  :global(.cureosity-form .hs-richtext),
+  :global(.cureosity-form .hs-field-desc) {
+    color: #fff;
+    font-weight: 600;
+  }
+
+  /* Inputs */
+  :global(.cureosity-form input[type]),
+  :global(.cureosity-form textarea),
+  :global(.cureosity-form select) {
+    width: 100%;
+    padding: 0.75rem 0.85rem;
+    border: 0;
+    border-radius: 6px;
+    background: #fff;
+    color: #000;
+    font-weight: 500;
+    transition: box-shadow 0.2s;
+  }
+
+  :global(.cureosity-form input[type]:focus),
+  :global(.cureosity-form textarea:focus),
+  :global(.cureosity-form select:focus) {
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+    outline: none;
+  }
+
+  :global(.cureosity-form ::placeholder) {
+    color: rgba(0, 0, 0, 0.45);
+  }
+
+  /* Buttons */
+  :global(.cureosity-form .hs-button),
+  :global(.cureosity-form input[type="submit"]) {
+    display: inline-block;
+    padding: 0.9rem 2.4rem;
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  :global(.cureosity-form .hs-button:hover),
+  :global(.cureosity-form input[type="submit"]:hover) {
+    background: #fff;
+    color: var(--cureosity-green);
+  }
+
+  /* Field spacing */
+  :global(.cureosity-form .hs-form-field) {
+    margin-bottom: 1.3rem;
+  }
+
+  :global(.cureosity-form .actions) {
+    text-align: left;
+    margin-top: 1.8rem;
+  }
+
+  @media (min-width: 600px) {
+    :global(.cureosity-form .actions) {
+      text-align: center;
+    }
+  }
+
+  /* Error text */
+  :global(.cureosity-form .hs-error-msg) {
+    color: #fff;
+    font-weight: 600;
+  }
+
+  /* Checkboxes (newsletter & GDPR) */
+  :global(.cureosity-form .hs-form-field.fieldtype-boolean),
+  :global(.cureosity-form .legal-consent-container .hs-form-field.fieldtype-boolean) {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.25rem;
+    margin-left: 0;
+    text-align: left;
+  }
+
+  :global(.cureosity-form .hs-form-field.fieldtype-boolean label),
+  :global(.cureosity-form .legal-consent-container label) {
+    font-weight: 400;
+    margin: 0;
+  }
+
+  :global(.cureosity-form input[type="checkbox"]),
+  :global(.cureosity-form input[type="radio"]) {
+    width: auto;
+    min-width: 16px;
+    flex: 0 0 auto;
+  }
+
+  /* GDPR paragraphs */
+  :global(.cureosity-form .legal-consent-container p) {
+    margin: 0 0 1rem 0;
+  }
+
+  /* remove bullets */
+  :global(.cureosity-form .inputs-list) {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  :global(.cureosity-form .inputs-list li) {
+    margin: 0;
+  }
+
+  /* space after HubSpot rich-text blocks */
+  :global(.cureosity-form .hs-richtext) {
+    margin: 0 0 1.3rem 0;
+  }
+
+  @media (max-width: 700px) {
+    .contact-form-section {
+      padding: 0.9rem 0.8rem 1.6rem;
+    }
+  }
+</style>

@@ -102,20 +102,36 @@ const slides = [];
 for (let i = 0; i < mediaItems.length; i += chunkSize) {
   slides.push(mediaItems.slice(i, i + chunkSize));
 }
+
+const lang = Astro.props.lang === "de" ? "de" : "en";
+const copy = lang === "de"
+  ? {
+      heading: "Bekannt aus",
+      mediaAria: "CUREO Medienreferenzen",
+      articleSuffix: "Beitrag",
+      slidesAria: "Bekannt-aus-Slides",
+      goToSlide: "Gehe zu Slide"
+    }
+  : {
+      heading: "Known From",
+      mediaAria: "CUREO media references",
+      articleSuffix: "article",
+      slidesAria: "Known from slides",
+      goToSlide: "Go to slide"
+    };
 ---
 
 <section class="known" data-reveal>
   <div class="known-shell">
     <header class="known-head">
-      <p>MEDIA & BROADCASTERS</p>
-      <h2>Known From</h2>
+      <h2>{copy.heading}</h2>
     </header>
 
     <div class="known-slider" data-known-slider>
       <div class="known-track" data-known-track>
         {
           slides.map((slide) => (
-            <div class="known-slide" role="list" aria-label="CUREO media references">
+            <div class="known-slide" role="list" aria-label={copy.mediaAria}>
               {slide.map((item) =>
                 item.link ? (
                   <a
@@ -123,7 +139,7 @@ for (let i = 0; i < mediaItems.length; i += chunkSize) {
                     href={item.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`${item.name} article`}
+                    aria-label={`${item.name} ${copy.articleSuffix}`}
                     role="listitem"
                   >
                     <span class="logo-frame">
@@ -143,14 +159,14 @@ for (let i = 0; i < mediaItems.length; i += chunkSize) {
         }
       </div>
 
-      <div class="known-dots" aria-label="Known from slides">
+      <div class="known-dots" aria-label={copy.slidesAria}>
         {
           slides.map((_, index) => (
             <button
               type="button"
               class={`known-dot ${index === 0 ? "is-active" : ""}`}
               data-dot={index}
-              aria-label={`Go to slide ${index + 1}`}
+              aria-label={`${copy.goToSlide} ${index + 1}`}
             ></button>
           ))
         }
@@ -214,14 +230,6 @@ for (let i = 0; i < mediaItems.length; i += chunkSize) {
     margin-bottom: 0.75rem;
   }
 
-  .known-head p {
-    color: #688247;
-    font-size: 0.82rem;
-    font-weight: 700;
-    letter-spacing: 0.13em;
-    margin: 0 0 0.3rem;
-  }
-
   .known-head h2 {
     color: #1d2f1d;
     font-size: clamp(1.35rem, 2.1vw, 2rem);
@@ -250,15 +258,13 @@ for (let i = 0; i < mediaItems.length; i += chunkSize) {
   .known-card {
     align-items: center;
     background: #fff;
-    border: 1px solid rgba(124, 165, 59, 0.32);
     border-radius: 8px;
-    box-shadow: 0 8px 20px rgba(88, 126, 50, 0.08);
     display: flex;
     height: 92px;
     justify-content: center;
     padding: 0.75rem;
     text-decoration: none;
-    transition: transform 170ms ease, box-shadow 170ms ease, border-color 170ms ease;
+    transition: transform 170ms ease;
   }
 
   .logo-frame {
@@ -278,8 +284,6 @@ for (let i = 0; i < mediaItems.length; i += chunkSize) {
   }
 
   .known-card:not(.known-card-static):hover {
-    border-color: rgba(144, 192, 70, 0.6);
-    box-shadow: 0 12px 24px rgba(71, 109, 34, 0.16);
     transform: translateY(-2px);
   }
 

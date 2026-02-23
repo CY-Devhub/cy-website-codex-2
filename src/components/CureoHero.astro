@@ -1,16 +1,25 @@
 ---
 const heroImage =
   "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/68d6747e333b7248b8879b4c_DSC09351%20(1).webp";
+const lang = Astro.props.lang === "de" ? "de" : "en";
+const copy = lang === "de"
+  ? {
+      title: "VR-Therapie für Rehabilitations- und Therapiefachkräfte: CUREO für ihre Einrichtung",
+      imageAlt: "VR-Therapiesitzung in einem Rehabilitationsumfeld"
+    }
+  : {
+      title: "VR Therapy for Rehabilitation and Therapy Professionals: CUREO for your institution",
+      imageAlt: "VR therapy session in rehabilitation setting"
+    };
 ---
 
 <section class="hero" data-reveal>
   <div class="hero-shell">
     <div class="hero-media">
-      <img src={heroImage} alt="VR therapy session in rehabilitation setting" loading="eager" />
+      <img src={heroImage} alt={copy.imageAlt} loading="eager" />
       <div class="hero-overlay"></div>
       <div class="hero-content">
-        <p>CUREO VR THERAPY</p>
-        <h1>VR Therapy for Rehabilitation and Therapy Professionals</h1>
+        <h1>{copy.title}</h1>
       </div>
     </div>
   </div>
@@ -31,12 +40,10 @@ const heroImage =
   }
 
   .hero-media {
-    border: 1px solid rgba(132, 177, 60, 0.45);
     border-radius: 24px;
     min-height: 420px;
     overflow: hidden;
     position: relative;
-    box-shadow: 0 16px 38px rgba(82, 114, 44, 0.18);
   }
 
   .hero-media img {
@@ -62,14 +69,6 @@ const heroImage =
     max-width: min(760px, 90%);
     position: absolute;
     z-index: 1;
-  }
-
-  .hero-content p {
-    color: #d3f19d;
-    font-size: 0.95rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    margin: 0 0 0.85rem;
   }
 
   .hero-content h1 {

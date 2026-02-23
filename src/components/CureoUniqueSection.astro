@@ -1,45 +1,54 @@
 ---
 import uniqueImage from "../assets/img/CUREO5/Patient-Therapeut-Happy1.jpg";
+const lang = Astro.props.lang === "de" ? "de" : "en";
+const copy = lang === "de"
+  ? {
+      heading: "Was macht Virtual-Reality-Therapie einzigartig?",
+      body1:
+        "VR-Therapie bietet immersive Trainingseinheiten, die mehrere Sinne gleichzeitig ansprechen. Die Kombination aus visuellen, auditiven und körperlichen Reizen aktiviert gezielt neurokognitive und motorische Funktionen.",
+      body2:
+        "Im Vergleich zu traditionellen Methoden steigt die aktive Beteiligung deutlich, mit nachweisbaren Effekten auf Motivation, Therapietreue und Behandlungsqualität. Therapeuten behalten dabei über ein Tablet jederzeit die volle Kontrolle.",
+      body3:
+        "CUREO basiert auf drei zentralen Erfolgsprinzipien: Gamification, Virtual Reality (VR) und Embodiment. Gamification nutzt spielerische Elemente, um Motivation und Therapietreue nachhaltig zu steigern.",
+      body4:
+        "Durch gezielte Anreize wie Punkte, Fortschrittsanzeigen und neue Herausforderungen wird Therapie zu einer aktivierenden Erfahrung. Dieser spielerische Ansatz fördert Wiederholungen und hilft, Bewegungsmuster langfristig zu festigen.",
+      principlesAria: "Kernprinzipien",
+      principles: ["Gamification", "Virtuelle Realität", "Embodiment"],
+      imageAlt: "Therapeutin und Patient in einer CUREO VR-Therapiesitzung"
+    }
+  : {
+      heading: "What Makes Virtual Reality Therapy Unique?",
+      body1:
+        "VR therapy provides immersive training sessions that engage multiple senses at once. The combination of visual, auditory and physical stimuli activates targeted neurocognitive and motor functions.",
+      body2:
+        "Compared to traditional methods, active participation is significantly increased, with proven effects on motivation, therapy adherence and treatment quality. Therapists remain in control of all processes via tablet.",
+      body3:
+        "CUREO is based on three key principles for therapeutic success: gamification, virtual reality (VR), and embodiment. Gamification uses game-like elements to increase motivation and therapy adherence.",
+      body4:
+        "Through targeted incentives such as points, progress indicators, and new challenges, therapy becomes an engaging and activating experience. This playful approach encourages repetition, helping to consolidate movement patterns and achieve lasting training results.",
+      principlesAria: "Core principles",
+      principles: ["Gamification", "Virtual Reality", "Embodiment"],
+      imageAlt: "Therapist and patient using CUREO VR therapy"
+    };
 ---
 
 <section class="unique" data-reveal>
   <div class="unique-shell">
     <article class="unique-grid">
       <div class="unique-content">
-        <p class="eyebrow">THERAPY IMPACT</p>
-        <h2>What Makes Virtual Reality Therapy Unique?</h2>
-        <p>
-          VR therapy provides immersive training sessions that engage multiple
-          senses at once. The combination of visual, auditory and physical
-          stimuli activates targeted neurocognitive and motor functions.
-        </p>
-        <p>
-          Compared to traditional methods, active participation is
-          significantly increased, with proven effects on motivation, therapy
-          adherence and treatment quality. Therapists remain in control of all
-          processes via tablet.
-        </p>
-        <p>
-          CUREO is based on three key principles for therapeutic success:
-          gamification, virtual reality (VR), and embodiment. Gamification uses
-          game-like elements to increase motivation and therapy adherence.
-        </p>
-        <p>
-          Through targeted incentives such as points, progress indicators, and
-          new challenges, therapy becomes an engaging and activating experience.
-          This playful approach encourages repetition, helping to consolidate
-          movement patterns and achieve lasting training results.
-        </p>
+        <h2>{copy.heading}</h2>
+        <p>{copy.body1}</p>
+        <p>{copy.body2}</p>
+        <p>{copy.body3}</p>
+        <p>{copy.body4}</p>
 
-        <div class="principles" aria-label="Core principles">
-          <span>Gamification</span>
-          <span>Virtual Reality</span>
-          <span>Embodiment</span>
+        <div class="principles" aria-label={copy.principlesAria}>
+          {copy.principles.map((principle) => <span>{principle}</span>)}
         </div>
       </div>
 
       <div class="unique-media">
-        <img src={uniqueImage.src} alt="Therapist and patient using CUREO VR therapy" loading="lazy" />
+        <img src={uniqueImage.src} alt={copy.imageAlt} loading="lazy" />
       </div>
     </article>
   </div>
@@ -58,9 +67,7 @@ import uniqueImage from "../assets/img/CUREO5/Patient-Therapeut-Happy1.jpg";
 
   .unique-grid {
     background: #fff;
-    border: 1px solid rgba(124, 165, 59, 0.34);
     border-radius: 20px;
-    box-shadow: 0 12px 28px rgba(88, 126, 50, 0.1);
     display: grid;
     grid-template-columns: minmax(340px, 1fr) minmax(320px, 1.05fr);
     overflow: hidden;
@@ -69,14 +76,6 @@ import uniqueImage from "../assets/img/CUREO5/Patient-Therapeut-Happy1.jpg";
   .unique-content {
     align-self: center;
     padding: clamp(1.2rem, 3vw, 2.2rem);
-  }
-
-  .eyebrow {
-    color: #688247;
-    font-size: 0.82rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    margin: 0 0 0.55rem;
   }
 
   .unique-content h2 {
@@ -102,7 +101,6 @@ import uniqueImage from "../assets/img/CUREO5/Patient-Therapeut-Happy1.jpg";
 
   .principles span {
     background: rgba(142, 188, 72, 0.13);
-    border: 1px solid rgba(124, 165, 59, 0.45);
     border-radius: 999px;
     color: #2f4a2d;
     font-size: 0.84rem;
@@ -112,9 +110,11 @@ import uniqueImage from "../assets/img/CUREO5/Patient-Therapeut-Happy1.jpg";
 
   .unique-media {
     min-height: 420px;
+    padding: 0.6rem;
   }
 
   .unique-media img {
+    border-radius: 8px;
     display: block;
     height: 100%;
     object-fit: cover;

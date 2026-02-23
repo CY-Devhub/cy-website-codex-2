@@ -1,54 +1,100 @@
 ---
-const groups = [
-  {
-    title: "In-Patient Facilities",
-    description: "Structured VR therapy modules for clinical teams and high-intensity rehab workflows.",
-    items: [
-      {
-        name: "Acute Clinics",
-        detail: "Early activation protocols and guided bedside sessions.",
-        image:
-          "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/68de6d9e0bc26e4b64672f16_PatientenBettJPG.jpg"
-      },
-      {
-        name: "Rehabilitation Clinics",
-        detail: "Goal-oriented neuro-rehab programs with measurable progression.",
-        image:
-          "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/69032049a209d4dfd000f27d_DSC02952.jpg"
-      }
-    ]
-  },
-  {
-    title: "Out-Patient Facilities",
-    description: "Flexible VR therapy for day-to-day practice, documentation, and patient engagement.",
-    items: [
-      {
-        name: "Occupational Therapy",
-        detail: "Task-based upper-limb and cognitive-motor training in immersive scenarios.",
-        image:
-          "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/6603f187bc897ec6711edc0e_Screenshot%202024-03-27%20at%2011.13.46.jpeg"
-      },
-      {
-        name: "Physical Therapy",
-        detail: "Movement-focused therapy with controlled repetition and feedback.",
-        image:
-          "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/68da60a30662ac4f4cd799d3_Single_Therapy_PatientinAwe.jpg"
-      }
-    ]
-  }
-];
+const lang = Astro.props.lang === "de" ? "de" : "en";
+
+const content = lang === "de"
+  ? {
+      heading: "CUREO wurde entwickelt, um sowohl in stationären als auch ambulanten Einrichtungen zu passen",
+      groups: [
+        {
+          title: "Stationäre Einrichtungen",
+          description: "Strukturierte VR-Therapiemodule für klinische Teams und hochintensive Reha-Abläufe.",
+          items: [
+            {
+              name: "Akutkliniken",
+              detail: "Frühaktivierungsprotokolle und angeleitete Sitzungen am Patientenbett.",
+              image:
+                "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/68de6d9e0bc26e4b64672f16_PatientenBettJPG.jpg"
+            },
+            {
+              name: "Rehabilitationskliniken",
+              detail: "Zielorientierte Neuro-Reha-Programme mit messbarer Progression.",
+              image:
+                "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/69032049a209d4dfd000f27d_DSC02952.jpg"
+            }
+          ]
+        },
+        {
+          title: "Ambulante Einrichtungen",
+          description: "Flexible VR-Therapie für den Praxisalltag, Dokumentation und hohe Patientenmotivation.",
+          items: [
+            {
+              name: "Ergotherapie",
+              detail: "Aufgabenbasiertes Training von oberer Extremität sowie kognitiv-motorischen Funktionen.",
+              image:
+                "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/6603f187bc897ec6711edc0e_Screenshot%202024-03-27%20at%2011.13.46.jpeg"
+            },
+            {
+              name: "Physiotherapie",
+              detail: "Bewegungsorientierte Therapie mit kontrollierter Wiederholung und direktem Feedback.",
+              image:
+                "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/68da60a30662ac4f4cd799d3_Single_Therapy_PatientinAwe.jpg"
+            }
+          ]
+        }
+      ]
+    }
+  : {
+      heading: "CUREO was build to fit both, In- and Out-Patient facilities",
+      groups: [
+        {
+          title: "In-Patient Facilities",
+          description: "Structured VR therapy modules for clinical teams and high-intensity rehab workflows.",
+          items: [
+            {
+              name: "Acute Clinics",
+              detail: "Early activation protocols and guided bedside sessions.",
+              image:
+                "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/68de6d9e0bc26e4b64672f16_PatientenBettJPG.jpg"
+            },
+            {
+              name: "Rehabilitation Clinics",
+              detail: "Goal-oriented neuro-rehab programs with measurable progression.",
+              image:
+                "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/69032049a209d4dfd000f27d_DSC02952.jpg"
+            }
+          ]
+        },
+        {
+          title: "Out-Patient Facilities",
+          description: "Flexible VR therapy for day-to-day practice, documentation, and patient engagement.",
+          items: [
+            {
+              name: "Occupational Therapy",
+              detail: "Task-based upper-limb and cognitive-motor training in immersive scenarios.",
+              image:
+                "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/6603f187bc897ec6711edc0e_Screenshot%202024-03-27%20at%2011.13.46.jpeg"
+            },
+            {
+              name: "Physical Therapy",
+              detail: "Movement-focused therapy with controlled repetition and feedback.",
+              image:
+                "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/68da60a30662ac4f4cd799d3_Single_Therapy_PatientinAwe.jpg"
+            }
+          ]
+        }
+      ]
+    };
 ---
 
 <section class="facility-selection" data-reveal>
   <div class="facility-shell">
     <header class="facility-head">
-      <p>FACILITY SELECTION</p>
-      <h2>Choose Your Care Setting</h2>
+      <h2>{content.heading}</h2>
     </header>
 
     <div class="facility-groups">
       {
-        groups.map((group) => (
+        content.groups.map((group) => (
           <article class="group-card">
             <div class="group-top">
               <h3>{group.title}</h3>
@@ -91,14 +137,6 @@ const groups = [
     margin-bottom: 1rem;
   }
 
-  .facility-head p {
-    color: #688247;
-    font-size: 0.84rem;
-    font-weight: 700;
-    letter-spacing: 0.13em;
-    margin: 0 0 0.35rem;
-  }
-
   .facility-head h2 {
     color: #1d2f1d;
     font-size: clamp(1.35rem, 2vw, 2rem);
@@ -114,9 +152,7 @@ const groups = [
 
   .group-card {
     background: #fff;
-    border: 1px solid rgba(124, 165, 59, 0.34);
     border-radius: 18px;
-    box-shadow: 0 10px 25px rgba(88, 126, 50, 0.1);
     overflow: hidden;
   }
 
@@ -147,7 +183,7 @@ const groups = [
 
   .facility-tile {
     background: #203529;
-    border: 1px solid rgba(172, 206, 111, 0.75);
+    border: 0;
     border-radius: 14px;
     cursor: pointer;
     min-height: 230px;
@@ -155,8 +191,7 @@ const groups = [
     padding: 0;
     position: relative;
     text-align: left;
-    transition: transform 220ms ease, opacity 220ms ease, box-shadow 220ms ease,
-      border-color 220ms ease;
+    transition: transform 220ms ease, opacity 220ms ease;
     width: 100%;
   }
 
@@ -203,8 +238,6 @@ const groups = [
   }
 
   .group-split .facility-tile:hover {
-    border-color: rgba(186, 230, 114, 0.95);
-    box-shadow: 0 14px 34px rgba(50, 75, 27, 0.34);
     opacity: 1;
     transform: translateY(-4px) scale(1.02);
     z-index: 2;
