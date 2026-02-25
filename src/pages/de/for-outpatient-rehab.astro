@@ -1,0 +1,14 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import TopNav from "../../components/TopNav.astro";
+import OutpatientRehabContent from "../../components/OutpatientRehabContent.astro";
+import HubspotContactForm from "../../components/HubspotContactForm.astro";
+import { CureoFooter } from "../../../devlink/CureoFooter.jsx";
+---
+
+<Layout lang="de" title="CUREO | Ambulante Rehabilitation">
+  <TopNav lang="de" />
+  <OutpatientRehabContent lang="de" />
+  <HubspotContactForm />
+  <CureoFooter lang="de" client:load />
+</Layout>

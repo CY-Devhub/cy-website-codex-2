@@ -1,0 +1,601 @@
+---
+import heroImage from "../assets/img/CUREO5/CUREO5_HappyGroupTherapy.webp";
+import introImage from "../assets/img/CUREO5/CUREO5_Tablet_And_Patient.jpg";
+import workflowA from "../assets/img/CUREO5/CUREO5_HappyParallel_therapy.jpg";
+import workflowB from "../assets/img/CUREO5/CUREO5_HappyTherapist_Patient_Alternative.jpg";
+import hubMock from "../assets/img/CUREO5/CUREO5_Hub_Mock.png";
+import reportMock from "../assets/img/CUREO5/CUREO5_Therapy_Report_Mock.jpeg";
+import difficultyMock from "../assets/img/CUREO5/CUREO5_Difficulty_Mock.jpeg";
+import navigatorImage from "../assets/img/CUREO5/CUREO5_NavigatorScreenshot.jpeg";
+import bedsideImage from "../assets/img/CUREO5/CUREO_Bedsite_Therapy.jpg";
+
+import activeLogo from "../assets/img/CUREO5/CUREO5_Module_Active_Logo.svg";
+import handLogo from "../assets/img/CUREO5/CUREO5_Module_Hand_Logo.svg";
+import motoLogo from "../assets/img/CUREO5/CUREO5_Module_Moto_Logo.svg";
+import cogniLogo from "../assets/img/CUREO5/CUREO5_Module_Cogni_Logo.svg";
+import relaxLogo from "../assets/img/CUREO5/CUREO5_Module_Relax_Logo.svg";
+import activitiesLogo from "../assets/img/CUREO5/CUREO5_Module_Activities_Logo.svg";
+import adlLogo from "../assets/img/CUREO5/CUREO5_Module_ADL_LOGO.svg";
+
+const lang = Astro.props.lang === "de" ? "de" : "en";
+
+const copy = lang === "de"
+  ? {
+      heroTitle: "CUREO Virtual Reality Therapy",
+      heroSubtitle:
+        "Die digitale Therapielösung für moderne Rehabilitation: strukturiert, effizient und motivierend.",
+      introTitle: "Eine Plattform für Patienten, Therapeuten und Klinikteams",
+      introBody:
+        "CUREO vereint evidenzbasierte VR-Therapie, klare Workflows und transparente Ergebnisdokumentation in einem System.",
+      introBulletA: "Schnelle Einarbeitung für Teams",
+      introBulletB: "Messbare Fortschritte in jeder Sitzung",
+      introBulletC: "Nahtlose Integration in bestehende Prozesse",
+      workflowTitle: "Effizient",
+      workflowBody:
+        "Von der Planung bis zur Dokumentation: CUREO reduziert organisatorischen Aufwand und schafft mehr Therapiezeit.",
+      workflowA: "Therapieeinheiten flexibel steuern",
+      workflowB: "Parallel- und Gruppentherapie sicher koordinieren",
+      platformCardTitle: "CUREO Hub",
+      platformCardBody:
+        "Patientenprofile, Therapieparameter und Module werden in einer zentralen Oberfläche verwaltet.",
+      reportCardTitle: "Automatische Berichte",
+      reportCardBody:
+        "Fortschritte werden in Echtzeit dokumentiert und für Verlaufsgespräche oder Übergaben aufbereitet.",
+      settingsCardTitle: "Individuelle Anpassung",
+      settingsCardBody:
+        "Schwierigkeitsgrad, Wiederholungen und Fokusbereiche lassen sich pro Patient gezielt einstellen.",
+      outcomesTitle: "Wirksam",
+      outcomesBody:
+        "CUREO stärkt Motivation, Kontinuität und therapeutische Qualität in stationären und ambulanten Settings.",
+      statAValue: "95%",
+      statALabel: "der Teams berichten über höhere Therapiemotivation",
+      statBValue: "97%",
+      statBLabel: "bewerten die Workflow-Transparenz als sehr gut",
+      statCValue: "84%",
+      statCLabel: "sehen schneller sichtbare Fortschritte bei Patienten",
+      modulesTitle: "Vielseitig",
+      modulesBody:
+        "Sieben Module decken sensomotorische, kognitive und alltagsnahe Anwendungsfelder strukturiert ab.",
+      modules: [
+        { name: "Active", icon: activeLogo.src },
+        { name: "Hand", icon: handLogo.src },
+        { name: "Moto", icon: motoLogo.src },
+        { name: "Cogni", icon: cogniLogo.src },
+        { name: "Relax", icon: relaxLogo.src },
+        { name: "Activities", icon: activitiesLogo.src },
+        { name: "ADL", icon: adlLogo.src }
+      ],
+      platformTitle: "Für den klinischen Alltag entwickelt",
+      platformBody:
+        "CUREO unterstützt Ihr Team in Akutklinik, Reha-Zentrum und Praxis mit konsistenten Prozessen und flexiblen Therapiemodi.",
+      ctaTitle: "Jetzt CUREO für Ihre Einrichtung kennenlernen",
+      ctaButton: "Termin buchen",
+      faqTitle: "Mehr über CUREO",
+      faqs: [
+        {
+          q: "Für welche Einrichtungen ist CUREO geeignet?",
+          a: "CUREO ist für Akutkliniken, Rehabilitationszentren sowie ambulante Praxen entwickelt."
+        },
+        {
+          q: "Wie viele Module sind verfügbar?",
+          a: "Aktuell stehen sieben Module mit mehr als 50 interaktiven Übungen zur Verfügung."
+        },
+        {
+          q: "Kann ich die Therapie individuell anpassen?",
+          a: "Ja, Schwierigkeitsgrad, Inhalte und Trainingsfokus können pro Patient eingestellt werden."
+        },
+        {
+          q: "Gibt es Berichte zum Therapieverlauf?",
+          a: "Ja, CUREO erstellt automatische Verlaufs- und Ergebnisberichte."
+        }
+      ]
+    }
+  : {
+      heroTitle: "CUREO Virtual Reality Therapy",
+      heroSubtitle:
+        "The digital therapy solution for modern rehabilitation: structured, efficient, and motivating.",
+      introTitle: "One platform for patients, therapists, and clinical teams",
+      introBody:
+        "CUREO combines evidence-based VR therapy, clear workflows, and transparent outcome documentation in one system.",
+      introBulletA: "Fast onboarding for teams",
+      introBulletB: "Measurable progress in every session",
+      introBulletC: "Seamless integration into existing processes",
+      workflowTitle: "Efficient",
+      workflowBody:
+        "From planning to documentation: CUREO reduces organizational overhead and frees up more therapy time.",
+      workflowA: "Manage therapy sessions with flexibility",
+      workflowB: "Coordinate parallel and group therapy safely",
+      platformCardTitle: "CUREO Hub",
+      platformCardBody:
+        "Patient profiles, therapy parameters, and modules are managed in one central interface.",
+      reportCardTitle: "Automated reporting",
+      reportCardBody:
+        "Progress is documented in real time and prepared for handovers and treatment reviews.",
+      settingsCardTitle: "Individual adaptation",
+      settingsCardBody:
+        "Difficulty, repetitions, and target focus can be configured for each patient.",
+      outcomesTitle: "Effective",
+      outcomesBody:
+        "CUREO improves motivation, consistency, and therapeutic quality in inpatient and outpatient settings.",
+      statAValue: "95%",
+      statALabel: "of teams report higher therapy motivation",
+      statBValue: "97%",
+      statBLabel: "rate workflow transparency as excellent",
+      statCValue: "84%",
+      statCLabel: "see faster visible progress in patients",
+      modulesTitle: "Versatile",
+      modulesBody:
+        "Seven modules cover sensorimotor, cognitive, and daily-life therapy goals in a structured way.",
+      modules: [
+        { name: "Active", icon: activeLogo.src },
+        { name: "Hand", icon: handLogo.src },
+        { name: "Moto", icon: motoLogo.src },
+        { name: "Cogni", icon: cogniLogo.src },
+        { name: "Relax", icon: relaxLogo.src },
+        { name: "Activities", icon: activitiesLogo.src },
+        { name: "ADL", icon: adlLogo.src }
+      ],
+      platformTitle: "Built for real clinical workflows",
+      platformBody:
+        "CUREO supports your team in acute care, rehabilitation centers, and practices with consistent processes and flexible therapy modes.",
+      ctaTitle: "See how CUREO fits your institution",
+      ctaButton: "Book appointment",
+      faqTitle: "Find out more about CUREO",
+      faqs: [
+        {
+          q: "Which institutions is CUREO built for?",
+          a: "CUREO is designed for acute clinics, rehabilitation centers, and outpatient practices."
+        },
+        {
+          q: "How many therapy modules are available?",
+          a: "There are seven modules with more than 50 interactive exercises."
+        },
+        {
+          q: "Can therapy sessions be adapted to each patient?",
+          a: "Yes, difficulty, exercise focus, and repetition settings are configurable per patient."
+        },
+        {
+          q: "Is there structured progress reporting?",
+          a: "Yes, CUREO provides automated progress and outcome reporting."
+        }
+      ]
+    };
+---
+
+<section class="solution-page" data-reveal>
+  <div class="shell">
+    <section class="hero">
+      <div class="hero-text">
+        <h1>{copy.heroTitle}</h1>
+        <p>{copy.heroSubtitle}</p>
+      </div>
+      <img src={heroImage.src} alt={copy.heroTitle} loading="eager" />
+    </section>
+
+    <section class="intro card">
+      <div class="intro-callout">
+        <h2>{copy.introTitle}</h2>
+        <p>{copy.introBody}</p>
+        <ul>
+          <li>{copy.introBulletA}</li>
+          <li>{copy.introBulletB}</li>
+          <li>{copy.introBulletC}</li>
+        </ul>
+      </div>
+      <img src={introImage.src} alt={copy.introTitle} loading="lazy" />
+    </section>
+
+    <section class="workflow card">
+      <h2>{copy.workflowTitle}</h2>
+      <p>{copy.workflowBody}</p>
+      <div class="two-up">
+        <article>
+          <img src={workflowA.src} alt={copy.workflowA} loading="lazy" />
+          <p>{copy.workflowA}</p>
+        </article>
+        <article>
+          <img src={workflowB.src} alt={copy.workflowB} loading="lazy" />
+          <p>{copy.workflowB}</p>
+        </article>
+      </div>
+      <div class="platform-grid">
+        <article class="platform-card wide">
+          <img src={hubMock.src} alt={copy.platformCardTitle} loading="lazy" />
+          <div>
+            <h3>{copy.platformCardTitle}</h3>
+            <p>{copy.platformCardBody}</p>
+          </div>
+        </article>
+        <article class="platform-card">
+          <img src={reportMock.src} alt={copy.reportCardTitle} loading="lazy" />
+          <div>
+            <h3>{copy.reportCardTitle}</h3>
+            <p>{copy.reportCardBody}</p>
+          </div>
+        </article>
+        <article class="platform-card">
+          <img src={difficultyMock.src} alt={copy.settingsCardTitle} loading="lazy" />
+          <div>
+            <h3>{copy.settingsCardTitle}</h3>
+            <p>{copy.settingsCardBody}</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="outcomes card">
+      <h2>{copy.outcomesTitle}</h2>
+      <p>{copy.outcomesBody}</p>
+      <div class="stats">
+        <article>
+          <strong>{copy.statAValue}</strong>
+          <span>{copy.statALabel}</span>
+        </article>
+        <article>
+          <strong>{copy.statBValue}</strong>
+          <span>{copy.statBLabel}</span>
+        </article>
+        <article>
+          <strong>{copy.statCValue}</strong>
+          <span>{copy.statCLabel}</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="modules card">
+      <h2>{copy.modulesTitle}</h2>
+      <p>{copy.modulesBody}</p>
+      <div class="module-grid">
+        {
+          copy.modules.map((module) => (
+            <article class="module-item">
+              <img src={module.icon} alt={`${module.name} module`} loading="lazy" />
+              <h3>{module.name}</h3>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="platform-final card">
+      <div class="text">
+        <h2>{copy.platformTitle}</h2>
+        <p>{copy.platformBody}</p>
+      </div>
+      <div class="images">
+        <img src={navigatorImage.src} alt={copy.platformTitle} loading="lazy" />
+        <img src={bedsideImage.src} alt={copy.platformTitle} loading="lazy" />
+      </div>
+    </section>
+
+    <section class="faq card">
+      <h2>{copy.faqTitle}</h2>
+      <div class="faq-list">
+        {
+          copy.faqs.map((item, index) => (
+            <details open={index === 0}>
+              <summary>{item.q}</summary>
+              <p>{item.a}</p>
+            </details>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <h2>{copy.ctaTitle}</h2>
+      <a
+        href="https://meetings-eu1.hubspot.com/cureosity/terminbuchungstool-de"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {copy.ctaButton}
+      </a>
+    </section>
+  </div>
+</section>
+
+<style>
+  .solution-page {
+    background: #fff;
+    padding: 1rem 1.2rem 2rem;
+  }
+
+  .shell {
+    margin: 0 auto;
+    max-width: 1240px;
+  }
+
+  .hero {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero h1 {
+    color: #19301d;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    line-height: 1.08;
+    margin: 0;
+  }
+
+  .hero p {
+    color: #4d6153;
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    margin: 0.5rem 0 0;
+    max-width: 62ch;
+  }
+
+  .hero img {
+    border-radius: 8px;
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 7;
+    object-fit: cover;
+  }
+
+  .card {
+    background: #f8fbf4;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    padding: 1rem;
+  }
+
+  .intro {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: minmax(280px, 1fr) minmax(280px, 1fr);
+    align-items: stretch;
+  }
+
+  .intro-callout {
+    background: #6f9c21;
+    border-radius: 8px;
+    color: #fff;
+    padding: 1rem;
+  }
+
+  .intro-callout h2,
+  .workflow h2,
+  .outcomes h2,
+  .modules h2,
+  .platform-final h2,
+  .faq h2 {
+    margin: 0 0 0.6rem;
+    color: #19301d;
+    font-size: clamp(1.35rem, 2vw, 2rem);
+  }
+
+  .intro-callout h2 {
+    color: #fff;
+  }
+
+  .intro-callout p {
+    color: rgba(255, 255, 255, 0.96);
+    margin: 0 0 0.7rem;
+  }
+
+  .intro-callout ul {
+    margin: 0;
+    padding-left: 1.1rem;
+  }
+
+  .intro img {
+    border-radius: 8px;
+    width: 100%;
+    height: 100%;
+    min-height: 260px;
+    object-fit: cover;
+  }
+
+  .workflow > p,
+  .outcomes > p,
+  .modules > p,
+  .platform-final p {
+    color: #4d6153;
+    margin: 0 0 0.8rem;
+  }
+
+  .two-up {
+    display: grid;
+    gap: 0.8rem;
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+    margin-bottom: 0.9rem;
+  }
+
+  .two-up article {
+    background: #fff;
+    border-radius: 8px;
+    padding: 0.55rem;
+  }
+
+  .two-up img {
+    border-radius: 8px;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+  }
+
+  .two-up p {
+    color: #304334;
+    font-size: 0.95rem;
+    margin: 0.45rem 0 0;
+  }
+
+  .platform-grid {
+    display: grid;
+    gap: 0.8rem;
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+  }
+
+  .platform-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 0.55rem;
+  }
+
+  .platform-card.wide {
+    grid-column: 1 / -1;
+  }
+
+  .platform-card img {
+    border-radius: 8px;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    background: #fff;
+  }
+
+  .platform-card h3 {
+    color: #213724;
+    font-size: 1.03rem;
+    margin: 0.55rem 0 0.2rem;
+  }
+
+  .platform-card p {
+    color: #4d6153;
+    margin: 0;
+    font-size: 0.93rem;
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(180px, 1fr));
+    gap: 0.8rem;
+  }
+
+  .stats article {
+    background: #fff;
+    border-radius: 8px;
+    padding: 0.9rem;
+    text-align: center;
+  }
+
+  .stats strong {
+    color: #6f9c21;
+    display: block;
+    font-size: clamp(1.7rem, 3.2vw, 2.4rem);
+    line-height: 1;
+    margin-bottom: 0.35rem;
+  }
+
+  .stats span {
+    color: #3e5142;
+    font-size: 0.9rem;
+    line-height: 1.35;
+  }
+
+  .module-grid {
+    display: grid;
+    gap: 0.8rem;
+    grid-template-columns: repeat(4, minmax(150px, 1fr));
+  }
+
+  .module-item {
+    background: #fff;
+    border-radius: 8px;
+    padding: 0.8rem 0.6rem;
+    text-align: center;
+  }
+
+  .module-item img {
+    display: block;
+    height: 58px;
+    margin: 0 auto 0.5rem;
+    max-width: 100%;
+    object-fit: contain;
+  }
+
+  .module-item h3 {
+    color: #2a3f2d;
+    font-size: 0.96rem;
+    margin: 0;
+  }
+
+  .platform-final {
+    display: grid;
+    gap: 0.85rem;
+  }
+
+  .images {
+    display: grid;
+    gap: 0.8rem;
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+  }
+
+  .images img {
+    border-radius: 8px;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+  }
+
+  .faq-list details {
+    background: #fff;
+    border-radius: 8px;
+    margin-bottom: 0.55rem;
+    padding: 0.72rem 0.8rem;
+  }
+
+  .faq-list summary {
+    color: #1f3422;
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+  .faq-list p {
+    color: #4d6153;
+    margin: 0.5rem 0 0;
+  }
+
+  .cta-band {
+    align-items: center;
+    background: #6f9c21;
+    border-radius: 8px;
+    color: #fff;
+    display: grid;
+    gap: 0.7rem;
+    justify-items: center;
+    padding: 1.2rem 1rem;
+    text-align: center;
+  }
+
+  .cta-band h2 {
+    font-size: clamp(1.25rem, 2vw, 1.8rem);
+    margin: 0;
+  }
+
+  .cta-band a {
+    background: #fff;
+    border-radius: 8px;
+    color: #496f13;
+    display: inline-block;
+    font-weight: 700;
+    padding: 0.65rem 1.1rem;
+    text-decoration: none;
+  }
+
+  @media (max-width: 980px) {
+    .intro,
+    .two-up,
+    .platform-grid,
+    .stats,
+    .images {
+      grid-template-columns: 1fr;
+    }
+
+    .module-grid {
+      grid-template-columns: repeat(2, minmax(140px, 1fr));
+    }
+  }
+
+  @media (max-width: 700px) {
+    .solution-page {
+      padding: 0.85rem 0.8rem 1.6rem;
+    }
+
+    .hero img {
+      aspect-ratio: 16 / 9;
+    }
+  }
+</style>

@@ -1,0 +1,12 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import TopNav from "../../components/TopNav.astro";
+import PatientsPageContent from "../../components/PatientsPageContent.astro";
+import { CureoFooter } from "../../../devlink/CureoFooter.jsx";
+---
+
+<Layout lang="de" title="CUREO | Für Patienten">
+  <TopNav lang="de" />
+  <PatientsPageContent lang="de" />
+  <CureoFooter lang="de" client:load />
+</Layout>

@@ -1,0 +1,552 @@
+---
+import flyerImage from "../assets/img/CUREO5/CUREO5_HappyTherapist_Patient_Alternative.jpg";
+import feedbackImageA from "../assets/img/CUREO5/Patient-Therapeut-Happy1.jpg";
+import feedbackImageB from "../assets/img/CUREO5/CUREO5_HappyPatientTherapist.jpg";
+import feedbackImageC from "../assets/img/CUREO5/CUREO5_Tablet_And_Patient.jpg";
+
+const lang = Astro.props.lang === "de" ? "de" : "en";
+
+const copy = lang === "de"
+  ? {
+      heroTitle: "CUREO ist die motivierendste Form der Rehabilitation",
+      videoTitle: "Mit CUREO zurück ins Leben",
+      videoSub: "Wie CUREO Schlaganfallpatienten in der Therapie motiviert",
+      videoDesc:
+        "Erfahren Sie im Video, wie CUREO Patienten in der neurologischen Rehabilitation unterstützt und die Motivation im Training nachhaltig steigert.",
+      mapTitle: "Finden Sie heraus, in welchen Kliniken und Praxen CUREO bereits im Einsatz ist",
+      mapHint: "Filter nach Einrichtungstyp",
+      helpTitle: "Sie möchten CUREO gerne in Ihrer Therapie nutzen?",
+      helpText:
+        "Aktuell trainieren Patienten gemeinsam mit Therapeuten in Kliniken und Praxen. Wenn in Ihrer Nähe noch kein Standort dabei ist, unterstützen wir Sie gerne bei der Kontaktaufnahme.",
+      contactTitle: "Wir kontaktieren Ihren Therapeuten",
+      contactText:
+        "Hinterlassen Sie die Kontaktdaten Ihres behandelnden Therapeuten oder Ihrer Praxis. Wir setzen uns nach Ihrer Zustimmung mit der Einrichtung in Verbindung.",
+      fTherapist: "Name Ihres Therapeuten",
+      fClinic: "Name der Praxis oder Klinik",
+      fAddress: "Straße und Hausnummer",
+      fEmail: "E-Mail-Adresse",
+      fPhone: "Telefonnummer",
+      submit: "Senden",
+      flyerTitle: "Laden Sie den Flyer herunter",
+      flyerText:
+        "Sie können den CUREO Patienten-Flyer nutzen, um Ihrer Einrichtung die wichtigsten Informationen kompakt weiterzugeben.",
+      flyerButton: "Öffnen",
+      feedbackTitle: "Patienten-Feedback",
+      feedbackAria: "Patientenstimmen",
+      prevSlide: "Vorheriges Feedback",
+      nextSlide: "Nächstes Feedback",
+      feedbacks: [
+        {
+          image: feedbackImageA.src,
+          name: "Schlaganfallpatient mit Hemiparese",
+          quote:
+            "Ich habe plötzlich meinen linken Arm angehoben, was vorher wegen der Schmerzen nicht wirklich funktioniert hat."
+        },
+        {
+          image: feedbackImageB.src,
+          name: "Patientin in ambulanter Rehabilitation",
+          quote:
+            "Das Training mit CUREO hat mir geholfen, dranzubleiben. Ich sehe schneller Fortschritte im Alltag."
+        },
+        {
+          image: feedbackImageC.src,
+          name: "Patient nach neurologischer Reha",
+          quote:
+            "Die Übungen machen mir mehr Spaß als klassische Wiederholungen und ich trainiere deutlich regelmäßiger."
+        }
+      ]
+    }
+  : {
+      heroTitle: "CUREO is the most motivating form of rehabilitation",
+      videoTitle: "Back to life with CUREO",
+      videoSub: "How CUREO motivates stroke patients in therapy",
+      videoDesc:
+        "In this video, see how CUREO supports patients in neurorehabilitation and improves motivation throughout therapy.",
+      mapTitle: "Find out where CUREO is already used in clinics and practices",
+      mapHint: "Filter by institution type",
+      helpTitle: "Would you like to use CUREO in your therapy?",
+      helpText:
+        "Patients currently train together with therapists in clinics and practices. If no location is available near you yet, we can help initiate contact.",
+      contactTitle: "We contact your therapist",
+      contactText:
+        "Share the contact details of your treating therapist or institution. With your consent, we will reach out directly.",
+      fTherapist: "Therapist name",
+      fClinic: "Practice or clinic name",
+      fAddress: "Street and number",
+      fEmail: "Email address",
+      fPhone: "Phone number",
+      submit: "Submit",
+      flyerTitle: "Download the flyer",
+      flyerText:
+        "Use the CUREO patient flyer to share the most relevant information with your institution.",
+      flyerButton: "Open",
+      feedbackTitle: "Patient feedback",
+      feedbackAria: "Patient testimonials",
+      prevSlide: "Previous feedback",
+      nextSlide: "Next feedback",
+      feedbacks: [
+        {
+          image: feedbackImageA.src,
+          name: "Stroke patient with hemiparesis",
+          quote:
+            "I suddenly raised my left arm, which had not really worked before because of pain."
+        },
+        {
+          image: feedbackImageB.src,
+          name: "Outpatient rehabilitation patient",
+          quote:
+            "Training with CUREO helped me stay consistent. I can see progress in everyday life faster."
+        },
+        {
+          image: feedbackImageC.src,
+          name: "Patient after neurological rehab",
+          quote:
+            "The exercises are more engaging than traditional repetition, and I train much more regularly."
+        }
+      ]
+    };
+---
+
+<section class="patients-page" data-reveal>
+  <div class="shell">
+    <section class="hero">
+      <h1>{copy.heroTitle}</h1>
+
+      <div class="video-wrap">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/wmeccWvY7T8"
+          title={copy.videoTitle}
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      </div>
+
+      <h2>{copy.videoTitle}</h2>
+      <p class="video-sub">{copy.videoSub}</p>
+      <p class="video-desc">{copy.videoDesc}</p>
+    </section>
+
+    <section class="map-section">
+      <h2>{copy.mapTitle}</h2>
+      <p class="map-hint">{copy.mapHint}</p>
+      <div class="map-box">
+        <iframe
+          src="https://web-access-813613595328.europe-west1.run.app/map"
+          title={copy.mapTitle}
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </section>
+
+    <section class="help-section">
+      <h2>{copy.helpTitle}</h2>
+      <p>{copy.helpText}</p>
+      <div class="help-grid">
+        <article class="card">
+          <h3>{copy.contactTitle}</h3>
+          <p>{copy.contactText}</p>
+          <form class="contact-form" action="#" method="post">
+            <input type="text" name="therapist_name" placeholder={copy.fTherapist} />
+            <input type="text" name="clinic_name" placeholder={copy.fClinic} />
+            <input type="text" name="address" placeholder={copy.fAddress} />
+            <input type="email" name="email" placeholder={copy.fEmail} />
+            <input type="tel" name="phone" placeholder={copy.fPhone} />
+            <button type="submit">{copy.submit}</button>
+          </form>
+        </article>
+
+        <article class="card flyer-card">
+          <h3>{copy.flyerTitle}</h3>
+          <p>{copy.flyerText}</p>
+          <img src={flyerImage.src} alt={copy.flyerTitle} loading="lazy" />
+          <a class="flyer-btn" href="#" role="button">{copy.flyerButton}</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="feedback-section">
+      <h2>{copy.feedbackTitle}</h2>
+      <div class="feedback-slider" data-feedback-slider>
+        <button class="nav prev" type="button" aria-label={copy.prevSlide}>‹</button>
+
+        <div class="viewport">
+          <div class="track" data-track>
+            {
+              copy.feedbacks.map((item) => (
+                <article class="slide" aria-label={copy.feedbackAria}>
+                  <img src={item.image} alt={item.name} loading="lazy" />
+                  <div class="slide-copy">
+                    <blockquote>{item.quote}</blockquote>
+                    <p>{item.name}</p>
+                  </div>
+                </article>
+              ))
+            }
+          </div>
+        </div>
+
+        <button class="nav next" type="button" aria-label={copy.nextSlide}>›</button>
+      </div>
+
+      <div class="dots" data-dots></div>
+    </section>
+  </div>
+</section>
+
+<script is:inline>
+  (() => {
+    const root = document.querySelector("[data-feedback-slider]");
+    if (!root) return;
+
+    const track = root.querySelector("[data-track]");
+    const slides = Array.from(track?.children || []);
+    const prev = root.querySelector(".prev");
+    const next = root.querySelector(".next");
+    const dotsWrap = document.querySelector("[data-dots]");
+
+    if (!track || slides.length === 0 || !prev || !next || !dotsWrap) return;
+
+    let current = 0;
+
+    slides.forEach((_, i) => {
+      const dot = document.createElement("button");
+      dot.type = "button";
+      dot.className = `dot ${i === 0 ? "active" : ""}`;
+      dot.setAttribute("aria-label", `Go to testimonial ${i + 1}`);
+      dot.addEventListener("click", () => setSlide(i));
+      dotsWrap.appendChild(dot);
+    });
+
+    const dots = Array.from(dotsWrap.querySelectorAll(".dot"));
+
+    const setSlide = (index) => {
+      current = (index + slides.length) % slides.length;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      dots.forEach((dot, i) => dot.classList.toggle("active", i === current));
+    };
+
+    prev.addEventListener("click", () => setSlide(current - 1));
+    next.addEventListener("click", () => setSlide(current + 1));
+  })();
+</script>
+
+<style>
+  .patients-page {
+    background: #fff;
+    padding: clamp(1rem, 2vw, 1.8rem) clamp(0.9rem, 2.4vw, 1.6rem) clamp(2rem, 4vw, 3.2rem);
+  }
+
+  .shell {
+    margin: 0 auto;
+    max-width: 1240px;
+    display: grid;
+    gap: 1.1rem;
+  }
+
+  .hero,
+  .map-section,
+  .help-section,
+  .feedback-section {
+    background: #f7f9f6;
+    border-radius: 8px;
+    padding: clamp(1rem, 2vw, 1.5rem);
+  }
+
+  .hero h1,
+  .map-section h2,
+  .help-section h2,
+  .feedback-section h2 {
+    color: #1f3326;
+    font-size: clamp(1.45rem, 2.7vw, 2.5rem);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin: 0 0 0.9rem;
+    text-align: center;
+  }
+
+  .video-wrap {
+    background: #000;
+    border-radius: 8px;
+    margin: 0 auto;
+    max-width: 1100px;
+    overflow: hidden;
+  }
+
+  .video-wrap iframe {
+    border: 0;
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+  }
+
+  .hero h2 {
+    color: #23362a;
+    font-size: clamp(1.2rem, 1.9vw, 1.7rem);
+    letter-spacing: -0.01em;
+    margin: 0.95rem 0 0.35rem;
+    text-align: center;
+  }
+
+  .video-sub,
+  .video-desc {
+    color: #415549;
+    font-size: clamp(0.98rem, 1.1vw, 1.07rem);
+    line-height: 1.55;
+    margin: 0 auto;
+    max-width: 90ch;
+    text-align: center;
+  }
+
+  .video-sub {
+    font-weight: 400;
+  }
+
+  .video-desc {
+    margin-top: 0.45rem;
+  }
+
+  .map-hint {
+    color: #4a5e51;
+    margin: 0 0 0.8rem;
+    text-align: center;
+  }
+
+  .map-box {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .map-box iframe {
+    border: 0;
+    display: block;
+    width: 100%;
+    height: min(65vw, 680px);
+    min-height: 420px;
+  }
+
+  .help-section > p {
+    color: #415549;
+    margin: 0 auto 1rem;
+    max-width: 90ch;
+    font-size: clamp(0.98rem, 1.1vw, 1.07rem);
+    line-height: 1.55;
+    text-align: center;
+  }
+
+  .help-grid {
+    display: grid;
+    gap: clamp(0.75rem, 1.4vw, 1.1rem);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .card {
+    background: #fff;
+    border-radius: 8px;
+    padding: clamp(0.95rem, 1.6vw, 1.2rem);
+  }
+
+  .card h3 {
+    color: #23362a;
+    font-size: clamp(1.12rem, 1.55vw, 1.42rem);
+    margin: 0 0 0.5rem;
+  }
+
+  .card p {
+    color: #415549;
+    font-size: 0.98rem;
+    line-height: 1.55;
+    margin: 0 0 0.75rem;
+  }
+
+  .contact-form {
+    display: grid;
+    gap: 0.56rem;
+  }
+
+  .contact-form input {
+    border: 1px solid #d5dfcf;
+    border-radius: 8px;
+    font: inherit;
+    padding: 0.67rem 0.75rem;
+  }
+
+  .contact-form input:focus {
+    border-color: #6f9c21;
+    box-shadow: 0 0 0 2px rgba(111, 156, 33, 0.18);
+    outline: none;
+  }
+
+  .contact-form button {
+    background: #6f9c21;
+    border: 0;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 700;
+    justify-self: start;
+    line-height: 1;
+    padding: 0.67rem 1.2rem;
+    transition: background 180ms ease, transform 180ms ease;
+  }
+
+  .flyer-card img {
+    border-radius: 8px;
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+  }
+
+  .flyer-btn {
+    background: #6f9c21;
+    border-radius: 8px;
+    color: #fff;
+    display: inline-block;
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-top: 0.65rem;
+    padding: 0.67rem 1.04rem;
+    text-decoration: none;
+    transition: background 180ms ease, transform 180ms ease;
+  }
+
+  .feedback-slider {
+    align-items: center;
+    display: grid;
+    gap: 0.62rem;
+    grid-template-columns: 44px 1fr 44px;
+  }
+
+  .nav {
+    background: transparent;
+    border: 0;
+    color: #2c4033;
+    cursor: pointer;
+    font-size: 2.1rem;
+    line-height: 1;
+    padding: 0;
+    transition: color 180ms ease, transform 180ms ease;
+  }
+
+  .viewport {
+    overflow: hidden;
+    border-radius: 8px;
+  }
+
+  .track {
+    display: flex;
+    transition: transform 260ms ease;
+  }
+
+  .slide {
+    background: #fff;
+    border-radius: 8px;
+    display: grid;
+    flex: 0 0 100%;
+    gap: 0.95rem;
+    grid-template-columns: minmax(220px, 0.95fr) minmax(260px, 1.05fr);
+    padding: clamp(0.8rem, 1.4vw, 1rem);
+  }
+
+  .slide img {
+    border-radius: 8px;
+    width: 100%;
+    height: 100%;
+    min-height: 260px;
+    object-fit: cover;
+  }
+
+  .slide-copy {
+    align-self: center;
+  }
+
+  .slide-copy blockquote {
+    color: #304439;
+    font-size: clamp(1rem, 1.1vw, 1.08rem);
+    line-height: 1.55;
+    margin: 0 0 0.55rem;
+  }
+
+  .slide-copy p {
+    color: #587062;
+    margin: 0;
+  }
+
+  .dots {
+    display: flex;
+    gap: 0.45rem;
+    justify-content: center;
+    margin-top: 0.7rem;
+  }
+
+  .dot {
+    background: #b6bfba;
+    border: 0;
+    border-radius: 999px;
+    cursor: pointer;
+    height: 8px;
+    width: 8px;
+  }
+
+  .dot.active {
+    background: #2d3f33;
+  }
+
+  @media (hover: hover) {
+    .contact-form button:hover,
+    .flyer-btn:hover {
+      background: #5f891d;
+      transform: translateY(-1px);
+    }
+
+    .nav:hover {
+      color: #1f3026;
+      transform: scale(1.06);
+    }
+  }
+
+  @media (max-width: 980px) {
+    .help-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .slide {
+      grid-template-columns: 1fr;
+    }
+
+    .feedback-slider {
+      grid-template-columns: 1fr;
+    }
+
+    .nav {
+      justify-self: center;
+      order: 2;
+    }
+
+    .feedback-slider .prev {
+      margin-top: 0.2rem;
+    }
+
+    .feedback-slider .next {
+      margin-bottom: 0.1rem;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .patients-page {
+      padding: 0.85rem 0.8rem 1.7rem;
+    }
+
+    .map-box iframe {
+      height: min(95vw, 560px);
+      min-height: 360px;
+    }
+  }
+</style>

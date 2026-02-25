@@ -1,0 +1,478 @@
+---
+import heroImage from "../assets/img/CUREO5/CUREO5_HappyGroupTherapy.webp";
+import groupClinicImage from "../assets/img/CUREO5/CUREO5_Grouptherapy_clinics.jpg";
+import groupUiImage from "../assets/img/CUREO5/CUREO5_GroupTherapyScreenShot.jpeg";
+import navigatorImage from "../assets/img/CUREO5/CUREO5_NavigatorScreenshot.jpeg";
+import singleAltImage from "../assets/img/CUREO5/CUREO5_HappyTherapist_Patient_Alternative.jpg";
+import bedsideImage from "../assets/img/CUREO5/CUREO_Bedsite_Therapy.jpg";
+import reportImage from "../assets/img/CUREO5/CUREO5_Therapy_Report_Mock.jpeg";
+import growthImage from "../assets/img/CUREO5/CUREO5_HappyPatientTherapist.jpg";
+import hubImage from "../assets/img/CUREO5/CUREO5_Hub_Mock.png";
+
+const logoModules = import.meta.glob("../assets/img/logos/partner/*.{png,jpg,jpeg,webp,svg}", {
+  eager: true,
+  import: "default"
+});
+
+const toAssetUrl = (asset) => {
+  if (typeof asset === "string") return asset;
+  if (asset && typeof asset === "object" && "src" in asset) return asset.src;
+  return "";
+};
+
+const logos = Object.entries(logoModules)
+  .map(([path, asset]) => {
+    const file = path.split("/").pop() ?? "";
+    const label = file
+      .replace(/\.[^/.]+$/, "")
+      .replace(/[_-]+/g, " ")
+      .replace(/\s+Ambulant$/i, "")
+      .trim();
+    return { file, src: toAssetUrl(asset), alt: `${label} logo` };
+  })
+  .filter((logo) => !/ambulant/i.test(logo.file))
+  .sort((a, b) => a.file.localeCompare(b.file));
+
+const lang = Astro.props.lang === "de" ? "de" : "en";
+const copy = lang === "de"
+  ? {
+      heroTitle: "CUREO VR-Therapie.",
+      heroSubtitle: "Entwickelt, um in Reha- und Akutkliniken echten Mehrwert zu schaffen",
+      efficiencyTitle: "Effizienz mit Gruppentherapie maximieren",
+      efficiencyText:
+        "Führen Sie individualisierte Gruppentherapie in Ihrer Klinik durch und behandeln Sie bis zu 6 Patienten gleichzeitig mit CUREO GROUP.",
+      efficiencyA: "Jeder Patient sieht eigene Instruktionen und trainiert in einer individuellen virtuellen Umgebung.",
+      efficiencyB:
+        "Navigator und Therapieplanung ermöglichen eine strukturierte Behandlung vom Setup bis zur Abschlussdokumentation.",
+      efficiencyC: "Aus einer Gruppensitzung kann flexibel in den Einzelmodus gewechselt werden.",
+      intermediateCtaTitle: "Interesse an CUREO GROUP?",
+      intermediateCta: "Mehr erfahren",
+      effectiveTitle: "Wirksam während und nach der Therapie",
+      effectiveText:
+        "Von der Frühmobilisierung am Bett bis zu spezialisierten Reha-Sequenzen passt sich CUREO Ihren klinischen Versorgungsstufen an.",
+      effectiveB:
+        "Automatisch erstellte Fortschrittsberichte und Administrationsdaten unterstützen Ihr Team bei schnellen, fundierten Entscheidungen.",
+      growthTitle: "Therapieteams in Ihrer Klinik gezielt weiterentwickeln",
+      growthText:
+        "Mit CUREO arbeiten Sie mit einem modernen Systemstandard. Das steigert Teammotivation, unterstützt Schulung und verbessert die Planbarkeit im Klinikalltag.",
+      growthB: "Regelmäßige Content-Updates und neue Virtual-Reality-Features sind ohne Zusatzkosten verfügbar.",
+      trustTitle: "Führende medizinische Einrichtungen vertrauen auf CUREO",
+      expertTitle: "Rückmeldung aus der Praxis",
+      expertQuote:
+        "Durch die klare Struktur und die hohe Patientenmotivation können wir Therapiezeit deutlich effizienter nutzen.",
+      expertName: "Prof. Dr. med. Max Muster",
+      finalTitle: "Gestalten Sie die Zukunft der Therapie mit CUREO",
+      finalCta: "Termin vereinbaren"
+    }
+  : {
+      heroTitle: "CUREO VR Therapy.",
+      heroSubtitle: "Designed to deliver value for rehabilitation and acute clinics",
+      efficiencyTitle: "Maximize efficiency with group therapy",
+      efficiencyText:
+        "Run individualized group therapy in your clinic and treat up to 6 patients simultaneously using CUREO GROUP.",
+      efficiencyA: "Each patient receives dedicated instructions and trains in an individual virtual environment.",
+      efficiencyB:
+        "Navigator and planning tools support a structured process from setup to final documentation.",
+      efficiencyC: "Switch from group mode to single-patient mode at any time when clinically required.",
+      intermediateCtaTitle: "Interested in CUREO GROUP?",
+      intermediateCta: "Learn more",
+      effectiveTitle: "Effective during and after therapy",
+      effectiveText:
+        "From early bedside activation to specialized rehabilitation sequences, CUREO adapts to your clinical care stages.",
+      effectiveB:
+        "Automatically generated progress reports and administration data support faster and better clinical decisions.",
+      growthTitle: "Develop and scale therapeutic staff in your clinic",
+      growthText:
+        "CUREO helps your team work with a modern treatment standard, improving staff confidence, onboarding, and planning reliability.",
+      growthB: "Regular content updates and new virtual-reality features are included without additional charges.",
+      trustTitle: "Leading medical institutions trust CUREO",
+      expertTitle: "Clinical expert feedback",
+      expertQuote:
+        "With clear workflows and high patient engagement, we can use therapy time much more effectively.",
+      expertName: "Prof. Dr. med. Max Sample",
+      finalTitle: "Join the future of therapy with CUREO",
+      finalCta: "Book appointment"
+    };
+---
+
+<section class="inpatient-page" data-reveal>
+  <div class="shell">
+    <section class="hero">
+      <div class="hero-copy">
+        <h1>{copy.heroTitle}</h1>
+        <p>{copy.heroSubtitle}</p>
+      </div>
+      <img src={heroImage.src} alt={copy.heroSubtitle} loading="eager" />
+    </section>
+
+    <section class="section-card">
+      <h2>{copy.efficiencyTitle}</h2>
+      <div class="two-col intro-grid">
+        <img src={groupClinicImage.src} alt={copy.efficiencyTitle} loading="lazy" />
+        <p>{copy.efficiencyText}</p>
+      </div>
+
+      <div class="two-col detail-grid">
+        <article class="media-note">
+          <img src={groupUiImage.src} alt={copy.efficiencyA} loading="lazy" />
+          <p>{copy.efficiencyA}</p>
+        </article>
+        <article class="media-note">
+          <img src={navigatorImage.src} alt={copy.efficiencyB} loading="lazy" />
+          <p>{copy.efficiencyB}</p>
+        </article>
+        <article class="media-note">
+          <img src={singleAltImage.src} alt={copy.efficiencyC} loading="lazy" />
+          <p>{copy.efficiencyC}</p>
+        </article>
+      </div>
+
+      <div class="sub-cta">
+        <h3>{copy.intermediateCtaTitle}</h3>
+        <a
+          href="https://meetings-eu1.hubspot.com/cureosity/terminbuchungstool-de"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {copy.intermediateCta}
+        </a>
+      </div>
+    </section>
+
+    <section class="section-card">
+      <h2>{copy.effectiveTitle}</h2>
+      <div class="two-col">
+        <article class="media-note">
+          <img src={bedsideImage.src} alt={copy.effectiveText} loading="lazy" />
+          <p>{copy.effectiveText}</p>
+        </article>
+        <article class="media-note">
+          <img src={reportImage.src} alt={copy.effectiveB} loading="lazy" />
+          <p>{copy.effectiveB}</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-card">
+      <h2>{copy.growthTitle}</h2>
+      <div class="two-col">
+        <article class="media-note">
+          <img src={growthImage.src} alt={copy.growthText} loading="lazy" />
+          <p>{copy.growthText}</p>
+        </article>
+        <article class="media-note">
+          <img src={hubImage.src} alt={copy.growthB} loading="lazy" />
+          <p>{copy.growthB}</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="trust">
+      <h2>{copy.trustTitle}</h2>
+      <div class="logo-row" role="list" aria-label={copy.trustTitle}>
+        {
+          logos.slice(0, 8).map((logo) => (
+            <article class="logo-card" role="listitem">
+              <img src={logo.src} alt={logo.alt} loading="lazy" />
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="expert section-card">
+      <h2>{copy.expertTitle}</h2>
+      <article class="expert-box">
+        <img src={growthImage.src} alt={copy.expertName} loading="lazy" />
+        <blockquote>{copy.expertQuote}</blockquote>
+        <p>{copy.expertName}</p>
+      </article>
+    </section>
+
+    <section class="final-cta">
+      <h2>{copy.finalTitle}</h2>
+      <a
+        href="https://meetings-eu1.hubspot.com/cureosity/terminbuchungstool-de"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {copy.finalCta}
+      </a>
+    </section>
+  </div>
+</section>
+
+<style>
+  .inpatient-page {
+    background: #fff;
+    padding: clamp(1rem, 2vw, 1.8rem) clamp(0.9rem, 2.4vw, 1.6rem) clamp(2rem, 4vw, 3.2rem);
+  }
+
+  .shell {
+    margin: 0 auto;
+    max-width: 1240px;
+    display: grid;
+    gap: 1.1rem;
+  }
+
+  .hero {
+    display: grid;
+    gap: 0.9rem;
+    margin-bottom: 0.2rem;
+    text-align: center;
+  }
+
+  .hero-copy {
+    margin: 0 auto;
+    max-width: 74ch;
+  }
+
+  .hero h1 {
+    color: #1b2f24;
+    font-size: clamp(2rem, 3.9vw, 3.15rem);
+    letter-spacing: -0.02em;
+    line-height: 1.08;
+    margin: 0;
+  }
+
+  .hero p {
+    color: #44584b;
+    font-size: clamp(1.05rem, 1.45vw, 1.2rem);
+    line-height: 1.45;
+    margin: 0.45rem auto 0;
+    max-width: 62ch;
+  }
+
+  .hero img {
+    border-radius: 8px;
+    width: 100%;
+    aspect-ratio: 16 / 7;
+    max-height: min(58vw, 560px);
+    object-fit: cover;
+  }
+
+  .section-card {
+    background: #f7f9f6;
+    border-radius: 8px;
+    padding: clamp(1rem, 2vw, 1.5rem);
+  }
+
+  .section-card h2,
+  .trust h2,
+  .final-cta h2 {
+    color: #1f3326;
+    font-size: clamp(1.35rem, 2.1vw, 2.05rem);
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    margin: 0 0 0.9rem;
+  }
+
+  .two-col {
+    display: grid;
+    gap: clamp(0.75rem, 1.4vw, 1.1rem);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+  }
+
+  .intro-grid {
+    align-items: center;
+    margin-bottom: 0.95rem;
+  }
+
+  .intro-grid img {
+    border-radius: 8px;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+  }
+
+  .intro-grid p {
+    color: #3f5347;
+    font-size: clamp(0.98rem, 1.1vw, 1.07rem);
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  .detail-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-bottom: 1rem;
+  }
+
+  .media-note {
+    background: #fff;
+    border-radius: 8px;
+    display: grid;
+    gap: 0.45rem;
+    min-height: 100%;
+    padding: 0.62rem;
+  }
+
+  .media-note img {
+    border-radius: 8px;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+  }
+
+  .media-note p {
+    color: #3f5347;
+    font-size: clamp(0.92rem, 1vw, 0.99rem);
+    line-height: 1.48;
+    margin: 0;
+  }
+
+  .sub-cta {
+    align-items: center;
+    border-top: 1px solid #d9e3d5;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    justify-content: space-between;
+    padding-top: 0.9rem;
+  }
+
+  .sub-cta h3 {
+    color: #2a3d30;
+    font-size: 1.05rem;
+    margin: 0;
+  }
+
+  .sub-cta a,
+  .final-cta a {
+    background: #6f9c21;
+    border-radius: 8px;
+    color: #fff;
+    display: inline-block;
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1;
+    padding: 0.62rem 1.05rem;
+    text-decoration: none;
+    transition: background 180ms ease, transform 180ms ease;
+  }
+
+  .trust {
+    display: grid;
+    gap: 0.7rem;
+  }
+
+  .logo-row {
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .logo-card {
+    align-items: center;
+    background: #fff;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    min-height: 100px;
+    padding: 0.65rem;
+  }
+
+  .logo-card img {
+    display: block;
+    height: 56px;
+    max-width: min(100%, 180px);
+    object-fit: contain;
+    width: 100%;
+  }
+
+  .expert-box {
+    align-items: center;
+    background: #fff;
+    border-radius: 8px;
+    display: grid;
+    gap: 0.95rem;
+    grid-template-columns: minmax(180px, 260px) 1fr;
+    padding: 0.95rem;
+  }
+
+  .expert-box img {
+    border-radius: 8px;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+  }
+
+  .expert-box blockquote {
+    color: #32463a;
+    font-size: 1.03rem;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .expert-box p {
+    color: #5f871d;
+    font-weight: 700;
+    grid-column: 2 / 3;
+    margin: 0;
+  }
+
+  .final-cta {
+    align-items: center;
+    background: #6f9c21;
+    border-radius: 8px;
+    display: grid;
+    gap: 0.72rem;
+    justify-items: center;
+    padding: clamp(1.1rem, 2vw, 1.5rem) 1rem;
+    text-align: center;
+  }
+
+  .final-cta h2 {
+    color: #fff;
+    font-size: clamp(1.45rem, 2.1vw, 2rem);
+    margin: 0;
+  }
+
+  .final-cta a {
+    background: #fff;
+    color: #50791a;
+  }
+
+  @media (hover: hover) {
+    .sub-cta a:hover,
+    .final-cta a:hover {
+      background: #5f891d;
+      color: #fff;
+      transform: translateY(-1px);
+    }
+
+    .final-cta a:hover {
+      background: #f4f7ef;
+      color: #4d7418;
+    }
+  }
+
+  @media (max-width: 1120px) {
+    .detail-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 980px) {
+    .two-col,
+    .detail-grid,
+    .logo-row,
+    .expert-box {
+      grid-template-columns: 1fr;
+    }
+
+    .expert-box p {
+      grid-column: 1 / 2;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .inpatient-page {
+      padding: 0.85rem 0.8rem 1.7rem;
+    }
+
+    .hero img {
+      aspect-ratio: 16 / 9;
+    }
+  }
+</style>

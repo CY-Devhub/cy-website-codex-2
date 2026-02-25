@@ -1,0 +1,495 @@
+---
+import heroImage from "../assets/img/CUREO5/CUREO_Occupational_Therapy.jpg";
+import smallSpaceA from "../assets/img/CUREO5/CUREO5_Module_Activities_Screenshot.png.jpeg";
+import smallSpaceB from "../assets/img/CUREO5/CUREO5_Tablet_And_Patient.jpg";
+import parallelImage from "../assets/img/CUREO5/CUREO5_HappyParallel_therapy.jpg";
+import navigatorImage from "../assets/img/CUREO5/CUREO5_NavigatorScreenshot.jpeg";
+import reportImage from "../assets/img/CUREO5/CUREO5_Therapy_Report_Mock.jpeg";
+import teamImage from "../assets/img/CUREO5/CUREO5_HappyPatientTherapist.jpg";
+import headsetRender from "../assets/img/CUREO5/CUREO5_HeadsetRender.png";
+import caseImage from "../assets/img/CUREO5/CUREO_Benedictus_Feldafing.jpg";
+import feedbackImage from "../assets/img/CUREO5/CUREO5_HappyTherapist_Patient_Alternative.jpg";
+
+const logoModules = import.meta.glob("../assets/img/logos/partner/*.{png,jpg,jpeg,webp,svg}", {
+  eager: true,
+  import: "default"
+});
+
+const toAssetUrl = (asset) => {
+  if (typeof asset === "string") return asset;
+  if (asset && typeof asset === "object" && "src" in asset) return asset.src;
+  return "";
+};
+
+const ambulantLogos = Object.entries(logoModules)
+  .map(([path, asset]) => {
+    const file = path.split("/").pop() ?? "";
+    const label = file
+      .replace(/\.[^/.]+$/, "")
+      .replace(/[_-]+/g, " ")
+      .replace(/\s+Ambulant$/i, "")
+      .trim();
+    return { file, src: toAssetUrl(asset), alt: `${label} logo` };
+  })
+  .filter((logo) => /ambulant/i.test(logo.file))
+  .sort((a, b) => a.file.localeCompare(b.file));
+
+const lang = Astro.props.lang === "de" ? "de" : "en";
+const copy = lang === "de"
+  ? {
+      heroTitle: "Mit CUREO bringen Sie Ihre Therapiepraxis in die Zukunft",
+      trainingsTitle: "50+ vielseitige Trainings auf kleinem Raum",
+      trainingsText:
+        "Mehr als 50 Trainings für hochwertige Ergo- und Physiotherapie in Ihrer Praxis sowie in der Heimversorgung.",
+      trainingsSub:
+        "CUREO verbindet kompaktes Setup mit strukturierter Therapieplanung und messbarem Fortschritt.",
+      hybridTitle: "Mit hybrider Paralleltherapie effizienter arbeiten",
+      hybridA:
+        "CUREO schafft Freiraum: Führen Sie eine zweite Therapie parallel durch, während Ihr Patient immersiv trainiert.",
+      hybridB:
+        "Definieren Sie den Therapiepfad im Voraus und steuern Sie teilautonome Trainings mit dem Therapieplan.",
+      midCtaTitle: "Gestalten Sie die Zukunft der Therapie mit CUREO",
+      midCta: "Termin vereinbaren",
+      effectivenessTitle: "Messbare Wirksamkeit",
+      effectivenessText:
+        "Der CUREO Hub erstellt automatisch Therapieberichte und macht Fortschritte für Team und Patienten transparent.",
+      growthTitle: "Therapeutische Teams und Praxisleistung gezielt weiterentwickeln",
+      growthA:
+        "Mit CUREO positionieren Sie Ihre Praxis modern, stärken die Teammotivation und erhöhen die Attraktivität für neue Fachkräfte.",
+      growthB:
+        "CUREO wird laufend weiterentwickelt. Neue Trainings und Features sind für Bestandskunden ohne Mehrkosten verfügbar.",
+      caseTitle: "So wird CUREO in der ambulanten Rehabilitation eingesetzt",
+      caseText:
+        "Einrichtungen nutzen CUREO, um Behandlungskapazitäten zu erweitern, Trainingsqualität zu standardisieren und Patienten stärker einzubinden.",
+      caseCta: "Mehr erfahren",
+      trustTitle: "Führende ambulante Einrichtungen vertrauen auf CUREO",
+      feedbackTitle: "Feedback aus der Praxis",
+      feedbackQuote:
+        "Durch die strukturierte Planung und die hohe Motivation unserer Patienten konnten wir unsere Therapieabläufe deutlich verbessern.",
+      feedbackName: "Michaela Schreiber",
+      feedbackRole: "Ergotherapeutin",
+      finalTitle: "Gestalten Sie die Zukunft der Therapie mit CUREO",
+      finalCta: "Termin vereinbaren"
+    }
+  : {
+      heroTitle: "With CUREO you move your therapy practice into the future",
+      trainingsTitle: "50+ versatile trainings in a small space",
+      trainingsText:
+        "More than 50 trainings for best-in-class occupational and physical therapy in your practice and home-care workflows.",
+      trainingsSub:
+        "CUREO combines a compact setup with structured therapy planning and measurable outcomes.",
+      hybridTitle: "Be more efficient with hybrid parallel therapy",
+      hybridA:
+        "CUREO gives you more free time: run a second patient in parallel while your current patient is immersed in therapy.",
+      hybridB:
+        "Predefine the therapy path and run semi-autonomous sessions using the treatment plan.",
+      midCtaTitle: "Join the future of therapy with CUREO",
+      midCta: "Book appointment",
+      effectivenessTitle: "Effectiveness that can be measured",
+      effectivenessText:
+        "The CUREO hub automatically generates therapy reports and helps your team analyze patient progress clearly.",
+      growthTitle: "Develop and grow your therapeutic staff as well as your practice",
+      growthA:
+        "Choose CUREO to make your practice future-ready, improve team motivation, and attract talented professionals.",
+      growthB:
+        "CUREO is continuously updated. Existing customers receive new trainings and features without extra charges.",
+      caseTitle: "How CUREO is used in outpatient rehabilitation",
+      caseText:
+        "Practices use CUREO to expand treatment capacity, standardize quality, and increase patient engagement.",
+      caseCta: "Learn more",
+      trustTitle: "Leading outpatient institutions trust CUREO",
+      feedbackTitle: "Therapists' feedback",
+      feedbackQuote:
+        "The structured workflows and clear patient progress allow us to deliver therapy more consistently and efficiently.",
+      feedbackName: "Michaela Schreiber",
+      feedbackRole: "Occupational therapist",
+      finalTitle: "Join the future of therapy with CUREO",
+      finalCta: "Book appointment"
+    };
+---
+
+<section class="outpatient-page" data-reveal>
+  <div class="shell">
+    <section class="hero">
+      <h1>{copy.heroTitle}</h1>
+      <img src={heroImage.src} alt={copy.heroTitle} loading="eager" />
+    </section>
+
+    <section class="section-card">
+      <h2>{copy.trainingsTitle}</h2>
+      <div class="two-col intro-grid">
+        <img src={smallSpaceA.src} alt={copy.trainingsTitle} loading="lazy" />
+        <p>{copy.trainingsText}</p>
+      </div>
+      <div class="two-col intro-grid">
+        <img src={smallSpaceB.src} alt={copy.trainingsSub} loading="lazy" />
+        <p>{copy.trainingsSub}</p>
+      </div>
+    </section>
+
+    <section class="section-card">
+      <h2>{copy.hybridTitle}</h2>
+      <div class="two-col">
+        <article class="media-note">
+          <img src={parallelImage.src} alt={copy.hybridA} loading="lazy" />
+          <p>{copy.hybridA}</p>
+        </article>
+        <article class="media-note">
+          <img src={navigatorImage.src} alt={copy.hybridB} loading="lazy" />
+          <p>{copy.hybridB}</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="mid-cta">
+      <h2>{copy.midCtaTitle}</h2>
+      <a
+        href="https://meetings-eu1.hubspot.com/cureosity/terminbuchungstool-de"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {copy.midCta}
+      </a>
+    </section>
+
+    <section class="section-card">
+      <h2>{copy.effectivenessTitle}</h2>
+      <div class="two-col">
+        <p class="side-copy">{copy.effectivenessText}</p>
+        <img class="report-image" src={reportImage.src} alt={copy.effectivenessTitle} loading="lazy" />
+      </div>
+    </section>
+
+    <section class="section-card">
+      <h2>{copy.growthTitle}</h2>
+      <div class="two-col">
+        <article class="media-note">
+          <img src={teamImage.src} alt={copy.growthA} loading="lazy" />
+          <p>{copy.growthA}</p>
+        </article>
+        <article class="media-note">
+          <img src={headsetRender.src} alt={copy.growthB} loading="lazy" />
+          <p>{copy.growthB}</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-card case">
+      <h2>{copy.caseTitle}</h2>
+      <div class="two-col">
+        <img src={caseImage.src} alt={copy.caseTitle} loading="lazy" />
+        <div class="case-copy">
+          <p>{copy.caseText}</p>
+          <a href="#">{copy.caseCta}</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust">
+      <h2>{copy.trustTitle}</h2>
+      <div class="logo-row" role="list" aria-label={copy.trustTitle}>
+        {
+          ambulantLogos.map((logo) => (
+            <article class="logo-card" role="listitem">
+              <img src={logo.src} alt={logo.alt} loading="lazy" />
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="section-card feedback">
+      <h2>{copy.feedbackTitle}</h2>
+      <article class="feedback-box">
+        <img src={feedbackImage.src} alt={copy.feedbackName} loading="lazy" />
+        <blockquote>{copy.feedbackQuote}</blockquote>
+        <p>{copy.feedbackName}</p>
+        <span>{copy.feedbackRole}</span>
+      </article>
+    </section>
+
+    <section class="final-cta">
+      <h2>{copy.finalTitle}</h2>
+      <a
+        href="https://meetings-eu1.hubspot.com/cureosity/terminbuchungstool-de"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {copy.finalCta}
+      </a>
+    </section>
+  </div>
+</section>
+
+<style>
+  .outpatient-page {
+    background: #fff;
+    padding: clamp(1rem, 2vw, 1.8rem) clamp(0.9rem, 2.4vw, 1.6rem) clamp(2rem, 4vw, 3.2rem);
+  }
+
+  .shell {
+    margin: 0 auto;
+    max-width: 1240px;
+    display: grid;
+    gap: 1.1rem;
+  }
+
+  .hero {
+    display: grid;
+    gap: 0.88rem;
+    margin-bottom: 0.2rem;
+    text-align: center;
+  }
+
+  .hero h1 {
+    color: #1b2f24;
+    font-size: clamp(2rem, 3.9vw, 3.1rem);
+    letter-spacing: -0.02em;
+    line-height: 1.08;
+    margin: 0;
+  }
+
+  .hero img {
+    border-radius: 8px;
+    width: 100%;
+    aspect-ratio: 16 / 7;
+    max-height: min(58vw, 560px);
+    object-fit: cover;
+  }
+
+  .section-card {
+    background: #f7f9f6;
+    border-radius: 8px;
+    padding: clamp(1rem, 2vw, 1.5rem);
+  }
+
+  .section-card h2,
+  .mid-cta h2,
+  .trust h2,
+  .final-cta h2 {
+    color: #1f3326;
+    font-size: clamp(1.35rem, 2.1vw, 2.05rem);
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    margin: 0 0 0.9rem;
+  }
+
+  .two-col {
+    display: grid;
+    gap: clamp(0.75rem, 1.4vw, 1.1rem);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+  }
+
+  .intro-grid {
+    align-items: center;
+    margin-bottom: 0.95rem;
+  }
+
+  .intro-grid:last-child {
+    margin-bottom: 0;
+  }
+
+  .intro-grid img,
+  .media-note img,
+  .case img,
+  .feedback-box img,
+  .report-image {
+    border-radius: 8px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .intro-grid img {
+    aspect-ratio: 16 / 10;
+  }
+
+  .intro-grid p,
+  .media-note p,
+  .side-copy,
+  .case-copy p {
+    color: #3f5347;
+    font-size: clamp(0.98rem, 1.1vw, 1.07rem);
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  .media-note {
+    background: #fff;
+    border-radius: 8px;
+    display: grid;
+    gap: 0.45rem;
+    min-height: 100%;
+    padding: 0.62rem;
+  }
+
+  .media-note img {
+    aspect-ratio: 16 / 10;
+  }
+
+  .media-note p {
+    font-size: clamp(0.92rem, 1vw, 0.99rem);
+    line-height: 1.48;
+    margin-top: 0;
+  }
+
+  .mid-cta,
+  .final-cta {
+    align-items: center;
+    background: #6f9c21;
+    border-radius: 8px;
+    display: grid;
+    gap: 0.72rem;
+    justify-items: center;
+    padding: clamp(1.1rem, 2vw, 1.5rem) 1rem;
+    text-align: center;
+  }
+
+  .mid-cta h2,
+  .final-cta h2 {
+    color: #fff;
+    font-size: clamp(1.45rem, 2.1vw, 2rem);
+    margin: 0;
+  }
+
+  .mid-cta a,
+  .final-cta a,
+  .case-copy a {
+    border-radius: 8px;
+    display: inline-block;
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+    transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+  }
+
+  .mid-cta a,
+  .final-cta a {
+    background: #fff;
+    color: #50791a;
+    padding: 0.62rem 1.05rem;
+  }
+
+  .report-image {
+    aspect-ratio: 16 / 9;
+    background: #fff;
+    object-fit: contain;
+  }
+
+  .case-copy {
+    align-self: center;
+  }
+
+  .case-copy a {
+    background: #6f9c21;
+    color: #fff;
+    margin-top: 0.7rem;
+    padding: 0.58rem 0.98rem;
+  }
+
+  .trust {
+    display: grid;
+    gap: 0.7rem;
+  }
+
+  .logo-row {
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .logo-card {
+    align-items: center;
+    background: #fff;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    min-height: 100px;
+    padding: 0.65rem;
+  }
+
+  .logo-card img {
+    display: block;
+    height: 56px;
+    max-width: min(100%, 180px);
+    object-fit: contain;
+    width: 100%;
+  }
+
+  .feedback-box {
+    align-items: center;
+    background: #fff;
+    border-radius: 8px;
+    display: grid;
+    gap: 0.95rem;
+    grid-template-columns: minmax(170px, 240px) 1fr;
+    padding: 0.95rem;
+  }
+
+  .feedback-box img {
+    aspect-ratio: 3 / 4;
+  }
+
+  .feedback-box blockquote {
+    color: #32463a;
+    font-size: 1.03rem;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .feedback-box p {
+    color: #5f871d;
+    font-weight: 700;
+    grid-column: 2 / 3;
+    margin: 0;
+  }
+
+  .feedback-box span {
+    color: #54685a;
+    font-size: 0.92rem;
+    grid-column: 2 / 3;
+  }
+
+  @media (hover: hover) {
+    .mid-cta a:hover,
+    .final-cta a:hover,
+    .case-copy a:hover {
+      transform: translateY(-1px);
+    }
+
+    .mid-cta a:hover,
+    .final-cta a:hover {
+      background: #f4f7ef;
+      color: #4d7418;
+    }
+
+    .case-copy a:hover {
+      background: #5f891d;
+      color: #fff;
+    }
+  }
+
+  @media (max-width: 980px) {
+    .two-col,
+    .logo-row,
+    .feedback-box {
+      grid-template-columns: 1fr;
+    }
+
+    .feedback-box p,
+    .feedback-box span {
+      grid-column: 1 / 2;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .outpatient-page {
+      padding: 0.85rem 0.8rem 1.7rem;
+    }
+
+    .hero img {
+      aspect-ratio: 16 / 9;
+    }
+  }
+</style>

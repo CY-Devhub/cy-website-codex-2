@@ -5,6 +5,18 @@ const normalizedBase = base.endsWith("/") ? base : `${base}/`;
 const enHref = normalizedBase;
 const deHref = `${normalizedBase}de`;
 const isGerman = lang === "de";
+const therapySolutionHref = isGerman
+  ? `${normalizedBase}de/our-therapy-solution`
+  : `${normalizedBase}our-therapy-solution`;
+const inpatientHref = isGerman
+  ? `${normalizedBase}de/for-inpatient-rehab`
+  : `${normalizedBase}for-inpatient-rehab`;
+const outpatientHref = isGerman
+  ? `${normalizedBase}de/for-outpatient-rehab`
+  : `${normalizedBase}for-outpatient-rehab`;
+const patientsHref = isGerman
+  ? `${normalizedBase}de/for-patients`
+  : `${normalizedBase}for-patients`;
 
 const copy = isGerman
   ? {
@@ -61,10 +73,10 @@ const switchHref = isGerman ? enHref : deHref;
       <div class="nav-item has-submenu">
         <button type="button">{copy.cureo}</button>
         <div class="submenu">
-          <a href="#">{copy.solution}</a>
-          <a href="#">{copy.inpatient}</a>
-          <a href="#">{copy.outpatient}</a>
-          <a href="#">{copy.patients}</a>
+          <a href={therapySolutionHref}>{copy.solution}</a>
+          <a href={inpatientHref}>{copy.inpatient}</a>
+          <a href={outpatientHref}>{copy.outpatient}</a>
+          <a href={patientsHref}>{copy.patients}</a>
         </div>
       </div>
 
@@ -96,10 +108,10 @@ const switchHref = isGerman ? enHref : deHref;
       <div class="mobile-panel">
         <details>
           <summary>{copy.cureo}</summary>
-          <a href="#">{copy.solution}</a>
-          <a href="#">{copy.inpatient}</a>
-          <a href="#">{copy.outpatient}</a>
-          <a href="#">{copy.patients}</a>
+          <a href={therapySolutionHref}>{copy.solution}</a>
+          <a href={inpatientHref}>{copy.inpatient}</a>
+          <a href={outpatientHref}>{copy.outpatient}</a>
+          <a href={patientsHref}>{copy.patients}</a>
         </details>
 
         <a href="#">{copy.news}</a>

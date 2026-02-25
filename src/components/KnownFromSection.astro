@@ -252,7 +252,7 @@ const copy = lang === "de"
     display: grid;
     flex: 0 0 100%;
     gap: 0.6rem;
-    grid-template-columns: repeat(4, minmax(170px, 1fr));
+    grid-template-columns: repeat(4, minmax(220px, 1fr));
   }
 
   .known-card {
@@ -260,9 +260,9 @@ const copy = lang === "de"
     background: #fff;
     border-radius: 8px;
     display: flex;
-    height: 92px;
+    height: 132px;
     justify-content: center;
-    padding: 0.75rem;
+    padding: 0.6rem 0.8rem;
     text-decoration: none;
     transition: transform 170ms ease;
   }
@@ -270,17 +270,18 @@ const copy = lang === "de"
   .logo-frame {
     align-items: center;
     display: flex;
-    height: 52px;
+    height: 84px;
     justify-content: center;
-    width: 190px;
+    width: 280px;
   }
 
   .known-card img {
     display: block;
-    height: 100%;
+    height: 84px;
+    max-height: 100%;
     max-width: 100%;
     object-fit: contain;
-    width: 100%;
+    width: auto;
   }
 
   .known-card:not(.known-card-static):hover {
@@ -315,7 +316,7 @@ const copy = lang === "de"
 
   @media (max-width: 980px) {
     .known-slide {
-      grid-template-columns: repeat(3, minmax(150px, 1fr));
+      grid-template-columns: repeat(3, minmax(190px, 1fr));
     }
   }
 
@@ -325,16 +326,20 @@ const copy = lang === "de"
     }
 
     .known-slide {
-      grid-template-columns: repeat(2, minmax(130px, 1fr));
+      grid-template-columns: repeat(2, minmax(150px, 1fr));
     }
 
     .known-card {
-      height: 86px;
+      height: 104px;
     }
 
     .logo-frame {
-      height: 46px;
-      width: 160px;
+      height: 64px;
+      width: 180px;
+    }
+
+    .known-card img {
+      height: 64px;
     }
   }
 </style>
