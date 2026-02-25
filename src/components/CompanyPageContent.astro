@@ -1,0 +1,575 @@
+---
+const lang = Astro.props.lang === "de" ? "de" : "en";
+const base = import.meta.env.BASE_URL || "/";
+const normalizedBase = base.endsWith("/") ? base : `${base}/`;
+const careerHref = lang === "de" ? `${normalizedBase}de/career` : `${normalizedBase}career`;
+const newsroomHref = lang === "de" ? `${normalizedBase}de/newsroom` : `${normalizedBase}newsroom`;
+
+const copy = lang === "de"
+  ? {
+      heroTitle: "Das Management-Team",
+      heroImage: "https://cdn.prod.website-files.com/654df9b20f372437da4ec02f/65eaf010721b4f9912c28ccf_Cteam.jpg",
+      teamTitle: "Führung bei CUREOSITY",
+      teamMembers: [
+        {
+          name: "Caesar van Heyningen",
+          role: "Co-Founder, CEO",
+          image:
+            "https://cdn.prod.website-files.com/654df9b20f372437da4ec02f/65f80cf1e286d17772695f2e_CaesarVanHeyningen.png",
+          summary:
+            "Caesar steuert Strategie, Partnerschaften und Marktentwicklung, damit CUREO in der Versorgung messbar Wirkung erzielt.",
+          linkedin: "https://www.linkedin.com/in/caesarvanheyningen/",
+          email: "mailto:info@cureosity.com?subject=Anfrage%20an%20Caesar%20van%20Heyningen"
+        },
+        {
+          name: "Stefan Arand",
+          role: "Co-Founder, COO & Product Owner",
+          image:
+            "https://cdn.prod.website-files.com/654df9b20f372437da4ec02f/65f80cdb70826ff4e2d6ce60_StefanArand.png",
+          summary:
+            "Stefan verantwortet Produktstruktur und Operations, damit klinische Teams CUREO effizient in den Alltag integrieren können.",
+          linkedin: "https://www.linkedin.com/in/stefan-arand-953a65105/",
+          email: "mailto:info@cureosity.com?subject=Anfrage%20an%20Stefan%20Arand"
+        },
+        {
+          name: "Thomas Saur",
+          role: "Co-Founder, CTO",
+          image:
+            "https://cdn.prod.website-files.com/654df9b20f372437da4ec02f/65f80ceac64e601af9ea6b95_ThomasSaur.png",
+          summary:
+            "Thomas entwickelt die technologische Basis von CUREO und sorgt für eine stabile, skalierbare Plattform.",
+          linkedin: "https://www.linkedin.com/in/thomassaur/",
+          email: "mailto:info@cureosity.com?subject=Anfrage%20an%20Thomas%20Saur"
+        }
+      ],
+      aboutTitle: "Über CUREOSITY",
+      aboutBody:
+        "CUREOSITY ist aus dem Anspruch entstanden, Neurorehabilitation mit digitaler Therapie wirksam und alltagstauglich zu unterstützen. Mit CUREO verbinden wir evidenzorientierte Therapieinhalte, klare Prozesse und eine hohe Motivation für Patienten und Therapeuten.",
+      aboutImage:
+        "https://cdn.prod.website-files.com/654df9b20f372437da4ec02f/65fd5a6306f0ad50cbc22888_CUREOSITYProgrammierer.jpg",
+      founderTitle: "Founder Story",
+      founderBodyA:
+        "Im Fokus der Gründer stand von Beginn an die Frage, wie Rehabilitation nachhaltig verbessert werden kann. Aus klinischer Erfahrung und technologischer Expertise entstand Schritt für Schritt eine Therapieplattform, die heute in über 300 Einrichtungen eingesetzt wird.",
+      founderBodyB:
+        "CUREOSITY entwickelt die Lösung kontinuierlich weiter und arbeitet eng mit Einrichtungen aus Akutversorgung, Reha und ambulanter Therapie zusammen.",
+      founderImage:
+        "https://cdn.prod.website-files.com/654df9b20f372437da4ec02f/65fc384ebf5f7859fca47a56_WhoAreWe.jpg",
+      cultureTitle: "Unser Team",
+      cultureBodyA:
+        "Unser Team vereint Therapie, Produktentwicklung und Technologie in interdisziplinärer Zusammenarbeit. So entstehen Lösungen, die sich an realen Abläufen in Kliniken und Praxen orientieren.",
+      cultureBodyB:
+        "Wir arbeiten pragmatisch, partnerschaftlich und mit klarem Qualitätsanspruch, um den therapeutischen Alltag nachhaltig zu verbessern.",
+      cultureImage:
+        "https://cdn.prod.website-files.com/654df9b20f372437da4ec02f/659e6a05542f09f9b8ec5fc1_Nico_Ilka_Team.jpg",
+      awardsTitle: "Ausgezeichnetes Produkt und Unternehmen",
+      awardsBody:
+        "Für unsere Innovationen im Gesundheitswesen wurde CUREOSITY mehrfach ausgezeichnet, unter anderem mit dem Deutschen Innovationspreis und dem WSA Winner Award.",
+      locationsTitle: "Unsere Standorte",
+      locations: [
+        {
+          name: "CUREosity GmbH (Headquarter)",
+          city: "Düsseldorf",
+          address: "Hansaallee 299, 40549 Düsseldorf",
+          image:
+            "https://cdn.prod.website-files.com/654df9b20f372437da4ec02f/65f2af77ea3b57f72f13a8da_Headquarter_CUREOSITY.jpg"
+        },
+        {
+          name: "Production | R&D",
+          city: "Düsseldorf",
+          address: "Wiesenstr. 21, 40549 Düsseldorf",
+          image:
+            "https://cdn.prod.website-files.com/654df9b20f372437da4ec02f/65f2af7786c489e66f67ebec_ProductionLocation_CUREO.jpg"
+        },
+        {
+          name: "Sales Hub",
+          city: "München",
+          address: "Dingolfinger Str. 15, 81673 München",
+          image:
+            "https://cdn.prod.website-files.com/654df9b20f372437da4ec02f/65f2af77cf2ecd8c59c2ec5d_SalesHub_CUREOSITY.jpg"
+        }
+      ],
+      nextTitle: "Wie geht es weiter?",
+      nextCards: [
+        {
+          title: "Werden Sie Teil von CUREOSITY!",
+          cta: "Karriere",
+          href: careerHref
+        },
+        {
+          title: "Mehr über uns im Newsroom",
+          cta: "Newsroom",
+          href: newsroomHref
+        }
+      ],
+      linkedinCta: "LinkedIn",
+      emailCta: "E-Mail"
+    }
+  : {
+      heroTitle: "The management team",
+      heroImage: "https://cdn.prod.website-files.com/654df9b20f372437da4ec02f/65eaf010721b4f9912c28ccf_Cteam.jpg",
+      teamTitle: "Leadership at CUREOSITY",
+      teamMembers: [
+        {
+          name: "Caesar van Heyningen",
+          role: "Co-Founder, CEO",
+          image:
+            "https://cdn.prod.website-files.com/654df9b20f372437da4ec02f/65f80cf1e286d17772695f2e_CaesarVanHeyningen.png",
+          summary:
+            "Caesar leads strategy, partnerships, and market development to scale measurable impact with CUREO.",
+          linkedin: "https://www.linkedin.com/in/caesarvanheyningen/",
+          email: "mailto:info@cureosity.com?subject=Inquiry%20for%20Caesar%20van%20Heyningen"
+        },
+        {
+          name: "Stefan Arand",
+          role: "Co-Founder, COO & Product Owner",
+          image:
+            "https://cdn.prod.website-files.com/654df9b20f372437da4ec02f/65f80cdb70826ff4e2d6ce60_StefanArand.png",
+          summary:
+            "Stefan drives product structure and operations so clinical teams can integrate CUREO efficiently.",
+          linkedin: "https://www.linkedin.com/in/stefan-arand-953a65105/",
+          email: "mailto:info@cureosity.com?subject=Inquiry%20for%20Stefan%20Arand"
+        },
+        {
+          name: "Thomas Saur",
+          role: "Co-Founder, CTO",
+          image:
+            "https://cdn.prod.website-files.com/654df9b20f372437da4ec02f/65f80ceac64e601af9ea6b95_ThomasSaur.png",
+          summary:
+            "Thomas leads CUREO's technology foundation and ensures a stable, scalable product architecture.",
+          linkedin: "https://www.linkedin.com/in/thomassaur/",
+          email: "mailto:info@cureosity.com?subject=Inquiry%20for%20Thomas%20Saur"
+        }
+      ],
+      aboutTitle: "About CUREOSITY",
+      aboutBody:
+        "CUREOSITY was built to make neurorehabilitation more effective through digital therapy. With CUREO, we combine evidence-oriented therapy content, clear workflows, and strong patient motivation in one platform.",
+      aboutImage:
+        "https://cdn.prod.website-files.com/654df9b20f372437da4ec02f/65fd5a6306f0ad50cbc22888_CUREOSITYProgrammierer.jpg",
+      founderTitle: "Founder story",
+      founderBodyA:
+        "From day one, the founders focused on one key question: how can rehabilitation outcomes improve sustainably? Based on clinical insight and technology expertise, CUREO evolved into a therapy platform now used in more than 300 institutions.",
+      founderBodyB:
+        "CUREOSITY continues to iterate closely with acute-care, rehab, and outpatient partners to keep product development grounded in real clinical workflows.",
+      founderImage:
+        "https://cdn.prod.website-files.com/654df9b20f372437da4ec02f/65fc384ebf5f7859fca47a56_WhoAreWe.jpg",
+      cultureTitle: "About our team",
+      cultureBodyA:
+        "Our team combines therapy, product, and engineering expertise in an interdisciplinary setup. This allows us to build solutions that work in real clinical processes.",
+      cultureBodyB:
+        "We work pragmatically, collaboratively, and with a high quality standard to improve therapy outcomes in a sustainable way.",
+      cultureImage:
+        "https://cdn.prod.website-files.com/654df9b20f372437da4ec02f/659e6a05542f09f9b8ec5fc1_Nico_Ilka_Team.jpg",
+      awardsTitle: "Award winning product and company",
+      awardsBody:
+        "For our innovation in healthcare, CUREOSITY has received several awards, including the German Innovation Award and WSA Winner.",
+      locationsTitle: "Our locations",
+      locations: [
+        {
+          name: "CUREosity GmbH (Headquarter)",
+          city: "Düsseldorf",
+          address: "Hansaallee 299, 40549 Düsseldorf",
+          image:
+            "https://cdn.prod.website-files.com/654df9b20f372437da4ec02f/65f2af77ea3b57f72f13a8da_Headquarter_CUREOSITY.jpg"
+        },
+        {
+          name: "Production | R&D",
+          city: "Düsseldorf",
+          address: "Wiesenstr. 21, 40549 Düsseldorf",
+          image:
+            "https://cdn.prod.website-files.com/654df9b20f372437da4ec02f/65f2af7786c489e66f67ebec_ProductionLocation_CUREO.jpg"
+        },
+        {
+          name: "Sales Hub",
+          city: "Munich",
+          address: "Dingolfinger Str. 15, 81673 München",
+          image:
+            "https://cdn.prod.website-files.com/654df9b20f372437da4ec02f/65f2af77cf2ecd8c59c2ec5d_SalesHub_CUREOSITY.jpg"
+        }
+      ],
+      nextTitle: "What's next?",
+      nextCards: [
+        {
+          title: "Become part of CUREOSITY!",
+          cta: "Career",
+          href: careerHref
+        },
+        {
+          title: "Find out more about us in our newsroom",
+          cta: "Newsroom",
+          href: newsroomHref
+        }
+      ],
+      linkedinCta: "LinkedIn",
+      emailCta: "Email"
+    };
+
+const awardLogos = [
+  "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/65f312f0e5e771340b1e0d4b_Innovationspreis.png",
+  "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/65f312f067e570875146e367_WSA-Winner-2020_winner-1030x390_edited.jpg",
+  "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/65f312f073685dd4e40f04ec_MKA2022_Winner.jpg",
+  "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/6616951bc6eac5af61383b6f_Scale_up_NRW_Logo_color.png"
+];
+---
+
+<section class="company-page" data-reveal>
+  <div class="shell">
+    <section class="hero block">
+      <h1>{copy.heroTitle}</h1>
+      <img src={copy.heroImage} alt={copy.heroTitle} loading="eager" />
+    </section>
+
+    <section class="leaders block">
+      <h2>{copy.teamTitle}</h2>
+      <div class="leader-grid">
+        {
+          copy.teamMembers.map((member) => (
+            <article class="leader-card">
+              <img src={member.image} alt={member.name} loading="lazy" />
+              <h3>{member.name}</h3>
+              <p class="role">{member.role}</p>
+              <p class="summary">{member.summary}</p>
+              <div class="actions">
+                <a href={member.email}>{copy.emailCta}</a>
+                <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
+                  {copy.linkedinCta}
+                </a>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="about block">
+      <h2>{copy.aboutTitle}</h2>
+      <p>{copy.aboutBody}</p>
+      <img src={copy.aboutImage} alt={copy.aboutTitle} loading="lazy" />
+    </section>
+
+    <section class="split block">
+      <article class="text-card">
+        <h3>{copy.founderTitle}</h3>
+        <p>{copy.founderBodyA}</p>
+        <p>{copy.founderBodyB}</p>
+      </article>
+      <img src={copy.founderImage} alt={copy.founderTitle} loading="lazy" />
+    </section>
+
+    <section class="split block reverse">
+      <article class="text-card">
+        <h3>{copy.cultureTitle}</h3>
+        <p>{copy.cultureBodyA}</p>
+        <p>{copy.cultureBodyB}</p>
+      </article>
+      <img src={copy.cultureImage} alt={copy.cultureTitle} loading="lazy" />
+    </section>
+
+    <section class="awards block">
+      <div class="award-grid" role="list" aria-label={copy.awardsTitle}>
+        {
+          awardLogos.map((logo) => (
+            <article role="listitem" class="award-logo">
+              <img src={logo} alt="Award logo" loading="lazy" />
+            </article>
+          ))
+        }
+      </div>
+      <article class="text-card">
+        <h3>{copy.awardsTitle}</h3>
+        <p>{copy.awardsBody}</p>
+      </article>
+    </section>
+
+    <section class="locations block">
+      <h2>{copy.locationsTitle}</h2>
+      <div class="location-grid">
+        {
+          copy.locations.map((location) => (
+            <article class="location-card">
+              <h3>{location.name}</h3>
+              <p class="city">{location.city}</p>
+              <img src={location.image} alt={`${location.name} ${location.city}`} loading="lazy" />
+              <p class="address">{location.address}</p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="next block">
+      <h2>{copy.nextTitle}</h2>
+      <div class="next-grid">
+        {
+          copy.nextCards.map((card) => (
+            <article class="next-card">
+              <h3>{card.title}</h3>
+              <a href={card.href}>{card.cta}</a>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+  </div>
+</section>
+
+<style>
+  .company-page {
+    background: #fff;
+    padding: clamp(1rem, 2vw, 1.8rem) clamp(0.9rem, 2.4vw, 1.6rem) clamp(2rem, 4vw, 3.2rem);
+  }
+
+  .shell {
+    margin: 0 auto;
+    max-width: 1240px;
+    display: grid;
+    gap: 1.12rem;
+  }
+
+  .block {
+    background: #f7f9f6;
+    border-radius: 8px;
+    padding: clamp(1rem, 2vw, 1.5rem);
+  }
+
+  .hero h1,
+  .leaders h2,
+  .about h2,
+  .locations h2,
+  .next h2 {
+    color: #1f3326;
+    font-size: clamp(1.45rem, 2.8vw, 2.5rem);
+    letter-spacing: -0.02em;
+    line-height: 1.13;
+    margin: 0 0 0.9rem;
+    text-align: center;
+  }
+
+  .hero img {
+    width: 100%;
+    border-radius: 8px;
+    aspect-ratio: 16 / 8;
+    object-fit: cover;
+  }
+
+  .leader-grid,
+  .location-grid,
+  .next-grid {
+    display: grid;
+    gap: 0.8rem;
+  }
+
+  .leader-grid,
+  .location-grid,
+  .next-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .leader-card,
+  .location-card,
+  .next-card,
+  .text-card,
+  .award-logo {
+    background: #fff;
+    border-radius: 8px;
+    padding: 0.8rem;
+  }
+
+  .leader-card {
+    display: grid;
+    grid-template-rows: auto auto auto 1fr auto;
+    gap: 0.38rem;
+  }
+
+  .leader-card img {
+    width: 100%;
+    border-radius: 8px;
+    aspect-ratio: 4 / 5;
+    object-fit: contain;
+    background: #f8faf6;
+  }
+
+  .leader-card h3,
+  .location-card h3,
+  .next-card h3 {
+    color: #22362a;
+    font-size: clamp(1.02rem, 1.35vw, 1.2rem);
+    margin: 0;
+  }
+
+  .leader-card .role {
+    color: #5f871d;
+    font-size: 0.94rem;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  .leader-card .summary,
+  .about p,
+  .text-card p {
+    color: #415549;
+    font-size: clamp(0.95rem, 1.04vw, 1.02rem);
+    line-height: 1.56;
+    margin: 0;
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-top: 0.25rem;
+  }
+
+  .actions a,
+  .next-card a {
+    background: #6f9c21;
+    border-radius: 8px;
+    color: #fff;
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 1;
+    padding: 0.6rem 0.9rem;
+    text-decoration: none;
+    transition: background 180ms ease, transform 180ms ease;
+  }
+
+  .about {
+    text-align: center;
+  }
+
+  .about p {
+    margin: 0 auto 0.8rem;
+    max-width: 90ch;
+  }
+
+  .about img {
+    width: 100%;
+    border-radius: 8px;
+    aspect-ratio: 16 / 8;
+    object-fit: cover;
+  }
+
+  .split,
+  .awards {
+    display: grid;
+    gap: 0.8rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+  }
+
+  .split img {
+    width: 100%;
+    border-radius: 8px;
+    min-height: 100%;
+    object-fit: cover;
+  }
+
+  .text-card {
+    display: grid;
+    align-content: start;
+    gap: 0.55rem;
+  }
+
+  .text-card h3 {
+    color: #23362a;
+    font-size: clamp(1.2rem, 1.7vw, 1.6rem);
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+
+  .award-grid {
+    display: grid;
+    gap: 0.65rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .award-logo {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    min-height: 140px;
+  }
+
+  .award-logo img {
+    width: 100%;
+    max-width: 220px;
+    max-height: 90px;
+    object-fit: contain;
+  }
+
+  .location-card {
+    display: grid;
+    gap: 0.35rem;
+    text-align: center;
+  }
+
+  .location-card .city {
+    color: #5f871d;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  .location-card img {
+    width: 100%;
+    border-radius: 8px;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+  }
+
+  .location-card .address {
+    color: #4b6052;
+    font-size: 0.93rem;
+    margin: 0.2rem 0 0;
+  }
+
+  .next-card {
+    display: grid;
+    gap: 0.6rem;
+    justify-items: center;
+    text-align: center;
+  }
+
+  @media (hover: hover) {
+    .actions a:hover,
+    .next-card a:hover {
+      background: #5f891d;
+      transform: translateY(-1px);
+    }
+  }
+
+  @media (max-width: 1080px) {
+    .leader-grid,
+    .location-grid,
+    .next-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 900px) {
+    .split,
+    .awards {
+      grid-template-columns: 1fr;
+    }
+
+    .split.reverse .text-card {
+      order: -1;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .company-page {
+      padding: 0.85rem 0.8rem 1.7rem;
+    }
+
+    .leader-grid,
+    .location-grid,
+    .next-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero img,
+    .about img {
+      aspect-ratio: 16 / 9;
+    }
+  }
+</style>

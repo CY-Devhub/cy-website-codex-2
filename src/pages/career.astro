@@ -1,0 +1,12 @@
+---
+import Layout from "../layouts/Layout.astro";
+import TopNav from "../components/TopNav.astro";
+import CareerPageContent from "../components/CareerPageContent.astro";
+import { CureoFooter } from "../../devlink/CureoFooter.jsx";
+---
+
+<Layout lang="en" title="CUREO | Career">
+  <TopNav lang="en" />
+  <CareerPageContent lang="en" />
+  <CureoFooter lang="en" client:load />
+</Layout>

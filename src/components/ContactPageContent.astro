@@ -1,0 +1,95 @@
+---
+const lang = Astro.props.lang === "de" ? "de" : "en";
+
+const copy = lang === "de"
+  ? {
+      title: "Kontakt",
+      intro:
+        "Möchten Sie CUREO für Ihre Einrichtung kennenlernen? Buchen Sie direkt einen Termin mit unserem Team oder nutzen Sie das Kontaktformular unten.",
+      cta: "Termin vereinbaren",
+      ctaHref: "https://meetings-eu1.hubspot.com/cureosity/terminbuchungstool-de"
+    }
+  : {
+      title: "Contact",
+      intro:
+        "Would you like to explore CUREO for your institution? Book an appointment with our team directly or use the contact form below.",
+      cta: "Book appointment",
+      ctaHref: "https://meetings-eu1.hubspot.com/cureosity/terminbuchungstool-de"
+    };
+---
+
+<section class="contact-intro" data-reveal>
+  <div class="shell">
+    <article class="intro-card">
+      <h1>{copy.title}</h1>
+      <p>{copy.intro}</p>
+      <a href={copy.ctaHref} target="_blank" rel="noopener noreferrer">
+        {copy.cta}
+      </a>
+    </article>
+  </div>
+</section>
+
+<style>
+  .contact-intro {
+    background: #fff;
+    padding: clamp(1rem, 2vw, 1.8rem) clamp(0.9rem, 2.4vw, 1.6rem) 1rem;
+  }
+
+  .shell {
+    margin: 0 auto;
+    max-width: 1240px;
+  }
+
+  .intro-card {
+    background: #f7f9f6;
+    border-radius: 8px;
+    display: grid;
+    gap: 0.75rem;
+    justify-items: center;
+    padding: clamp(1.1rem, 2vw, 1.6rem) 1rem;
+    text-align: center;
+  }
+
+  .intro-card h1 {
+    color: #1f3326;
+    font-size: clamp(1.5rem, 2.8vw, 2.5rem);
+    letter-spacing: -0.02em;
+    line-height: 1.12;
+    margin: 0;
+  }
+
+  .intro-card p {
+    color: #42564a;
+    font-size: clamp(0.95rem, 1.08vw, 1.03rem);
+    line-height: 1.55;
+    margin: 0;
+    max-width: 86ch;
+  }
+
+  .intro-card a {
+    background: #6f9c21;
+    border-radius: 8px;
+    color: #fff;
+    display: inline-block;
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1;
+    padding: 0.66rem 1.08rem;
+    text-decoration: none;
+    transition: background 180ms ease, transform 180ms ease;
+  }
+
+  @media (hover: hover) {
+    .intro-card a:hover {
+      background: #5f891d;
+      transform: translateY(-1px);
+    }
+  }
+
+  @media (max-width: 700px) {
+    .contact-intro {
+      padding: 0.85rem 0.8rem 0.8rem;
+    }
+  }
+</style>

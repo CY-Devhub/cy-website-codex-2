@@ -1,0 +1,350 @@
+---
+import awardsStrip from "../assets/img/AboutCareer/awards.jpg";
+import awardInnovation from "../assets/img/AboutCareer/awards_innovationspreis.png";
+import awardMK from "../assets/img/AboutCareer/awards_MK.jpg";
+import awardScaleUp from "../assets/img/AboutCareer/Awards_Scale Up NRW.png";
+
+const lang = Astro.props.lang === "de" ? "de" : "en";
+const base = import.meta.env.BASE_URL || "/";
+const normalizedBase = base.endsWith("/") ? base : `${base}/`;
+const heroVideoFile = "66d198a6919a78ec9e78bcab_DJI_0296_1080 (1).mp4";
+const heroVideoSrc = `${normalizedBase}video/${encodeURIComponent(heroVideoFile)}`;
+const valueAppreciation = new URL("../assets/img/AboutCareer/Value_Appreciation.svg", import.meta.url).href;
+const valueStayHungry = new URL("../assets/img/AboutCareer/Value_StayHungry.svg", import.meta.url).href;
+const valueOnMission = new URL("../assets/img/AboutCareer/Value_OnaMission.svg", import.meta.url).href;
+const valueCollaboration = new URL("../assets/img/AboutCareer/Value_Collaboration.svg", import.meta.url).href;
+
+const copy = lang === "de"
+  ? {
+      heroTitle: "Karriere bei CUREOSITY",
+      openVacancies: "Offene Stellen",
+      cultureTitle: "Wie ist es, bei CUREOSITY zu arbeiten?",
+      vacanciesTitle: "Offene Positionen",
+      vacanciesBody:
+        "Aktuell haben wir keine offenen Positionen ausgeschrieben. In der deutschen Karriere-Übersicht finden Sie neue Stellen, sobald sie veröffentlicht werden.",
+      vacanciesCta: "Alle Jobs ansehen",
+      vacanciesHref: "https://www.cureosity.com/de/about/karriere",
+      valuesTitle: "Unsere Werte",
+      values: [
+        {
+          icon: valueAppreciation,
+          text: "Wertschätzung | Positivität statt Politik"
+        },
+        {
+          icon: valueStayHungry,
+          text: "Hungrig bleiben | Positiven Wandel gestalten"
+        },
+        {
+          icon: valueOnMission,
+          text: "Mission klar | Das große Ganze im Blick"
+        },
+        {
+          icon: valueCollaboration,
+          text: "Zusammenarbeit | Als Team gewinnen"
+        }
+      ],
+      coopTitle: "Kooperationen, Auszeichnungen und Feedback"
+    }
+  : {
+      heroTitle: "Career at CUREOSITY",
+      openVacancies: "Open vacancies",
+      cultureTitle: "What is working at CUREOSITY like?",
+      vacanciesTitle: "Vacant positions",
+      vacanciesBody:
+        "Currently we have no open positions. You can check the German version of our page for roles that require fluent German skills.",
+      vacanciesCta: "Show all jobs",
+      vacanciesHref: "https://www.cureosity.com/de/about/karriere",
+      valuesTitle: "Our values",
+      values: [
+        {
+          icon: valueAppreciation,
+          text: "Appreciation | Spread positivity - not politics"
+        },
+        {
+          icon: valueStayHungry,
+          text: "Staying hungry | Creating positive change!"
+        },
+        {
+          icon: valueOnMission,
+          text: "On a mission | Seeing the bigger picture!"
+        },
+        {
+          icon: valueCollaboration,
+          text: "Collaboration | Winning as a team!"
+        }
+      ],
+      coopTitle: "Cooperations, awards, and feedback"
+    };
+
+const coopLogos = [
+  { src: awardsStrip.src, alt: "Academic and industry partners" },
+  { src: awardInnovation.src, alt: "German Innovation Award" },
+  { src: awardScaleUp.src, alt: "Scale Up NRW" },
+  { src: awardMK.src, alt: "Management & Krankenhaus Award" },
+  {
+    src: "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/65f312f067e570875146e367_WSA-Winner-2020_winner-1030x390_edited.jpg",
+    alt: "WSA Winner"
+  },
+  {
+    src: "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/65a78b555d296eb35e03c24f_ADZ-Siegel%20CUREosity%20GmbH.png",
+    alt: "Top digitalization award seal"
+  }
+];
+---
+
+<section class="career-page" data-reveal>
+  <div class="shell">
+    <section class="hero block">
+      <div class="hero-media">
+        <video src={heroVideoSrc} autoplay muted loop playsinline controls preload="metadata"></video>
+        <a class="open-vacancies" href="#vacancies">{copy.openVacancies}</a>
+      </div>
+    </section>
+
+    <section class="culture block">
+      <h1>{copy.cultureTitle}</h1>
+      <div class="video-wrap">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/Xl4LTkqt1V8"
+          title={copy.cultureTitle}
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </section>
+
+    <section id="vacancies" class="vacancies block">
+      <h2>{copy.vacanciesTitle}</h2>
+      <p>{copy.vacanciesBody}</p>
+      <a href={copy.vacanciesHref} target="_blank" rel="noopener noreferrer">
+        {copy.vacanciesCta}
+      </a>
+    </section>
+
+    <section class="values block">
+      <h2>{copy.valuesTitle}</h2>
+      <div class="values-grid">
+        {
+          copy.values.map((item) => (
+            <article class="value-card">
+              <img src={item.icon} alt={item.text} loading="lazy" />
+              <p>{item.text}</p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="cooperations block">
+      <h2>{copy.coopTitle}</h2>
+      <div class="cooperation-grid" role="list" aria-label={copy.coopTitle}>
+        {
+          coopLogos.map((logo) => (
+            <article class="coop-logo" role="listitem">
+              <img src={logo.src} alt={logo.alt} loading="lazy" />
+            </article>
+          ))
+        }
+      </div>
+    </section>
+  </div>
+</section>
+
+<style>
+  .career-page {
+    background: #fff;
+    padding: clamp(1rem, 2vw, 1.8rem) clamp(0.9rem, 2.4vw, 1.6rem) clamp(2rem, 4vw, 3.2rem);
+  }
+
+  .shell {
+    margin: 0 auto;
+    max-width: 1240px;
+    display: grid;
+    gap: 1.1rem;
+  }
+
+  .block {
+    background: #f7f9f6;
+    border-radius: 8px;
+    padding: clamp(1rem, 2vw, 1.5rem);
+  }
+
+  .hero {
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .hero-media {
+    position: relative;
+  }
+
+  .hero video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  .open-vacancies {
+    background: #6f9c21;
+    border-radius: 8px;
+    bottom: 0.8rem;
+    color: #fff;
+    font-size: 0.92rem;
+    font-weight: 700;
+    left: 0.8rem;
+    line-height: 1;
+    padding: 0.6rem 0.95rem;
+    position: absolute;
+    text-decoration: none;
+    transition: background 180ms ease, transform 180ms ease;
+  }
+
+  .culture h1,
+  .vacancies h2,
+  .values h2,
+  .cooperations h2 {
+    color: #1f3326;
+    font-size: clamp(1.45rem, 2.8vw, 2.45rem);
+    letter-spacing: -0.02em;
+    line-height: 1.14;
+    margin: 0 0 0.9rem;
+    text-align: center;
+  }
+
+  .video-wrap {
+    background: #000;
+    border-radius: 8px;
+    margin: 0 auto;
+    max-width: 1100px;
+    overflow: hidden;
+  }
+
+  .video-wrap iframe {
+    border: 0;
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+  }
+
+  .vacancies {
+    text-align: center;
+  }
+
+  .vacancies p {
+    color: #42564a;
+    font-size: clamp(0.95rem, 1.05vw, 1.02rem);
+    line-height: 1.55;
+    margin: 0 auto 0.8rem;
+    max-width: 90ch;
+  }
+
+  .vacancies a {
+    background: #6f9c21;
+    border-radius: 8px;
+    color: #fff;
+    display: inline-block;
+    font-size: 0.92rem;
+    font-weight: 700;
+    line-height: 1;
+    padding: 0.62rem 1rem;
+    text-decoration: none;
+    transition: background 180ms ease, transform 180ms ease;
+  }
+
+  .values-grid {
+    display: grid;
+    gap: 0.8rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .value-card {
+    align-items: center;
+    background: #fff;
+    border-radius: 8px;
+    display: grid;
+    gap: 0.55rem;
+    justify-items: center;
+    min-height: 210px;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .value-card img {
+    width: 66px;
+    height: 66px;
+    object-fit: contain;
+  }
+
+  .value-card p {
+    color: #23362a;
+    font-size: clamp(1rem, 1.15vw, 1.1rem);
+    font-weight: 500;
+    line-height: 1.35;
+    margin: 0;
+    max-width: 34ch;
+  }
+
+  .cooperation-grid {
+    display: grid;
+    gap: 0.8rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .coop-logo {
+    align-items: center;
+    background: #fff;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    min-height: 134px;
+    padding: 0.9rem;
+  }
+
+  .coop-logo img {
+    display: block;
+    max-width: 100%;
+    max-height: 84px;
+    object-fit: contain;
+  }
+
+  @media (hover: hover) {
+    .open-vacancies:hover,
+    .vacancies a:hover {
+      background: #5f891d;
+      transform: translateY(-1px);
+    }
+  }
+
+  @media (max-width: 980px) {
+    .cooperation-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 700px) {
+    .career-page {
+      padding: 0.85rem 0.8rem 1.7rem;
+    }
+
+    .values-grid,
+    .cooperation-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .value-card {
+      min-height: 184px;
+    }
+
+    .hero video {
+      aspect-ratio: 16 / 10;
+    }
+
+    .open-vacancies {
+      bottom: 0.6rem;
+      left: 0.6rem;
+    }
+  }
+</style>

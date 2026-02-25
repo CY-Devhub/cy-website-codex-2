@@ -1,0 +1,12 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import TopNav from "../../components/TopNav.astro";
+import NewsroomPageContent from "../../components/NewsroomPageContent.astro";
+import { CureoFooter } from "../../../devlink/CureoFooter.jsx";
+---
+
+<Layout lang="de" title="CUREO | Newsroom">
+  <TopNav lang="de" />
+  <NewsroomPageContent lang="de" />
+  <CureoFooter lang="de" client:load />
+</Layout>

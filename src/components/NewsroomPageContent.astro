@@ -1,0 +1,527 @@
+---
+import contactImage from "../assets/img/AboutCareer/Cureosity_Teamfoto.jpg";
+import eventAImage from "../assets/img/CUREO5/CUREO_Bedsite_Therapy.jpg";
+import eventBImage from "../assets/img/CUREO5/CUREO5_Tablet_And_Patient.jpg";
+import eventCImage from "../assets/img/CUREO5/CUREO5_HappyGroupTherapy.webp";
+
+const lang = Astro.props.lang === "de" ? "de" : "en";
+
+const copy = lang === "de"
+  ? {
+      title: "Was gibt's Neues bei CUREOSITY",
+      mediaTitle: "Ansprechpartner für Medien & PR",
+      mediaName: "Laura Teichmann",
+      mediaRole: "Head of Marketing",
+      mediaEmail: "marketing@cureosity.com",
+      pressButtons: [
+        { label: "Pressemitteilungen", href: "https://www.cureosity.com/de/news-events" },
+        { label: "Pressemedien", href: "https://www.cureosity.com/de/news-events" },
+        { label: "Blog", href: "https://www.cureosity.com/de/news-events" }
+      ],
+      eventsTitle: "Treffen Sie uns auf diesen Messen und Veranstaltungen:",
+      eventsPeriod: "Januar - März (Q1) 2026",
+      events: [
+        {
+          title: "Symposium Akutstationäre Physiotherapie",
+          date: "17. Januar, 2026",
+          location: "ZHAW Institut für Public Health, Winterthur, Schweiz",
+          image: eventAImage.src,
+          caption: "Treffen Sie uns in Winterthur",
+          href: "https://www.zhaw.ch/"
+        },
+        {
+          title: "therapro",
+          date: "30. Januar bis 1. Februar, 2026",
+          location: "Landesmesse Stuttgart GmbH & Co. KG, Stuttgart",
+          image: eventBImage.src,
+          caption: "Treffen Sie uns in Halle 4, Stand 4D19",
+          href: "https://www.therapro-messe.de/"
+        },
+        {
+          title: "Reha-Kolloquium",
+          date: "24. bis 26. März, 2026",
+          location: "Congress Center Leipzig (CCL), Leipzig",
+          image: eventCImage.src,
+          caption: "Treffen Sie uns in Leipzig",
+          href: "https://www.reha-kolloquium.de/"
+        }
+      ],
+      eventsCta: "Event Webseite",
+      socialTitle: "Unsere Social Media Beiträge:",
+      showAll: "Alle anzeigen",
+      product: "Produkt",
+      company: "Unternehmen",
+      eventsTag: "Veranstaltungen"
+    }
+  : {
+      title: "What's new at CUREOSITY",
+      mediaTitle: "Media & PR Contact",
+      mediaName: "Laura Teichmann",
+      mediaRole: "Head of Marketing",
+      mediaEmail: "marketing@cureosity.com",
+      pressButtons: [
+        { label: "Press releases", href: "https://www.cureosity.com/news-events" },
+        { label: "Press media", href: "https://www.cureosity.com/news-events" },
+        { label: "Blog", href: "https://www.cureosity.com/news-events" }
+      ],
+      eventsTitle: "Meet us at these trade fairs and events:",
+      eventsPeriod: "January - March (Q1) 2026",
+      events: [
+        {
+          title: "Symposium Acute Inpatient Physiotherapy",
+          date: "January 17, 2026",
+          location: "ZHAW Institute of Public Health, Winterthur, Switzerland",
+          image: eventAImage.src,
+          caption: "Meet us in Winterthur",
+          href: "https://www.zhaw.ch/"
+        },
+        {
+          title: "therapro",
+          date: "January 30 to February 1, 2026",
+          location: "Landesmesse Stuttgart GmbH & Co. KG, Stuttgart",
+          image: eventBImage.src,
+          caption: "Meet us in Hall 4, Booth 4D19",
+          href: "https://www.therapro-messe.de/"
+        },
+        {
+          title: "Reha Colloquium",
+          date: "March 24 to 26, 2026",
+          location: "Congress Center Leipzig (CCL), Leipzig",
+          image: eventCImage.src,
+          caption: "Meet us in Leipzig",
+          href: "https://www.reha-kolloquium.de/"
+        }
+      ],
+      eventsCta: "Event website",
+      socialTitle: "Our social media posts:",
+      showAll: "Show all",
+      product: "Product",
+      company: "Company",
+      eventsTag: "Events"
+    };
+---
+
+<section class="newsroom-page" data-reveal>
+  <div class="shell">
+    <section class="intro block">
+      <h1>{copy.title}</h1>
+      <div class="intro-grid">
+        <article class="media-card">
+          <h2>{copy.mediaTitle}</h2>
+          <div class="media-row">
+            <img src={contactImage.src} alt={copy.mediaName} loading="lazy" />
+            <div class="media-copy">
+              <h3>{copy.mediaName}</h3>
+              <p>{copy.mediaRole}</p>
+              <a href={`mailto:${copy.mediaEmail}`}>{copy.mediaEmail}</a>
+            </div>
+          </div>
+        </article>
+        <aside class="press-links">
+          {
+            copy.pressButtons.map((item) => (
+              <a href={item.href} target="_blank" rel="noopener noreferrer">
+                {item.label}
+              </a>
+            ))
+          }
+        </aside>
+      </div>
+    </section>
+
+    <section class="events block">
+      <h2>{copy.eventsTitle}</h2>
+      <p class="period">{copy.eventsPeriod}</p>
+      <div class="event-grid">
+        {
+          copy.events.map((item) => (
+            <article class="event-card">
+              <h3>{item.title}</h3>
+              <p class="date">{item.date}</p>
+              <p class="location">{item.location}</p>
+              <img src={item.image} alt={item.title} loading="lazy" />
+              <p class="caption">{item.caption}</p>
+              <a href={item.href} target="_blank" rel="noopener noreferrer">
+                {copy.eventsCta}
+              </a>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="social block">
+      <h2>{copy.socialTitle}</h2>
+
+      <nav class="flockler-nav" data-flockler-nav>
+        <div class="category-row">
+          <button
+            type="button"
+            class="active"
+            data-tag=""
+            data-label-en="Show all"
+            data-label-de="Alle anzeigen"
+          >
+            {copy.showAll}
+          </button>
+          <button
+            type="button"
+            data-tag="CUREO"
+            data-label-en="Product"
+            data-label-de="Produkt"
+          >
+            {copy.product}
+          </button>
+          <button
+            type="button"
+            data-tag="CUREosity"
+            data-label-en="Company"
+            data-label-de="Unternehmen"
+          >
+            {copy.company}
+          </button>
+          <button
+            type="button"
+            data-tag="Events"
+            data-label-en="Events"
+            data-label-de="Veranstaltungen"
+          >
+            {copy.eventsTag}
+          </button>
+        </div>
+
+        <div class="language-row">
+          <button type="button" class="active" data-lang="EN">EN</button>
+          <button type="button" data-lang="DE">DE</button>
+        </div>
+      </nav>
+
+      <div id="flockler-embed-18e1d34537c080a5bff699de768bf4f4"></div>
+    </section>
+  </div>
+</section>
+
+<script src="https://plugins.flockler.com/embed/18d169820e70f828653e361324e93e2a/18e1d34537c080a5bff699de768bf4f4?autoload=false" async></script>
+
+<script is:inline>
+  (() => {
+    const embedUuid = "18e1d34537c080a5bff699de768bf4f4";
+    const navRoot = document.querySelector("[data-flockler-nav]");
+    if (!navRoot) return;
+
+    const categoryButtons = Array.from(navRoot.querySelectorAll("[data-tag]"));
+    const languageButtons = Array.from(navRoot.querySelectorAll("[data-lang]"));
+    const htmlLang = (document.documentElement.lang || "en").toLowerCase();
+    let language = htmlLang.startsWith("de") ? "DE" : "EN";
+    let currentTag = "";
+    let embed = null;
+
+    const setActiveButton = (buttons, value, key) => {
+      buttons.forEach((button) => {
+        const isActive = (button.dataset[key] || "") === value;
+        button.classList.toggle("active", isActive);
+      });
+    };
+
+    const updateCategoryLabels = () => {
+      const labelKey = language === "DE" ? "labelDe" : "labelEn";
+      categoryButtons.forEach((button) => {
+        const label = button.dataset[labelKey];
+        if (label) button.textContent = label;
+      });
+    };
+
+    const destroyEmbed = () => {
+      if (!embed) return;
+      embed.destroy();
+      embed = null;
+    };
+
+    const renderEmbed = (contentType = "") => {
+      currentTag = contentType;
+      const baseConfig = window.flcklr?.EmbedConfigs?.[embedUuid];
+      if (!baseConfig || !window.flcklr?.Embeds) return;
+
+      const config = contentType.length
+        ? Object.assign({}, baseConfig, {
+            tags: [contentType, language],
+            tagFilterType: "all"
+          })
+        : Object.assign({}, baseConfig, {
+            tags: [language]
+          });
+
+      destroyEmbed();
+      embed = window.flcklr.Embeds.create(config);
+    };
+
+    categoryButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const tag = button.dataset.tag || "";
+        setActiveButton(categoryButtons, tag, "tag");
+        renderEmbed(tag);
+      });
+    });
+
+    languageButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        language = button.dataset.lang || "EN";
+        setActiveButton(languageButtons, language, "lang");
+        updateCategoryLabels();
+        renderEmbed(currentTag);
+      });
+    });
+
+    const interval = window.setInterval(() => {
+      if (!window.flcklr?.Embeds) return;
+      window.clearInterval(interval);
+
+      setActiveButton(languageButtons, language, "lang");
+      setActiveButton(categoryButtons, "", "tag");
+      updateCategoryLabels();
+      renderEmbed("");
+    }, 200);
+  })();
+</script>
+
+<style>
+  .newsroom-page {
+    background: #fff;
+    padding: clamp(1rem, 2vw, 1.8rem) clamp(0.9rem, 2.4vw, 1.6rem) clamp(2rem, 4vw, 3.2rem);
+  }
+
+  .shell {
+    margin: 0 auto;
+    max-width: 1240px;
+    display: grid;
+    gap: 1.1rem;
+  }
+
+  .block {
+    background: #f7f9f6;
+    border-radius: 8px;
+    padding: clamp(1rem, 2vw, 1.5rem);
+  }
+
+  .intro h1,
+  .events h2,
+  .social h2 {
+    color: #1f3326;
+    font-size: clamp(1.5rem, 2.7vw, 2.5rem);
+    letter-spacing: -0.02em;
+    line-height: 1.13;
+    margin: 0 0 0.9rem;
+    text-align: center;
+  }
+
+  .intro-grid {
+    display: grid;
+    gap: 0.8rem;
+    grid-template-columns: minmax(0, 1fr) 220px;
+    align-items: start;
+  }
+
+  .media-card,
+  .press-links a,
+  .event-card {
+    background: #fff;
+    border-radius: 8px;
+  }
+
+  .media-card {
+    padding: 0.9rem;
+  }
+
+  .media-card h2 {
+    color: #22362a;
+    font-size: clamp(1.15rem, 1.6vw, 1.45rem);
+    margin: 0 0 0.65rem;
+  }
+
+  .media-row {
+    display: flex;
+    gap: 0.65rem;
+    align-items: center;
+  }
+
+  .media-row img {
+    width: 86px;
+    height: 86px;
+    border-radius: 999px;
+    object-fit: cover;
+    object-position: center 18%;
+  }
+
+  .media-copy h3 {
+    color: #23362a;
+    margin: 0;
+    font-size: 1.03rem;
+  }
+
+  .media-copy p {
+    color: #5f871d;
+    margin: 0.2rem 0;
+    font-size: 0.94rem;
+    font-weight: 500;
+  }
+
+  .media-copy a {
+    color: #44684a;
+    font-size: 0.92rem;
+  }
+
+  .press-links {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .press-links a {
+    color: #1f3326;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.62rem 0.7rem;
+    text-align: center;
+    text-decoration: none;
+    transition: background 180ms ease, color 180ms ease;
+  }
+
+  .events .period {
+    color: #44584b;
+    font-size: 1.02rem;
+    font-weight: 500;
+    margin: 0 0 0.85rem;
+    text-align: center;
+  }
+
+  .event-grid {
+    display: grid;
+    gap: 0.8rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .event-card {
+    display: grid;
+    gap: 0.45rem;
+    padding: 0.85rem;
+    text-align: center;
+  }
+
+  .event-card h3 {
+    color: #213429;
+    font-size: clamp(1.06rem, 1.4vw, 1.22rem);
+    margin: 0;
+  }
+
+  .event-card .date {
+    color: #5f871d;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  .event-card .location,
+  .event-card .caption {
+    color: #455a4d;
+    font-size: 0.92rem;
+    margin: 0;
+  }
+
+  .event-card img {
+    border-radius: 8px;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+  }
+
+  .event-card a {
+    background: #6f9c21;
+    border-radius: 8px;
+    color: #fff;
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 700;
+    justify-self: center;
+    line-height: 1;
+    margin-top: 0.2rem;
+    padding: 0.6rem 0.92rem;
+    text-decoration: none;
+    transition: background 180ms ease, transform 180ms ease;
+  }
+
+  .social h2 {
+    font-size: clamp(1.35rem, 2.1vw, 1.85rem);
+  }
+
+  .flockler-nav {
+    display: grid;
+    gap: 0.75rem;
+    justify-items: center;
+    margin: 0 0 0.95rem;
+  }
+
+  .category-row,
+  .language-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+
+  .category-row button,
+  .language-row button {
+    background: #fff;
+    border: 0;
+    border-radius: 8px;
+    color: #203428;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.65rem 1.05rem;
+    transition: background 160ms ease, color 160ms ease;
+  }
+
+  .category-row button.active,
+  .language-row button.active {
+    background: #6f9c21;
+    color: #fff;
+  }
+
+  #flockler-embed-18e1d34537c080a5bff699de768bf4f4 {
+    min-height: 540px;
+  }
+
+  @media (hover: hover) {
+    .event-card a:hover {
+      background: #5f891d;
+      transform: translateY(-1px);
+    }
+
+    .press-links a:hover {
+      background: #f0f5ea;
+      color: #183327;
+    }
+  }
+
+  @media (max-width: 1020px) {
+    .intro-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .press-links {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .event-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .newsroom-page {
+      padding: 0.85rem 0.8rem 1.7rem;
+    }
+
+    .press-links {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
