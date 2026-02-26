@@ -25,11 +25,14 @@ const mediaItems = [
   },
   {
     name: "WDR",
-    logo: "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/66041505ea1ceed77349505c_WDR_Dachmarke.svg"
+    logo: "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/66041505ea1ceed77349505c_WDR_Dachmarke.svg",
+    maxHeight: 52,
+    maxWidth: 76
   },
   {
     name: "BBC",
-    logo: bbcLogo.src
+    logo: bbcLogo.src,
+    maxHeight: 56
   },
   {
     name: "Rheinische Post",
@@ -51,16 +54,20 @@ const mediaItems = [
   {
     name: "National Geographic",
     logo: "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/67ceac113bfb70da888f7361_National-Geographic-Logo.svg",
-    link: "https://www.linkedin.com/posts/cureosity-gmbh_cureo-in-national-geographic-activity-7305548314190512129-sXEn/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEqLo3YBW4RYEdSPIK3oq-73KVyO_YZxIXg"
+    link: "https://www.linkedin.com/posts/cureosity-gmbh_cureo-in-national-geographic-activity-7305548314190512129-sXEn/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEqLo3YBW4RYEdSPIK3oq-73KVyO_YZxIXg",
+    maxHeight: 60,
+    maxWidth: 90
   },
   {
     name: "MDR",
-    logo: mdrLogo.src
+    logo: mdrLogo.src,
+    maxHeight: 58
   },
   {
     name: "NDR",
     logo: "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/65cc798d2cb44ac656d019e3_NDR_Dachmarke.svg",
-    link: "https://www.ndr.de/ratgeber/gesundheit/medizinische-forschung,medizinischeforschung101.html"
+    link: "https://www.ndr.de/ratgeber/gesundheit/medizinische-forschung,medizinischeforschung101.html",
+    maxHeight: 62
   },
   {
     name: "Handelsblatt",
@@ -89,11 +96,14 @@ const mediaItems = [
   {
     name: "c't / Heise",
     logo: "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/67ceacd1a38eb5182cb1afec_Ct_logo.svg",
-    link: "https://www.heise.de/select/ct/2025/5/2501511142507247347"
+    link: "https://www.heise.de/select/ct/2025/5/2501511142507247347",
+    maxHeight: 62
   },
   {
     name: "Niederbayern TV",
-    logo: niederbayernLogo.src
+    logo: niederbayernLogo.src,
+    maxHeight: 62,
+    maxWidth: 88
   }
 ];
 
@@ -104,6 +114,13 @@ for (let i = 0; i < mediaItems.length; i += chunkSize) {
 }
 
 const lang = Astro.props.lang === "de" ? "de" : "en";
+const logoSizingStyle = (item) => {
+  const styles = [];
+  if (item.maxHeight) styles.push(`max-height:${item.maxHeight}px`);
+  if (item.maxWidth) styles.push(`max-width:${item.maxWidth}%`);
+  return styles.length > 0 ? styles.join(";") : undefined;
+};
+
 const copy = lang === "de"
   ? {
       heading: "Bekannt aus",
@@ -143,13 +160,13 @@ const copy = lang === "de"
                     role="listitem"
                   >
                     <span class="logo-frame">
-                      <img src={item.logo} alt={`${item.name} logo`} loading="lazy" />
+                      <img src={item.logo} alt={`${item.name} logo`} style={logoSizingStyle(item)} loading="lazy" />
                     </span>
                   </a>
                 ) : (
                   <div class="known-card known-card-static" role="listitem" aria-label={item.name}>
                     <span class="logo-frame">
-                      <img src={item.logo} alt={`${item.name} logo`} loading="lazy" />
+                      <img src={item.logo} alt={`${item.name} logo`} style={logoSizingStyle(item)} loading="lazy" />
                     </span>
                   </div>
                 )
@@ -218,7 +235,7 @@ const copy = lang === "de"
 <style>
   .known {
     background: #ffffff;
-    padding: 0 1.2rem 2rem;
+    padding: 0 1.2rem 1.6rem;
   }
 
   .known-shell {
@@ -258,6 +275,7 @@ const copy = lang === "de"
   .known-card {
     align-items: center;
     background: #fff;
+    border: 1px solid #d9e5d2;
     border-radius: 8px;
     display: flex;
     height: 132px;

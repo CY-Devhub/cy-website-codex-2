@@ -1,0 +1,12 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import TopNav from "../../components/TopNav.astro";
+import DataProtectionPageContent from "../../components/DataProtectionPageContent.astro";
+import { CureoFooter } from "../../../devlink/CureoFooter.jsx";
+---
+
+<Layout lang="de" title="CUREO | Datenschutz">
+  <TopNav lang="de" />
+  <DataProtectionPageContent lang="de" />
+  <CureoFooter lang="de" client:load />
+</Layout>

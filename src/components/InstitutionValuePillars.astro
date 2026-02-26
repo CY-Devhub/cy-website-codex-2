@@ -1,0 +1,282 @@
+---
+const lang = Astro.props.lang === "de" ? "de" : "en";
+
+const copy = lang === "de"
+  ? {
+      heading: "Warum sich Einrichtungen für CUREO entscheiden",
+      pillars: [
+        {
+          icon: "capacity",
+          title: "Therapiekapazität erhöhen",
+          body: "Mehr strukturierte Einheiten mit gleichbleibender Qualität über Teams und Standorte hinweg."
+        },
+        {
+          icon: "workload",
+          title: "Therapeuten entlasten",
+          body: "Automatisierte Planung, Dokumentation und Auswertung sparen Zeit im Alltag."
+        },
+        {
+          icon: "engagement",
+          title: "Patienten besser aktivieren",
+          body: "Immersive Übungen und direktes Feedback steigern Motivation und Adhärenz."
+        }
+      ]
+    }
+  : {
+      heading: "Why institutions choose CUREO",
+      pillars: [
+        {
+          icon: "capacity",
+          title: "Increase therapy capacity",
+          body: "Deliver more guided sessions with consistent quality across teams and locations."
+        },
+        {
+          icon: "workload",
+          title: "Reduce therapist workload",
+          body: "Automated planning, tracking, and reporting save time and simplify daily routines."
+        },
+        {
+          icon: "engagement",
+          title: "Improve patient engagement",
+          body: "Immersive exercises and clear progress feedback boost motivation and adherence."
+        }
+      ]
+    };
+---
+
+<section class="institution-pillars" data-reveal>
+  <div class="pillars-shell">
+    <h2>{copy.heading}</h2>
+    <div class="pillars-grid" data-pillars-autoplay>
+      {
+        copy.pillars.map((pillar, index) => (
+          <article class={`pillar-card ${index === 0 ? "is-active" : ""}`}>
+            <div class="pillar-top">
+              <span class="pillar-index">0{index + 1}</span>
+              <div class="pillar-icon" aria-hidden="true">
+                {
+                  pillar.icon === "capacity" && (
+                    <svg viewBox="0 0 24 24" role="presentation" focusable="false">
+                      <path d="M4 12h5V7h6v5h5v7H4z"></path>
+                      <path d="M9 12h6"></path>
+                      <path d="M12 9v6"></path>
+                    </svg>
+                  )
+                }
+                {
+                  pillar.icon === "workload" && (
+                    <svg viewBox="0 0 24 24" role="presentation" focusable="false">
+                      <rect x="4" y="4" width="16" height="16" rx="3"></rect>
+                      <path d="M8 2v4"></path>
+                      <path d="M16 2v4"></path>
+                      <path d="M8 13l2.5 2.5L16 10"></path>
+                    </svg>
+                  )
+                }
+                {
+                  pillar.icon === "engagement" && (
+                    <svg viewBox="0 0 24 24" role="presentation" focusable="false">
+                      <path d="M12 20s-6.5-3.8-8.5-7.7C2 9.6 3.3 6.8 6 6c2-.6 3.8.2 5 1.8 1.2-1.6 3-2.4 5-1.8 2.7.8 4 3.6 2.5 6.3C18.5 16.2 12 20 12 20z"></path>
+                      <path d="M9.5 12h5"></path>
+                      <path d="M12 9.5v5"></path>
+                    </svg>
+                  )
+                }
+              </div>
+            </div>
+            <h3>{pillar.title}</h3>
+            <p>{pillar.body}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .institution-pillars {
+    background: #ffffff;
+    padding: 0.4rem 1.2rem 1.8rem;
+  }
+
+  .pillars-shell {
+    margin: 0 auto;
+    max-width: 1240px;
+  }
+
+  .pillars-shell h2 {
+    color: #1d2f1d;
+    font-size: clamp(1.35rem, 2.15vw, 2rem);
+    letter-spacing: -0.02em;
+    margin: 0 0 0.85rem;
+  }
+
+  .pillars-grid {
+    display: grid;
+    gap: 0.8rem;
+    grid-template-columns: repeat(3, minmax(220px, 1fr));
+  }
+
+  .pillar-card {
+    background:
+      linear-gradient(180deg, #ffffff 0%, #f7f9f5 100%);
+    border-radius: 8px;
+    padding: 0.95rem 0.95rem 1rem;
+    position: relative;
+    transform: scale(0.96);
+    opacity: 0.92;
+    transition:
+      transform 720ms cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 420ms ease,
+      background 420ms ease;
+    will-change: transform, opacity;
+  }
+
+  .pillar-card::before {
+    background: linear-gradient(90deg, #6f9c21 0%, #8fbe44 100%);
+    border-radius: 8px 8px 0 0;
+    content: "";
+    height: 3px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .pillar-top {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.45rem;
+  }
+
+  .pillar-index {
+    color: #6f9c21;
+    display: inline-block;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.4rem;
+  }
+
+  .pillar-icon {
+    align-items: center;
+    background: #eef5e8;
+    border-radius: 999px;
+    color: #487327;
+    display: inline-flex;
+    height: 2.2rem;
+    justify-content: center;
+    width: 2.2rem;
+  }
+
+  .pillar-icon svg {
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.8;
+    height: 1.2rem;
+    width: 1.2rem;
+  }
+
+  .pillar-card h3 {
+    color: #223723;
+    font-size: 1.08rem;
+    margin: 0 0 0.38rem;
+  }
+
+  .pillar-card p {
+    color: #4c6352;
+    margin: 0;
+    line-height: 1.48;
+  }
+
+  .pillar-card.is-active {
+    background: linear-gradient(180deg, #ffffff 0%, #f2f7ed 100%);
+    opacity: 1;
+    transform: scale(1.03);
+    z-index: 1;
+  }
+
+  @media (max-width: 980px) {
+    .pillars-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .institution-pillars {
+      padding: 0.2rem 0.8rem 1.4rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pillar-card,
+    .pillar-card.is-active {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  const grids = Array.from(document.querySelectorAll("[data-pillars-autoplay]"));
+
+  for (const grid of grids) {
+    const cards = Array.from(grid.querySelectorAll(".pillar-card"));
+    if (cards.length < 2) continue;
+
+    let activeIndex = cards.findIndex((card) => card.classList.contains("is-active"));
+    if (activeIndex < 0) activeIndex = 0;
+    let intervalId;
+    let paused = false;
+
+    const setActive = (index) => {
+      cards.forEach((card, cardIndex) => {
+        card.classList.toggle("is-active", cardIndex === index);
+      });
+      activeIndex = index;
+    };
+
+    const next = () => {
+      if (paused) return;
+      setActive((activeIndex + 1) % cards.length);
+    };
+
+    const start = () => {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      clearInterval(intervalId);
+      intervalId = window.setInterval(next, 3000);
+    };
+
+    const stop = () => clearInterval(intervalId);
+
+    cards.forEach((card, index) => {
+      card.addEventListener("mouseenter", () => {
+        paused = true;
+        setActive(index);
+      });
+
+      card.addEventListener("mouseleave", () => {
+        paused = false;
+      });
+
+      card.addEventListener("focusin", () => {
+        paused = true;
+        setActive(index);
+      });
+
+      card.addEventListener("focusout", () => {
+        paused = false;
+      });
+    });
+
+    start();
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) stop();
+      else start();
+    });
+  }
+</script>

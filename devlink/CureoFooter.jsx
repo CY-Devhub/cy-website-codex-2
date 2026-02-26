@@ -6,6 +6,16 @@ import _styles from "./CureoFooter.module.css";
 
 export function CureoFooter({ as: _Component = _Builtin.Section, lang = "en" }) {
   const isGerman = lang === "de";
+  const base = import.meta.env.BASE_URL || "/";
+  const normalizedBase = base.endsWith("/") ? base : `${base}/`;
+  const homeHref = isGerman ? `${normalizedBase}de` : normalizedBase;
+  const aboutHref = isGerman ? `${normalizedBase}de/company` : `${normalizedBase}company`;
+  const careersHref = isGerman ? `${normalizedBase}de/career` : `${normalizedBase}career`;
+  const privacyHref = isGerman
+    ? `${normalizedBase}de/data-protection`
+    : `${normalizedBase}data-protection`;
+  const contactHref = isGerman ? `${normalizedBase}de/contact` : `${normalizedBase}contact`;
+  const imprintHref = isGerman ? `${normalizedBase}de/imprint` : `${normalizedBase}imprint`;
   return (
     <_Component
       className={_utils.cx(_styles, "footer")}
@@ -45,7 +55,7 @@ export function CureoFooter({ as: _Component = _Builtin.Section, lang = "en" }) 
                 <_Builtin.NavbarBrand
                   className={_utils.cx(_styles, "uui-footer03_logo-link")}
                   options={{
-                    href: "#",
+                    href: homeHref,
                   }}
                 >
                   <_Builtin.Block
@@ -179,7 +189,7 @@ export function CureoFooter({ as: _Component = _Builtin.Section, lang = "en" }) 
                     button={false}
                     block="inline"
                     options={{
-                      href: "#",
+                      href: aboutHref,
                     }}
                   >
                     <_Builtin.Block
@@ -194,7 +204,7 @@ export function CureoFooter({ as: _Component = _Builtin.Section, lang = "en" }) 
                     button={false}
                     block="inline"
                     options={{
-                      href: "#",
+                      href: careersHref,
                     }}
                   >
                     <_Builtin.Block
@@ -209,7 +219,7 @@ export function CureoFooter({ as: _Component = _Builtin.Section, lang = "en" }) 
                     button={false}
                     block="inline"
                     options={{
-                      href: "#",
+                      href: privacyHref,
                     }}
                   >
                     <_Builtin.Block
@@ -224,7 +234,7 @@ export function CureoFooter({ as: _Component = _Builtin.Section, lang = "en" }) 
                     button={false}
                     block="inline"
                     options={{
-                      href: "#",
+                      href: contactHref,
                     }}
                   >
                     <_Builtin.Block
@@ -239,7 +249,7 @@ export function CureoFooter({ as: _Component = _Builtin.Section, lang = "en" }) 
                     button={false}
                     block="inline"
                     options={{
-                      href: "#",
+                      href: imprintHref,
                     }}
                   >
                     <_Builtin.Block
@@ -316,7 +326,7 @@ export function CureoFooter({ as: _Component = _Builtin.Section, lang = "en" }) 
                   button={false}
                   block=""
                   options={{
-                    href: "#",
+                    href: privacyHref,
                   }}
                 >
                   {isGerman ? "Datenschutz " : "Privacy "}

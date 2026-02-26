@@ -1,5 +1,13 @@
+---
+const lang = Astro.props.lang === "de" ? "de" : "en";
+const heading = lang === "de" ? "Kontakt" : "Contact us";
+---
+
 <section class="contact-form-section" data-reveal>
   <div class="contact-shell">
+    <div class="contact-heading-wrap">
+      <h2 class="contact-heading">{heading}</h2>
+    </div>
     <div id="cureosity-hubspot"></div>
   </div>
 </section>
@@ -50,6 +58,22 @@
   .contact-shell {
     margin: 0 auto;
     max-width: 1240px;
+  }
+
+  .contact-heading-wrap {
+    display: flex;
+    justify-content: center;
+    margin: 0 0 0.8rem;
+  }
+
+  .contact-heading {
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: clamp(1.2rem, 2vw, 1.7rem);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    margin: 0;
+    padding: 0.2rem 0;
   }
 
   /* Brand palette */

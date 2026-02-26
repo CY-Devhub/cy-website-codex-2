@@ -3,6 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import TopNav from '../components/TopNav.astro';
 import CureoHero from '../components/CureoHero.astro';
 import FacilitySelector from '../components/FacilitySelector.astro';
+import InstitutionValuePillars from '../components/InstitutionValuePillars.astro';
+import EvidenceStudySection from '../components/EvidenceStudySection.astro';
 import PartnerReferences from '../components/PartnerReferences.astro';
 import KnownFromSection from '../components/KnownFromSection.astro';
 import CureoLeadingSection from '../components/CureoLeadingSection.astro';
@@ -16,13 +18,15 @@ import { CureoFooter } from '../../devlink/CureoFooter.jsx';
 <Layout lang="en" title="CUREO | VR Therapy">
   <TopNav lang="en" />
   <CureoHero lang="en" />
+  <CureoLeadingSection lang="en" />
+  <EvidenceStudySection lang="en" />
   <FacilitySelector lang="en" />
+  <InstitutionValuePillars lang="en" />
   <PartnerReferences lang="en" />
   <KnownFromSection lang="en" />
-  <CureoLeadingSection lang="en" />
   <CureoUniqueSection lang="en" />
   <CureoFlexSection lang="en" />
   <CureoModulesSection lang="en" />
-  <HubspotContactForm />
+  <HubspotContactForm lang="en" />
   <CureoFooter lang="en" client:load />
 </Layout>

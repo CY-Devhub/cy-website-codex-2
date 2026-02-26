@@ -5,6 +5,13 @@ const normalizedBase = base.endsWith("/") ? base : `${base}/`;
 const enHref = normalizedBase;
 const deHref = `${normalizedBase}de`;
 const isGerman = lang === "de";
+const currentPathname = Astro.url.pathname || normalizedBase;
+const cleanPath = (path) => (path.length > 1 && path.endsWith("/") ? path.slice(0, -1) : path);
+const basePath = cleanPath(normalizedBase);
+const activePath = cleanPath(currentPathname);
+const pathWithoutBase = activePath.startsWith(basePath)
+  ? activePath.slice(basePath.length) || "/"
+  : activePath || "/";
 const therapySolutionHref = isGerman
   ? `${normalizedBase}de/our-therapy-solution`
   : `${normalizedBase}our-therapy-solution`;
@@ -69,7 +76,20 @@ const copy = isGerman
     };
 
 const brandHref = isGerman ? deHref : enHref;
-const switchHref = isGerman ? enHref : deHref;
+const switchPath = (() => {
+  if (isGerman) {
+    const englishRelative = pathWithoutBase.startsWith("/de")
+      ? pathWithoutBase.slice(3) || "/"
+      : pathWithoutBase;
+    return `${basePath}${englishRelative === "/" ? "" : englishRelative}`;
+  }
+
+  const germanRelative = pathWithoutBase.startsWith("/de")
+    ? pathWithoutBase
+    : `/de${pathWithoutBase === "/" ? "" : pathWithoutBase}`;
+  return `${basePath}${germanRelative}`;
+})();
+const switchHref = switchPath || (isGerman ? enHref : deHref);
 ---
 
 <header class="topnav">

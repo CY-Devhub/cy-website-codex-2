@@ -3,23 +3,23 @@ import navigatorImage from "../assets/img/CUREO5/CUREO-Therapie-Navigator.jpg";
 const lang = Astro.props.lang === "de" ? "de" : "en";
 const copy = lang === "de"
   ? {
-      heading: "CUREO verstehen: Module und Einsatzbereiche",
+      heading: "Eine Plattform, sieben Therapiemodule",
       body1:
-        "CUREO bietet Übungen zur Verbesserung von Fein- und Grobmotorik, sensorischer Wahrnehmung (z. B. Raumwahrnehmung) sowie Kognition (z. B. Gedächtnis, Aufmerksamkeit). Alle Inhalte lassen sich an die individuellen Bedürfnisse der Patienten anpassen.",
+        "Von Aktivierung bis alltagsnahes Training unterstützen die CUREO-Module konkrete Therapieziele im klinischen Alltag.",
       body2:
-        "Ergänzende Tests wie Reaktion, Präzision oder Reichweite unterstützen das Therapiemonitoring. Eine diagnostische Nutzung ist ausdrücklich ausgeschlossen. CUREO adressiert sensomotorische, kognitive und perzeptive Beeinträchtigungen.",
+        "Mehr als 50 interaktive Übungen in sieben Modulen sind auf sensomotorische, kognitive und perzeptive Rehabilitation ausgerichtet.",
       body3:
-        "Die hochfrequente, immersive Therapie mit multimodalem Feedback wirkt sich positiv auf neuronale Prozesse aus und unterstützt die Wiederherstellung motorischer und kognitiver Fähigkeiten sowie die Verbesserung sensorischer Funktionen. Erhöhte Motivation durch Gamification, schnell sichtbare Trainingsfortschritte und aktive Entspannungs-Tools tragen wesentlich zum Therapieerfolg bei.",
+        "Alle Inhalte lassen sich patientenindividuell anpassen und nahtlos in bestehende Therapieprozesse integrieren.",
       imageAlt: "CUREO Therapie-Navigator mit Übersicht der VR-Übungen"
     }
   : {
-      heading: "Understanding CUREO, Modules and Areas of Application",
+      heading: "One platform, seven therapy modules",
       body1:
-        "CUREO offers exercises to improve fine and gross motor skills, sensory perception (e.g. spatial awareness), and cognition (e.g. memory, attention). All content can be adapted to the individual needs of each patient.",
+        "From activation to activities of daily living, CUREO modules support practical goals in real clinical workflows.",
       body2:
-        "Complementary tests such as reaction, precision or reach support therapy monitoring. Diagnostic use is explicitly excluded. CUREO targets sensorimotor, cognitive, and perceptual impairments.",
+        "More than 50 interactive exercises across seven modules target sensorimotor, cognitive, and perceptual rehabilitation.",
       body3:
-        "The high-frequency, immersive therapy with multimodal feedback has a positive effect on neuronal processes, supporting the recovery of motor and cognitive abilities as well as the improvement of sensory functions - ultimately enhancing everyday capabilities. Increased motivation through gamification, rapidly visible training progress, and active relaxation tools all contribute to therapeutic success.",
+        "All content can be tailored to each patient and integrated seamlessly into existing therapy workflows.",
       imageAlt: "CUREO therapy navigator interface and VR exercise overview"
     };
 ---
@@ -47,8 +47,8 @@ const copy = lang === "de"
 
 <style>
   .modules {
-    background: linear-gradient(180deg, #f1f3ee 0%, #f8fcf2 100%);
-    padding: 0 1.2rem 2rem;
+    background: #ffffff;
+    padding: 0 1.2rem 1.8rem;
   }
 
   .modules-shell {
@@ -58,7 +58,8 @@ const copy = lang === "de"
 
   .modules-grid {
     background: #fff;
-    border-radius: 20px;
+    border: 1px solid #d9e5d2;
+    border-radius: 8px;
     display: grid;
     grid-template-columns: minmax(360px, 1.1fr) minmax(320px, 1fr);
     overflow: hidden;

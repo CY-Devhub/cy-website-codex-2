@@ -1,0 +1,12 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import TopNav from "../../components/TopNav.astro";
+import ImprintPageContent from "../../components/ImprintPageContent.astro";
+import { CureoFooter } from "../../../devlink/CureoFooter.jsx";
+---
+
+<Layout lang="de" title="CUREO | Impressum">
+  <TopNav lang="de" />
+  <ImprintPageContent lang="de" />
+  <CureoFooter lang="de" client:load />
+</Layout>

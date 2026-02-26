@@ -1,86 +1,72 @@
 ---
 const lang = Astro.props.lang === "de" ? "de" : "en";
+const base = import.meta.env.BASE_URL || "/";
+const normalizedBase = base.endsWith("/") ? base : `${base}/`;
 
 const content = lang === "de"
   ? {
-      heading: "CUREO wurde entwickelt, um sowohl in stationären als auch ambulanten Einrichtungen zu passen",
-      groups: [
+      heading: "CUREO passt flexibel in viele Versorgungssettings",
+      tiles: [
         {
-          title: "Stationäre Einrichtungen",
-          description: "Strukturierte VR-Therapiemodule für klinische Teams und hochintensive Reha-Abläufe.",
-          items: [
-            {
-              name: "Akutkliniken",
-              detail: "Frühaktivierungsprotokolle und angeleitete Sitzungen am Patientenbett.",
-              image:
-                "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/68de6d9e0bc26e4b64672f16_PatientenBettJPG.jpg"
-            },
-            {
-              name: "Rehabilitationskliniken",
-              detail: "Zielorientierte Neuro-Reha-Programme mit messbarer Progression.",
-              image:
-                "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/69032049a209d4dfd000f27d_DSC02952.jpg"
-            }
-          ]
+          name: "Akutkliniken",
+          detail: "Frühaktivierungsprotokolle und angeleitete Sitzungen am Patientenbett.",
+          href: `${normalizedBase}de/for-inpatient-rehab`,
+          image:
+            "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/68de6d9e0bc26e4b64672f16_PatientenBettJPG.jpg"
         },
         {
-          title: "Ambulante Einrichtungen",
-          description: "Flexible VR-Therapie für den Praxisalltag, Dokumentation und hohe Patientenmotivation.",
-          items: [
-            {
-              name: "Ergotherapie",
-              detail: "Aufgabenbasiertes Training von oberer Extremität sowie kognitiv-motorischen Funktionen.",
-              image:
-                "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/6603f187bc897ec6711edc0e_Screenshot%202024-03-27%20at%2011.13.46.jpeg"
-            },
-            {
-              name: "Physiotherapie",
-              detail: "Bewegungsorientierte Therapie mit kontrollierter Wiederholung und direktem Feedback.",
-              image:
-                "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/68da60a30662ac4f4cd799d3_Single_Therapy_PatientinAwe.jpg"
-            }
-          ]
+          name: "Rehabilitationskliniken",
+          detail: "Zielorientierte Neuro-Reha-Programme mit messbarer Progression.",
+          href: `${normalizedBase}de/for-inpatient-rehab`,
+          image:
+            "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/69032049a209d4dfd000f27d_DSC02952.jpg"
+        },
+        {
+          name: "Ergotherapie",
+          detail: "Aufgabenbasiertes Training von oberer Extremität sowie kognitiv-motorischen Funktionen.",
+          href: `${normalizedBase}de/for-outpatient-rehab`,
+          image:
+            "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/6603f187bc897ec6711edc0e_Screenshot%202024-03-27%20at%2011.13.46.jpeg"
+        },
+        {
+          name: "Physiotherapie",
+          detail: "Bewegungsorientierte Therapie mit kontrollierter Wiederholung und direktem Feedback.",
+          href: `${normalizedBase}de/for-outpatient-rehab`,
+          image:
+            "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/68da60a30662ac4f4cd799d3_Single_Therapy_PatientinAwe.jpg"
         }
       ]
     }
   : {
-      heading: "CUREO was build to fit both, In- and Out-Patient facilities",
-      groups: [
+      heading: "CUREO fits flexible into many care settings",
+      tiles: [
         {
-          title: "In-Patient Facilities",
-          description: "Structured VR therapy modules for clinical teams and high-intensity rehab workflows.",
-          items: [
-            {
-              name: "Acute Clinics",
-              detail: "Early activation protocols and guided bedside sessions.",
-              image:
-                "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/68de6d9e0bc26e4b64672f16_PatientenBettJPG.jpg"
-            },
-            {
-              name: "Rehabilitation Clinics",
-              detail: "Goal-oriented neuro-rehab programs with measurable progression.",
-              image:
-                "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/69032049a209d4dfd000f27d_DSC02952.jpg"
-            }
-          ]
+          name: "Acute Clinics",
+          detail: "Early activation protocols and guided bedside sessions.",
+          href: `${normalizedBase}for-inpatient-rehab`,
+          image:
+            "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/68de6d9e0bc26e4b64672f16_PatientenBettJPG.jpg"
         },
         {
-          title: "Out-Patient Facilities",
-          description: "Flexible VR therapy for day-to-day practice, documentation, and patient engagement.",
-          items: [
-            {
-              name: "Occupational Therapy",
-              detail: "Task-based upper-limb and cognitive-motor training in immersive scenarios.",
-              image:
-                "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/6603f187bc897ec6711edc0e_Screenshot%202024-03-27%20at%2011.13.46.jpeg"
-            },
-            {
-              name: "Physical Therapy",
-              detail: "Movement-focused therapy with controlled repetition and feedback.",
-              image:
-                "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/68da60a30662ac4f4cd799d3_Single_Therapy_PatientinAwe.jpg"
-            }
-          ]
+          name: "Rehabilitation Clinics",
+          detail: "Goal-oriented neuro-rehab programs with measurable progression.",
+          href: `${normalizedBase}for-inpatient-rehab`,
+          image:
+            "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/69032049a209d4dfd000f27d_DSC02952.jpg"
+        },
+        {
+          name: "Occupational Therapy",
+          detail: "Task-based upper-limb and cognitive-motor training in immersive scenarios.",
+          href: `${normalizedBase}for-outpatient-rehab`,
+          image:
+            "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/6603f187bc897ec6711edc0e_Screenshot%202024-03-27%20at%2011.13.46.jpeg"
+        },
+        {
+          name: "Physical Therapy",
+          detail: "Movement-focused therapy with controlled repetition and feedback.",
+          href: `${normalizedBase}for-outpatient-rehab`,
+          image:
+            "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/68da60a30662ac4f4cd799d3_Single_Therapy_PatientinAwe.jpg"
         }
       ]
     };
@@ -92,28 +78,17 @@ const content = lang === "de"
       <h2>{content.heading}</h2>
     </header>
 
-    <div class="facility-groups">
+    <div class="facility-grid">
       {
-        content.groups.map((group) => (
-          <article class="group-card">
-            <div class="group-top">
-              <h3>{group.title}</h3>
-              <p>{group.description}</p>
+        content.tiles.map((tile) => (
+          <a class="facility-tile" href={tile.href} aria-label={tile.name}>
+            <img src={tile.image} alt={tile.name} loading="lazy" />
+            <div class="tile-overlay"></div>
+            <div class="tile-content">
+              <h3>{tile.name}</h3>
+              <p>{tile.detail}</p>
             </div>
-
-            <div class="group-split">
-              {group.items.map((item) => (
-                <button class="facility-tile" type="button" aria-label={item.name}>
-                  <img src={item.image} alt={item.name} loading="lazy" />
-                  <div class="tile-overlay"></div>
-                  <div class="tile-content">
-                    <h4>{item.name}</h4>
-                    <p>{item.detail}</p>
-                  </div>
-                </button>
-              ))}
-            </div>
-          </article>
+          </a>
         ))
       }
     </div>
@@ -122,10 +97,8 @@ const content = lang === "de"
 
 <style>
   .facility-selection {
-    --cureo-green: hsl(81.95, 65.08%, 37.06%);
-    --cureo-green-soft: hsl(81.49, 60.91%, 56.86%);
-    background: linear-gradient(180deg, #f4f9ec 0%, #f8fcf2 100%);
-    padding: 1.4rem 1.2rem 2.4rem;
+    background: #ffffff;
+    padding: 0.9rem 1.2rem 2rem;
   }
 
   .facility-shell {
@@ -134,7 +107,7 @@ const content = lang === "de"
   }
 
   .facility-head {
-    margin-bottom: 1rem;
+    margin-bottom: 0.85rem;
   }
 
   .facility-head h2 {
@@ -144,55 +117,20 @@ const content = lang === "de"
     margin: 0;
   }
 
-  .facility-groups {
+  .facility-grid {
     display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(2, minmax(280px, 1fr));
-  }
-
-  .group-card {
-    background: #fff;
-    border-radius: 18px;
-    overflow: hidden;
-  }
-
-  .group-top {
-    padding: 1rem 1rem 0.75rem;
-  }
-
-  .group-top h3 {
-    color: #1f3221;
-    font-size: clamp(1.08rem, 1.5vw, 1.35rem);
-    margin: 0 0 0.4rem;
-  }
-
-  .group-top p {
-    color: #59715a;
-    font-size: 0.95rem;
-    line-height: 1.45;
-    margin: 0;
-    max-width: 62ch;
-  }
-
-  .group-split {
-    display: grid;
-    gap: 0.7rem;
+    gap: 0.75rem;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    padding: 0.7rem 0.7rem 0.8rem;
   }
 
   .facility-tile {
-    background: #203529;
-    border: 0;
-    border-radius: 14px;
-    cursor: pointer;
-    min-height: 230px;
+    border-radius: 8px;
+    display: block;
+    min-height: 290px;
     overflow: hidden;
-    padding: 0;
     position: relative;
-    text-align: left;
-    transition: transform 220ms ease, opacity 220ms ease;
-    width: 100%;
+    text-decoration: none;
+    transition: transform 200ms ease, opacity 200ms ease;
   }
 
   .facility-tile img {
@@ -204,73 +142,64 @@ const content = lang === "de"
 
   .tile-overlay {
     background:
-      linear-gradient(180deg, rgba(10, 28, 15, 0.2) 0%, rgba(10, 28, 15, 0.82) 100%),
-      linear-gradient(115deg, rgba(76, 124, 42, 0.4), rgba(76, 124, 42, 0.05));
+      linear-gradient(180deg, rgba(10, 28, 15, 0.12) 0%, rgba(10, 28, 15, 0.74) 100%),
+      linear-gradient(115deg, rgba(94, 152, 50, 0.26), rgba(94, 152, 50, 0.05));
     inset: 0;
     position: absolute;
   }
 
   .tile-content {
-    bottom: 0.75rem;
+    bottom: 0.8rem;
     color: #f7ffee;
-    left: 0.75rem;
+    left: 0.8rem;
     position: absolute;
-    right: 0.75rem;
+    right: 0.8rem;
     z-index: 1;
   }
 
-  .tile-content h4 {
-    font-size: clamp(1.02rem, 1.2vw, 1.22rem);
+  .tile-content h3 {
+    font-size: clamp(1.1rem, 1.5vw, 1.65rem);
     line-height: 1.2;
     margin: 0 0 0.4rem;
   }
 
   .tile-content p {
     color: #d9efc9;
-    font-size: 0.84rem;
-    line-height: 1.42;
+    font-size: 0.98rem;
+    line-height: 1.45;
     margin: 0;
+    max-width: 46ch;
   }
 
-  .group-split:hover .facility-tile {
-    opacity: 0.72;
-    transform: scale(0.985);
+  .facility-grid:hover .facility-tile {
+    opacity: 0.8;
+    transform: scale(0.993);
   }
 
-  .group-split .facility-tile:hover {
+  .facility-grid .facility-tile:hover {
     opacity: 1;
-    transform: translateY(-4px) scale(1.02);
+    transform: translateY(-3px) scale(1.01);
     z-index: 2;
   }
 
-  .group-split .facility-tile:hover .tile-overlay {
-    background:
-      linear-gradient(180deg, rgba(12, 30, 16, 0.12) 0%, rgba(12, 30, 16, 0.7) 100%),
-      linear-gradient(115deg, rgba(94, 152, 50, 0.44), rgba(94, 152, 50, 0.1));
-  }
-
   .facility-tile:focus-visible {
-    outline: 3px solid var(--cureo-green-soft);
+    outline: 3px solid #92bd53;
     outline-offset: 2px;
   }
 
   @media (max-width: 980px) {
-    .facility-groups {
+    .facility-grid {
       grid-template-columns: 1fr;
+    }
+
+    .facility-tile {
+      min-height: 250px;
     }
   }
 
   @media (max-width: 700px) {
     .facility-selection {
-      padding: 1rem 0.8rem 1.8rem;
-    }
-
-    .group-split {
-      grid-template-columns: 1fr;
-    }
-
-    .facility-tile {
-      min-height: 210px;
+      padding: 0.85rem 0.8rem 1.6rem;
     }
   }
 </style>

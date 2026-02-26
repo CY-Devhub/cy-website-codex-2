@@ -1,0 +1,735 @@
+---
+const lang = Astro.props.lang === "de" ? "de" : "en";
+
+const content = lang === "de"
+  ? {
+      heading: "Klinische Evidenz für CUREO®",
+      intro:
+        "Zwei unabhängige Datensätze zeigen hohe Akzeptanz in der Praxis und starke Effekte in der Armrehabilitation nach Schlaganfall.",
+      acceptance: {
+        title: "CUREO® Akzeptanzstudie",
+        subtitle: "St. Mauritius Therapieklinik, >200 Therapiesitzungen",
+        metrics: [
+          { label: "Würden CUREO erneut nutzen", value: 97, unit: "%" },
+          { label: "Therapie als positiv erlebt", value: 99, unit: "%" },
+          { label: "Mehr Motivation laut Therapeuten", value: 95, unit: "%" },
+          { label: "Keine Nebenwirkungen", value: 96, unit: "%" }
+        ],
+        source: "Quelle: Stemick et al., Nervenheilkunde (2022)"
+      },
+      effectiveness: {
+        title: "CUREO® Effektivität bei Armrehabilitation nach Schlaganfall",
+        subtitle: "Vergleich mit robotisch-assistiertem Training (Outcome n=40)",
+        comparison: {
+          title: "Anteil mit klinisch relevanter Verbesserung",
+          unit: "%",
+          max: 100,
+          bars: [
+            { name: "konventionelle Therapie & CUREO®", value: 84, highlight: true },
+            { name: "konventionelle Therapie & robotisch-assistiert", value: 50, highlight: false }
+          ]
+        },
+        arat: {
+          title: "ARAT-Score (Pre/Post)",
+          max: 20,
+          groups: [
+            {
+              name: "konventionelle Therapie & CUREO®",
+              delta: 14,
+              highlight: true,
+              bars: [
+                { label: "Pre-Therapie", value: 4.0 },
+                { label: "Post-Therapie", value: 18.0 }
+              ]
+            },
+            {
+              name: "konventionelle Therapie & robotisch-assistiert",
+              delta: 6.5,
+              highlight: false,
+              bars: [
+                { label: "Pre-Therapie", value: 4.0 },
+                { label: "Post-Therapie", value: 10.5 }
+              ]
+            }
+          ]
+        },
+        source: "Quelle: Lülsdorff et al., Frontiers in Neurology (2023)"
+      }
+    }
+  : {
+      heading: "Clinical Evidence Behind CUREO®",
+      intro:
+        "Two independent datasets show high real-world acceptance and strong outcomes in post-stroke arm rehabilitation.",
+      acceptance: {
+        title: "CUREO® Acceptance Study",
+        subtitle: "St. Mauritius therapy clinic, >200 therapy sessions",
+        metrics: [
+          { label: "Would repeat CUREO therapy", value: 97, unit: "%" },
+          { label: "Reported enjoyable therapy", value: 99, unit: "%" },
+          { label: "Therapists observed increased motivation", value: 95, unit: "%" },
+          { label: "No side effects", value: 96, unit: "%" }
+        ],
+        source: "Source: Stemick et al., Nervenheilkunde (2022)"
+      },
+      effectiveness: {
+        title: "CUREO® Effectiveness in Arm Rehabilitation After Stroke",
+        subtitle: "Compared with robot-assisted training (outcome n=40)",
+        comparison: {
+          title: "Proportion with clinically relevant improvement",
+          unit: "%",
+          max: 100,
+          bars: [
+            { name: "conventional therapy & CUREO®", value: 84, highlight: true },
+            { name: "conventional therapy & robot-assisted", value: 50, highlight: false }
+          ]
+        },
+        arat: {
+          title: "ARAT score (pre/post)",
+          max: 20,
+          groups: [
+            {
+              name: "conventional therapy & CUREO®",
+              delta: 14,
+              highlight: true,
+              bars: [
+                { label: "Pre-therapy", value: 4.0 },
+                { label: "Post-therapy", value: 18.0 }
+              ]
+            },
+            {
+              name: "conventional therapy & robot-assisted",
+              delta: 6.5,
+              highlight: false,
+              bars: [
+                { label: "Pre-therapy", value: 4.0 },
+                { label: "Post-therapy", value: 10.5 }
+              ]
+            }
+          ]
+        },
+        source: "Source: Lülsdorff et al., Frontiers in Neurology (2023)"
+      }
+    };
+
+const formatValue = (value) => {
+  if (Number.isInteger(value)) return String(value);
+  return lang === "de" ? String(value).replace(".", ",") : String(value);
+};
+---
+
+<section class="evidence-section" data-evidence-section data-reveal>
+  <div class="evidence-shell">
+    <header class="evidence-head">
+      <h2>{content.heading}</h2>
+      <p>{content.intro}</p>
+    </header>
+
+    <div class="evidence-grid">
+      <article class="evidence-card acceptance-card">
+        <p class="card-eyebrow">A</p>
+        <h3>{content.acceptance.title}</h3>
+        <p class="card-subtitle">{content.acceptance.subtitle}</p>
+
+        <div class="circle-metrics">
+          {
+            content.acceptance.metrics.map((metric) => (
+              <div class="circle-metric" style={`--target:${metric.value}`}>
+                <div class="circle-visual" aria-hidden="true">
+                  <svg viewBox="0 0 120 120" role="presentation" focusable="false">
+                    <circle class="ring-track" cx="60" cy="60" r="41"></circle>
+                    <circle class="ring-progress" cx="60" cy="60" r="41"></circle>
+                  </svg>
+                  <span>{formatValue(metric.value)}{metric.unit}</span>
+                </div>
+                <p>{metric.label}</p>
+              </div>
+            ))
+          }
+        </div>
+
+        <p class="card-source">{content.acceptance.source}</p>
+      </article>
+
+      <article class="evidence-card effectiveness-card">
+        <p class="card-eyebrow">B</p>
+        <h3>{content.effectiveness.title}</h3>
+        <p class="card-subtitle">{content.effectiveness.subtitle}</p>
+
+        <div class="effect-figure">
+          <div class="figure-block">
+            <h4>{content.effectiveness.comparison.title}</h4>
+            <div class="comparison-chart">
+              <div class="y-scale">
+                <span>100</span>
+                <span>80</span>
+                <span>60</span>
+                <span>40</span>
+                <span>20</span>
+                <span>0</span>
+              </div>
+
+              <div class="comparison-plot">
+                <span class="axis-unit">{content.effectiveness.comparison.unit}</span>
+                {
+                  content.effectiveness.comparison.bars.map((bar) => (
+                    <div class={`comparison-bar ${bar.highlight ? "is-cureo" : "is-control"}`}>
+                      <div class="comparison-column-wrap">
+                        <div class="comparison-column" style={`--target:${(bar.value / content.effectiveness.comparison.max) * 100}`}>
+                          {
+                            bar.highlight ? (
+                              <div class="comparison-column-inner">
+                                <span>{formatValue(bar.value)}%</span>
+                              </div>
+                            ) : (
+                              <span>{formatValue(bar.value)}%</span>
+                            )
+                          }
+                        </div>
+                      </div>
+                      <p class="comparison-caption">{bar.name}</p>
+                    </div>
+                  ))
+                }
+              </div>
+            </div>
+          </div>
+
+          <div class="figure-block">
+            <h4>{content.effectiveness.arat.title}</h4>
+            <div class="arat-chart">
+              <div class="y-scale arat-scale">
+                <span>57</span>
+                <span>20</span>
+                <span>0</span>
+              </div>
+
+              <div class="arat-plot">
+                {
+                  content.effectiveness.arat.groups.map((group) => (
+                    <div class={`arat-group ${group.highlight ? "is-cureo" : "is-control"}`}>
+                      <p class="arat-group-title">{group.name}</p>
+                      <p class="delta-callout">+{formatValue(group.delta)}</p>
+
+                      <div class="arat-bars-wrap">
+                        <div class="arat-bars">
+                          {
+                            group.bars.map((bar) => (
+                              <div class="arat-bar">
+                                <div class="arat-column-wrap">
+                                  <div class="arat-column" style={`--target:${(bar.value / content.effectiveness.arat.max) * 100}`}>
+                                    <span>{formatValue(bar.value)}</span>
+                                  </div>
+                                </div>
+                                <p>{bar.label}</p>
+                              </div>
+                            ))
+                          }
+                        </div>
+                      </div>
+                    </div>
+                  ))
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="card-source">{content.effectiveness.source}</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .evidence-section {
+    background: #fff;
+    padding: 0.5rem 1.2rem 1.9rem;
+  }
+
+  .evidence-shell {
+    margin: 0 auto;
+    max-width: 1240px;
+  }
+
+  .evidence-head {
+    margin-bottom: 0.9rem;
+    max-width: 80ch;
+  }
+
+  .evidence-head h2 {
+    color: #1d2f1d;
+    font-size: clamp(1.35rem, 2.15vw, 2rem);
+    letter-spacing: -0.02em;
+    margin: 0 0 0.32rem;
+  }
+
+  .evidence-head p {
+    color: #4f6556;
+    margin: 0;
+    line-height: 1.45;
+  }
+
+  .evidence-grid {
+    display: grid;
+    gap: 0.8rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .evidence-card {
+    background: linear-gradient(180deg, #ffffff 0%, #f5f8f2 100%);
+    border-radius: 10px;
+    padding: 0.95rem;
+    position: relative;
+  }
+
+  .evidence-card::before {
+    background: linear-gradient(90deg, #6f9c21 0%, #8fbe44 100%);
+    border-radius: 10px 10px 0 0;
+    content: "";
+    height: 3px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .card-eyebrow {
+    color: #6f9c21;
+    font-size: 0.79rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    margin: 0 0 0.26rem;
+  }
+
+  .evidence-card h3 {
+    color: #203420;
+    font-size: clamp(1.08rem, 1.45vw, 1.32rem);
+    margin: 0;
+  }
+
+  .card-subtitle {
+    color: #5f7463;
+    font-size: 0.95rem;
+    margin: 0.28rem 0 0.75rem;
+  }
+
+  .circle-metrics {
+    display: grid;
+    gap: 0.62rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .circle-metric {
+    background: #fff;
+    border-radius: 8px;
+    display: grid;
+    gap: 0.45rem;
+    justify-items: center;
+    min-height: 190px;
+    padding: 0.62rem;
+    text-align: center;
+  }
+
+  .circle-visual {
+    align-items: center;
+    display: grid;
+    height: 92px;
+    place-items: center;
+    position: relative;
+    width: 92px;
+  }
+
+  .circle-visual svg {
+    height: 92px;
+    width: 92px;
+  }
+
+  .ring-track,
+  .ring-progress {
+    fill: none;
+    stroke-width: 8;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+  }
+
+  .ring-track {
+    stroke: #dbe7d5;
+  }
+
+  .ring-progress {
+    --circumference: 257.6;
+    stroke: #6f9c21;
+    stroke-dasharray: var(--circumference);
+    stroke-dashoffset: var(--circumference);
+    transition: stroke-dashoffset 1050ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .evidence-section.is-visible .ring-progress {
+    stroke-dashoffset: calc(var(--circumference) - (var(--circumference) * var(--target) / 100));
+  }
+
+  .circle-visual span {
+    color: #1f321f;
+    font-size: 1.05rem;
+    font-weight: 700;
+    position: absolute;
+  }
+
+  .circle-metric p {
+    color: #4e6453;
+    font-size: 0.93rem;
+    line-height: 1.36;
+    margin: 0;
+  }
+
+  .effectiveness-card h4 {
+    color: #2a3b2b;
+    font-size: 0.9rem;
+    line-height: 1.3;
+    margin: 0 0 0.45rem;
+  }
+
+  .effect-figure {
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .figure-block {
+    background: #fff;
+    border-radius: 8px;
+    padding: 0.58rem 0.6rem;
+  }
+
+  .comparison-chart,
+  .arat-chart {
+    display: grid;
+    gap: 0.45rem;
+    grid-template-columns: 40px 1fr;
+  }
+
+  .y-scale {
+    color: #596365;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.74rem;
+    font-weight: 600;
+    justify-content: space-between;
+    padding: 0.3rem 0 0.2rem;
+    text-align: right;
+  }
+
+  .comparison-plot {
+    align-items: end;
+    border-bottom: 2px solid #76807f;
+    border-left: 2px solid #76807f;
+    display: flex;
+    gap: 0.42rem;
+    min-height: 248px;
+    padding: 0.8rem 0.45rem 0.32rem;
+    position: relative;
+  }
+
+  .axis-unit {
+    color: #596365;
+    font-size: 0.75rem;
+    font-weight: 700;
+    left: -0.45rem;
+    position: absolute;
+    top: -1.2rem;
+  }
+
+  .comparison-bar {
+    align-items: center;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 0.34rem;
+    justify-content: flex-end;
+    min-width: 0;
+  }
+
+  .comparison-column-wrap {
+    align-items: end;
+    display: flex;
+    height: 200px;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .comparison-column {
+    align-items: end;
+    display: flex;
+    height: calc(var(--target) * 1%);
+    justify-content: center;
+    min-height: 16px;
+    transform: scaleY(0);
+    transform-origin: bottom center;
+    transition: transform 980ms cubic-bezier(0.22, 1, 0.36, 1);
+    width: 100%;
+    max-width: 94px;
+    min-width: 64px;
+  }
+
+  .evidence-section.is-visible .comparison-column {
+    transform: scaleY(1);
+  }
+
+  .comparison-bar.is-cureo .comparison-column {
+    background: #6f9c21;
+    border-radius: 12px;
+    padding: 10px;
+  }
+
+  .comparison-column-inner {
+    align-items: flex-start;
+    background: #f1f2f3;
+    border-radius: 9px;
+    color: #6f9c21;
+    display: flex;
+    font-size: 1rem;
+    font-weight: 700;
+    height: 100%;
+    justify-content: center;
+    padding-top: 0.42rem;
+    width: 100%;
+  }
+
+  .comparison-bar.is-control .comparison-column {
+    align-items: flex-start;
+    background: #e7e8eb;
+    border-radius: 10px;
+    color: #444b53;
+    font-size: 1rem;
+    font-weight: 700;
+    padding-top: 0.42rem;
+  }
+
+  .comparison-caption {
+    color: #2f393d;
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0;
+    max-width: 98px;
+    text-align: center;
+  }
+
+  .comparison-bar.is-cureo .comparison-caption {
+    background: #6f9c21;
+    border-radius: 8px;
+    color: #fff;
+    max-width: 114px;
+    padding: 0.38rem 0.35rem;
+  }
+
+  .arat-scale {
+    min-height: 244px;
+  }
+
+  .arat-plot {
+    border-bottom: 2px solid #76807f;
+    border-left: 2px solid #76807f;
+    display: grid;
+    gap: 0.55rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    min-height: 244px;
+    padding: 0.36rem 0.4rem 0.32rem;
+  }
+
+  .arat-group {
+    align-items: center;
+    display: grid;
+    gap: 0.22rem;
+    grid-template-rows: auto auto auto;
+  }
+
+  .arat-group-title {
+    color: #323d42;
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0;
+    min-height: 1.9rem;
+    text-align: center;
+  }
+
+  .delta-callout {
+    color: #384147;
+    font-size: 1rem;
+    font-weight: 800;
+    margin: 0;
+    padding-bottom: 0.48rem;
+    position: relative;
+    text-align: center;
+  }
+
+  .delta-callout::after {
+    border-left: 2px solid #6f757d;
+    border-right: 2px solid #6f757d;
+    border-top: 2px solid #6f757d;
+    content: "";
+    height: 13px;
+    left: 50%;
+    position: absolute;
+    top: 1.35rem;
+    transform: translateX(-50%);
+    width: 52px;
+  }
+
+  .arat-bars-wrap {
+    border-radius: 10px;
+    padding: 0.34rem 0.34rem 0.42rem;
+    width: 100%;
+  }
+
+  .arat-group.is-cureo .arat-bars-wrap {
+    background: #6f9c21;
+  }
+
+  .arat-group.is-control .arat-bars-wrap {
+    background: #eceef1;
+  }
+
+  .arat-bars {
+    align-items: end;
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    min-height: 145px;
+  }
+
+  .arat-bar {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .arat-column-wrap {
+    align-items: end;
+    display: flex;
+    height: 118px;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .arat-column {
+    align-items: flex-start;
+    border-radius: 10px;
+    display: flex;
+    font-size: 0.92rem;
+    font-weight: 700;
+    height: calc(var(--target) * 1%);
+    justify-content: center;
+    min-height: 16px;
+    padding-top: 0.3rem;
+    transform: scaleY(0);
+    transform-origin: bottom center;
+    transition: transform 980ms cubic-bezier(0.22, 1, 0.36, 1);
+    width: 100%;
+    max-width: 58px;
+    min-width: 40px;
+  }
+
+  .evidence-section.is-visible .arat-column {
+    transform: scaleY(1);
+  }
+
+  .arat-group.is-cureo .arat-column {
+    background: #f2f3f5;
+    color: #6f9c21;
+  }
+
+  .arat-group.is-control .arat-column {
+    background: #3f4753;
+    color: #fff;
+  }
+
+  .arat-bar p {
+    font-size: 0.72rem;
+    font-weight: 700;
+    line-height: 1.15;
+    margin: 0;
+    text-align: center;
+  }
+
+  .arat-group.is-cureo .arat-bar p {
+    color: #fff;
+  }
+
+  .arat-group.is-control .arat-bar p {
+    color: #2d3640;
+  }
+
+  .card-source {
+    color: #5f7463;
+    font-size: 0.82rem;
+    margin: 0.66rem 0 0;
+  }
+
+  @media (max-width: 1200px) {
+    .effect-figure {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 1080px) {
+    .evidence-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .evidence-section {
+      padding: 0.3rem 0.8rem 1.55rem;
+    }
+
+    .circle-metrics {
+      grid-template-columns: 1fr;
+    }
+
+    .circle-metric {
+      min-height: 164px;
+    }
+
+    .delta-callout::after {
+      width: 42px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ring-progress {
+      transition: none;
+    }
+
+    .comparison-column,
+    .arat-column {
+      transform: scaleY(1);
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  const sections = Array.from(document.querySelectorAll("[data-evidence-section]"));
+
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        entry.target.classList.add("is-visible");
+        obs.unobserve(entry.target);
+      }
+    },
+    { threshold: 0.3 }
+  );
+
+  for (const section of sections) {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      section.classList.add("is-visible");
+      continue;
+    }
+    observer.observe(section);
+  }
+</script>

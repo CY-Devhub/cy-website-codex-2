@@ -3,6 +3,8 @@ import singleTherapy from "../assets/img/CUREO5/Single_Therapy.jpg";
 import parallelTherapy from "../assets/img/CUREO5/Parallel-Therapy.jpg";
 import groupTherapy from "../assets/img/CUREO5/Group-Therapy.jpg";
 const lang = Astro.props.lang === "de" ? "de" : "en";
+const base = import.meta.env.BASE_URL || "/";
+const normalizedBase = base.endsWith("/") ? base : `${base}/`;
 
 const copy = lang === "de"
   ? {
@@ -16,7 +18,9 @@ const copy = lang === "de"
       body:
         "CUREO eignet sich für die stationäre und ambulante Versorgung. Ob in Einzel-, Gruppen- oder Paralleltherapie: Das System sorgt für effiziente Abläufe und reduziert die Arbeitsbelastung von Therapeuten. Bis zu sechs Patienten können gleichzeitig mit individuell angepassten Inhalten behandelt werden. Fortschritte werden automatisch dokumentiert und schaffen Transparenz sowie eine nahtlose Integration in bestehende Prozesse. Die CUREO Software ist als Medizinprodukt CE-zertifiziert, und CUREOSITY arbeitet nach dem ISO-13485-Qualitätsstandard. Das gewährleistet die Einhaltung hoher medizinischer und therapeutischer Anforderungen.",
       practices: "Für Praxen",
-      clinics: "Für Kliniken"
+      clinics: "Für Kliniken",
+      practicesHref: `${normalizedBase}de/for-outpatient-rehab`,
+      clinicsHref: `${normalizedBase}de/for-inpatient-rehab`
     }
   : {
       heading: "Made for clinics and practices, that's how flexible CUREO is",
@@ -29,7 +33,9 @@ const copy = lang === "de"
       body:
         "CUREO is suitable for both inpatient and outpatient care. Whether in individual, group or parallel therapy sessions, the system ensures efficient workflows and reduces therapist workload. Up to six patients can be treated simultaneously with individually tailored content. Progress is automatically documented, providing transparency and seamless integration into existing processes. The CUREO software is CE-certified as a medical device, and CUREOSITY operates according to the ISO 13485 quality standard. This ensures compliance with strict medical and therapeutic requirements and guarantees the highest level of reliability.",
       practices: "For practices",
-      clinics: "For clinics"
+      clinics: "For clinics",
+      practicesHref: `${normalizedBase}for-outpatient-rehab`,
+      clinicsHref: `${normalizedBase}for-inpatient-rehab`
     };
 ---
 
@@ -55,8 +61,8 @@ const copy = lang === "de"
     <p class="copy">{copy.body}</p>
 
     <div class="actions">
-      <a href="#" class="action">{copy.practices}</a>
-      <a href="#" class="action">{copy.clinics}</a>
+      <a href={copy.practicesHref} class="action">{copy.practices}</a>
+      <a href={copy.clinicsHref} class="action">{copy.clinics}</a>
     </div>
   </div>
 </section>

@@ -2,14 +2,25 @@
 const heroImage =
   "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/68d6747e333b7248b8879b4c_DSC09351%20(1).webp";
 const lang = Astro.props.lang === "de" ? "de" : "en";
+const base = import.meta.env.BASE_URL || "/";
+const normalizedBase = base.endsWith("/") ? base : `${base}/`;
+const secondaryHref = lang === "de"
+  ? `${normalizedBase}de/our-therapy-solution`
+  : `${normalizedBase}our-therapy-solution`;
 const copy = lang === "de"
   ? {
-      title: "VR-Therapie für Rehabilitations- und Therapiefachkräfte: CUREO für ihre Einrichtung",
-      imageAlt: "VR-Therapiesitzung in einem Rehabilitationsumfeld"
+      title: "Mehr Therapie, weniger Stress: CUREO für Ihre medizinische Einrichtung",
+      imageAlt: "VR-Therapiesitzung in einem Rehabilitationsumfeld",
+      primaryCta: "Termin buchen",
+      secondaryCta: "CUREO in Aktion sehen",
+      proof: "Über 300 Einrichtungen vertrauen CUREO · 50+ interaktive Therapieübungen · Für Kliniken und Praxen"
     }
   : {
-      title: "VR Therapy for Rehabilitation and Therapy Professionals: CUREO for your institution",
-      imageAlt: "VR therapy session in rehabilitation setting"
+      title: "More therapy, less stress: CUREO for your medical institution",
+      imageAlt: "VR therapy session in rehabilitation setting",
+      primaryCta: "Book appointment",
+      secondaryCta: "See CUREO in action",
+      proof: "Trusted by 300+ institutions · 50+ interactive therapy exercises · Built for clinics and practices"
     };
 ---
 
@@ -20,6 +31,20 @@ const copy = lang === "de"
       <div class="hero-overlay"></div>
       <div class="hero-content">
         <h1>{copy.title}</h1>
+        <div class="hero-actions">
+          <a
+            class="hero-btn hero-btn-primary"
+            href="https://meetings-eu1.hubspot.com/cureosity/terminbuchungstool-de"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {copy.primaryCta}
+          </a>
+          <a class="hero-btn hero-btn-secondary" href={secondaryHref}>
+            {copy.secondaryCta}
+          </a>
+        </div>
+        <p class="hero-proof">{copy.proof}</p>
       </div>
     </div>
   </div>
@@ -27,11 +52,8 @@ const copy = lang === "de"
 
 <style>
   .hero {
-    --cureo-green: hsl(81.95, 65.08%, 37.06%);
-    background:
-      radial-gradient(circle at 10% -20%, rgba(164, 209, 87, 0.22), transparent 50%),
-      linear-gradient(180deg, #fbfef8 0%, #f4f9ec 100%);
-    padding: 1.5rem 1.2rem 2rem;
+    background: #ffffff;
+    padding: 1.2rem 1.2rem 1.6rem;
   }
 
   .hero-shell {
@@ -40,7 +62,8 @@ const copy = lang === "de"
   }
 
   .hero-media {
-    border-radius: 24px;
+    border: 1px solid #d9e5d2;
+    border-radius: 8px;
     min-height: 420px;
     overflow: hidden;
     position: relative;
@@ -56,15 +79,15 @@ const copy = lang === "de"
 
   .hero-overlay {
     background:
-      linear-gradient(105deg, rgba(16, 37, 20, 0.78) 0%, rgba(16, 37, 20, 0.26) 62%, rgba(16, 37, 20, 0.2) 100%),
-      linear-gradient(180deg, rgba(0, 0, 0, 0.12), transparent 42%);
+      linear-gradient(105deg, rgba(20, 42, 24, 0.76) 0%, rgba(20, 42, 24, 0.26) 62%, rgba(20, 42, 24, 0.15) 100%),
+      linear-gradient(180deg, rgba(111, 156, 33, 0.08), transparent 42%);
     inset: 0;
     position: absolute;
   }
 
   .hero-content {
     bottom: clamp(1.4rem, 5vw, 3rem);
-    color: #fff;
+    color: #ffffff;
     left: clamp(1.2rem, 4vw, 3rem);
     max-width: min(760px, 90%);
     position: absolute;
@@ -72,11 +95,56 @@ const copy = lang === "de"
   }
 
   .hero-content h1 {
+    color: #ffffff;
     font-size: clamp(1.8rem, 4.3vw, 3.7rem);
     letter-spacing: -0.02em;
     line-height: 1.07;
     margin: 0;
     text-wrap: balance;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 1rem;
+  }
+
+  .hero-btn {
+    border-radius: 8px;
+    display: inline-flex;
+    font-size: 0.95rem;
+    font-weight: 700;
+    padding: 0.62rem 1rem;
+    text-decoration: none;
+    transition: transform 160ms ease;
+  }
+
+  .hero-btn:hover {
+    transform: translateY(-1px);
+  }
+
+  .hero-btn-primary {
+    background: #6f9c21;
+    color: #ffffff;
+  }
+
+  .hero-btn-secondary {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 700;
+    padding: 0.62rem 1rem;
+    text-decoration: none;
+  }
+
+  .hero-proof {
+    color: rgba(244, 252, 238, 0.95);
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 1.45;
+    margin: 0.7rem 0 0;
   }
 
   @media (max-width: 700px) {
@@ -91,6 +159,10 @@ const copy = lang === "de"
 
     .hero-content h1 {
       max-width: 96%;
+    }
+
+    .hero-proof {
+      font-size: 0.84rem;
     }
   }
 </style>

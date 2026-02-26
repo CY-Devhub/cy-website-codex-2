@@ -16,6 +16,13 @@ import cogniLogo from "../assets/img/CUREO5/CUREO5_Module_Cogni_Logo.svg";
 import relaxLogo from "../assets/img/CUREO5/CUREO5_Module_Relax_Logo.svg";
 import activitiesLogo from "../assets/img/CUREO5/CUREO5_Module_Activities_Logo.svg";
 import adlLogo from "../assets/img/CUREO5/CUREO5_Module_ADL_LOGO.svg";
+import activeShot from "../assets/img/CUREO5/CUREO5_Module_Active_Screenshot.png";
+import handShot from "../assets/img/CUREO5/CUREO5_Module_Hand_Screenshot.png.png";
+import motoShot from "../assets/img/CUREO5/CUREO5_Module_Moto_Screenshot.png.jpeg";
+import cogniShot from "../assets/img/CUREO5/CUREO5_Module_Cogni_Screenshot.png.png";
+import relaxShot from "../assets/img/CUREO5/CUREO5_Module_Relax_Screenshot.png.png";
+import activitiesShot from "../assets/img/CUREO5/CUREO5_Module_Activities_Screenshot.png.jpeg";
+import adlShot from "../assets/img/CUREO5/CUREO5_Module_ADL_Screenshot.png";
 
 const lang = Astro.props.lang === "de" ? "de" : "en";
 
@@ -57,13 +64,53 @@ const copy = lang === "de"
       modulesBody:
         "Sieben Module decken sensomotorische, kognitive und alltagsnahe Anwendungsfelder strukturiert ab.",
       modules: [
-        { name: "Active", icon: activeLogo.src },
-        { name: "Hand", icon: handLogo.src },
-        { name: "Moto", icon: motoLogo.src },
-        { name: "Cogni", icon: cogniLogo.src },
-        { name: "Relax", icon: relaxLogo.src },
-        { name: "Activities", icon: activitiesLogo.src },
-        { name: "ADL", icon: adlLogo.src }
+        {
+          name: "Active",
+          icon: activeLogo.src,
+          screenshot: activeShot.src,
+          description:
+            "Für schwer betroffene Patienten konzipiert und zur Förderung der visuellen Wahrnehmung bei Neglect geeignet."
+        },
+        {
+          name: "Hand",
+          icon: handLogo.src,
+          screenshot: handShot.src,
+          description: "Feinmotorik, Beweglichkeit und Koordination der Hände und Finger werden gezielt trainiert."
+        },
+        {
+          name: "Moto",
+          icon: motoLogo.src,
+          screenshot: motoShot.src,
+          description:
+            "Gezielte Übungen fördern die Beweglichkeit der oberen Extremitäten und ermöglichen strukturiertes motorisches Training."
+        },
+        {
+          name: "Cogni",
+          icon: cogniLogo.src,
+          screenshot: cogniShot.src,
+          description: "Fördert Farb- und Formerkennung, Wortfindung, räumliche Wahrnehmung und Konzentration."
+        },
+        {
+          name: "Relax",
+          icon: relaxLogo.src,
+          screenshot: relaxShot.src,
+          description:
+            "Neuroregulation, Stressreduktion und Schmerzlinderung für Patienten in unterschiedlichen Therapiephasen."
+        },
+        {
+          name: "Activities",
+          icon: activitiesLogo.src,
+          screenshot: activitiesShot.src,
+          description:
+            "Kleine Aufgaben in multisensorischen Landschaften steigern Motivation und ermöglichen alltagsnahe Aktivierung."
+        },
+        {
+          name: "ADL",
+          icon: adlLogo.src,
+          screenshot: adlShot.src,
+          description:
+            "Die virtuelle Therapieküche unterstützt das Training alltagsnaher Aufgaben mit Werkzeugen und Gegenständen."
+        }
       ],
       platformTitle: "Für den klinischen Alltag entwickelt",
       platformBody:
@@ -127,13 +174,55 @@ const copy = lang === "de"
       modulesBody:
         "Seven modules cover sensorimotor, cognitive, and daily-life therapy goals in a structured way.",
       modules: [
-        { name: "Active", icon: activeLogo.src },
-        { name: "Hand", icon: handLogo.src },
-        { name: "Moto", icon: motoLogo.src },
-        { name: "Cogni", icon: cogniLogo.src },
-        { name: "Relax", icon: relaxLogo.src },
-        { name: "Activities", icon: activitiesLogo.src },
-        { name: "ADL", icon: adlLogo.src }
+        {
+          name: "Active",
+          icon: activeLogo.src,
+          screenshot: activeShot.src,
+          description:
+            "Designed for severe impairments and visual-spatial activation, including training support for neglect therapy."
+        },
+        {
+          name: "Hand",
+          icon: handLogo.src,
+          screenshot: handShot.src,
+          description:
+            "Targets fine motor skills, mobility, and coordinated hand and finger control through guided exercises."
+        },
+        {
+          name: "Moto",
+          icon: motoLogo.src,
+          screenshot: motoShot.src,
+          description:
+            "Supports upper-limb mobility and structured motor practice with task-based movement sequences."
+        },
+        {
+          name: "Cogni",
+          icon: cogniLogo.src,
+          screenshot: cogniShot.src,
+          description:
+            "Strengthens color and shape recognition, word retrieval, spatial awareness, and concentration."
+        },
+        {
+          name: "Relax",
+          icon: relaxLogo.src,
+          screenshot: relaxShot.src,
+          description:
+            "Promotes neuroregulation, stress reduction, and pain relief in motivating immersive environments."
+        },
+        {
+          name: "Activities",
+          icon: activitiesLogo.src,
+          screenshot: activitiesShot.src,
+          description:
+            "Offers compact multisensory tasks in virtual landscapes to increase participation and adherence."
+        },
+        {
+          name: "ADL",
+          icon: adlLogo.src,
+          screenshot: adlShot.src,
+          description:
+            "Trains activities of daily living through realistic kitchen and object-based practice scenarios."
+        }
       ],
       platformTitle: "Built for real clinical workflows",
       platformBody:
@@ -162,7 +251,7 @@ const copy = lang === "de"
     };
 ---
 
-<section class="solution-page" data-reveal>
+<section class="solution-page">
   <div class="shell">
     <section class="hero">
       <div class="hero-text">
@@ -245,12 +334,30 @@ const copy = lang === "de"
     <section class="modules card">
       <h2>{copy.modulesTitle}</h2>
       <p>{copy.modulesBody}</p>
-      <div class="module-grid">
+      <div class="module-stack" data-module-stack>
         {
-          copy.modules.map((module) => (
-            <article class="module-item">
-              <img src={module.icon} alt={`${module.name} module`} loading="lazy" />
-              <h3>{module.name}</h3>
+          copy.modules.map((module, index) => (
+            <article class={`module-row ${index % 2 === 1 ? "is-reversed" : ""}`} data-module-row>
+              <button
+                type="button"
+                class="module-logo"
+                data-module-toggle
+                aria-pressed="false"
+                aria-label={`Show ${module.name} screenshot`}
+              >
+                <span class="logo-stage">
+                  <span class="logo-brand">
+                    <img src={module.icon} alt="" loading="lazy" />
+                    <strong>{module.name}</strong>
+                  </span>
+                  <img class="logo-preview" src={module.screenshot} alt={`${module.name} screenshot`} loading="lazy" />
+                </span>
+              </button>
+
+              <div class="module-text">
+                <h3>{module.name}</h3>
+                <p>{module.description}</p>
+              </div>
             </article>
           ))
         }
@@ -294,6 +401,43 @@ const copy = lang === "de"
     </section>
   </div>
 </section>
+
+<script is:inline>
+  (() => {
+    const stacks = document.querySelectorAll("[data-module-stack]");
+    stacks.forEach((stack) => {
+      const rows = Array.from(stack.querySelectorAll("[data-module-row]"));
+      if (rows.length === 0) return;
+
+      const clearActive = () => {
+        rows.forEach((row) => {
+          row.classList.remove("is-active");
+          const toggle = row.querySelector("[data-module-toggle]");
+          if (toggle) toggle.setAttribute("aria-pressed", "false");
+        });
+      };
+
+      rows.forEach((row) => {
+        const toggle = row.querySelector("[data-module-toggle]");
+        if (!toggle) return;
+
+        toggle.addEventListener("click", () => {
+          const wasActive = row.classList.contains("is-active");
+          clearActive();
+          if (!wasActive) {
+            row.classList.add("is-active");
+            toggle.setAttribute("aria-pressed", "true");
+          }
+        });
+      });
+
+      document.addEventListener("pointerdown", (event) => {
+        if (!(event.target instanceof Node)) return;
+        if (!stack.contains(event.target)) clearActive();
+      });
+    });
+  })();
+</script>
 
 <style>
   .solution-page {
@@ -485,31 +629,133 @@ const copy = lang === "de"
     line-height: 1.35;
   }
 
-  .module-grid {
+  .module-stack {
     display: grid;
-    gap: 0.8rem;
-    grid-template-columns: repeat(4, minmax(150px, 1fr));
+    gap: 1rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .module-item {
+  .module-row {
+    align-items: start;
     background: #fff;
+    border: 1px solid #d8dfd4;
     border-radius: 8px;
-    padding: 0.8rem 0.6rem;
-    text-align: center;
+    display: grid;
+    gap: 0.9rem;
+    grid-template-columns: minmax(220px, 28%) minmax(0, 1fr);
+    grid-template-areas: "logo text";
+    overflow: hidden;
+    padding: 0.95rem;
+    transition: border-color 180ms ease, background-color 180ms ease, transform 180ms ease;
   }
 
-  .module-item img {
+  .module-row.is-reversed {
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 28%);
+    grid-template-areas: "text logo";
+  }
+
+  .module-row:hover,
+  .module-row:focus-within,
+  .module-row.is-active {
+    background: #fcfefb;
+    border-color: #b9c9b2;
+    transform: translateY(-2px);
+  }
+
+  .module-logo {
+    appearance: none;
+    background: transparent;
+    border: 0;
+    color: #1f3422;
+    cursor: pointer;
     display: block;
-    height: 58px;
-    margin: 0 auto 0.5rem;
+    grid-area: logo;
+    min-height: 172px;
+    padding: 0;
+    width: 100%;
+  }
+
+  .logo-stage {
+    border-radius: 8px;
+    display: grid;
+    min-height: 172px;
+    overflow: hidden;
+    place-items: center;
+    position: relative;
+    width: 100%;
+  }
+
+  .logo-brand {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    opacity: 1;
+    transition: opacity 220ms ease, transform 220ms ease;
+    transform: translateY(0);
+    z-index: 2;
+  }
+
+  .logo-brand img {
+    display: block;
+    height: 68px;
+    margin: 0;
     max-width: 100%;
     object-fit: contain;
   }
 
-  .module-item h3 {
+  .logo-brand strong {
     color: #2a3f2d;
-    font-size: 0.96rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .logo-preview {
+    border-radius: 8px;
+    height: 100%;
+    left: 0;
+    object-fit: cover;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    transform: scale(1.04);
+    transition: opacity 220ms ease, transform 260ms ease;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .module-text {
+    grid-area: text;
+    padding-right: 0.2rem;
+  }
+
+  .module-text h3 {
+    color: #234128;
+    font-size: clamp(1.2rem, 1.8vw, 1.55rem);
+    margin: 0 0 0.45rem;
+  }
+
+  .module-text p {
+    color: #3f5347;
+    font-size: 1.02rem;
+    line-height: 1.6;
     margin: 0;
+  }
+
+  .module-logo:hover .logo-preview,
+  .module-logo:focus-visible .logo-preview,
+  .module-row.is-active .logo-preview {
+    opacity: 1;
+    transform: scale(1.01);
+  }
+
+  .module-logo:hover .logo-brand,
+  .module-logo:focus-visible .logo-brand,
+  .module-row.is-active .logo-brand {
+    opacity: 0;
+    transform: translateY(4px);
   }
 
   .platform-final {
@@ -575,6 +821,24 @@ const copy = lang === "de"
     text-decoration: none;
   }
 
+  @media (max-width: 1080px) {
+    .module-row,
+    .module-row.is-reversed {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "logo"
+        "text";
+    }
+
+    .logo-stage {
+      min-height: 156px;
+    }
+
+    .logo-brand img {
+      height: 58px;
+    }
+  }
+
   @media (max-width: 980px) {
     .intro,
     .two-up,
@@ -584,8 +848,12 @@ const copy = lang === "de"
       grid-template-columns: 1fr;
     }
 
-    .module-grid {
-      grid-template-columns: repeat(2, minmax(140px, 1fr));
+    .module-text p {
+      font-size: 0.98rem;
+    }
+
+    .module-stack {
+      grid-template-columns: 1fr;
     }
   }
 

@@ -1,0 +1,73 @@
+---
+import privacyEnHtml from "../assets/legal/data-protection-en.html?raw";
+import privacyDeHtml from "../assets/legal/data-protection-de.html?raw";
+
+const lang = Astro.props.lang === "de" ? "de" : "en";
+const legalHtml = lang === "de" ? privacyDeHtml : privacyEnHtml;
+---
+
+<section class="legal-page">
+  <div class="shell">
+    <article class="legal-card">
+      <div class="legal-richtext" set:html={legalHtml}></div>
+    </article>
+  </div>
+</section>
+
+<style>
+  .legal-page {
+    background: #fff;
+    padding: clamp(1rem, 2vw, 1.8rem) clamp(0.9rem, 2.4vw, 1.6rem) clamp(2rem, 4vw, 3.2rem);
+  }
+
+  .shell {
+    margin: 0 auto;
+    max-width: 980px;
+  }
+
+  .legal-card {
+    background: #f7f9f6;
+    border-radius: 8px;
+    padding: clamp(1.1rem, 2vw, 1.6rem);
+  }
+
+  .legal-richtext :global(p),
+  .legal-richtext :global(li),
+  .legal-richtext :global(blockquote) {
+    color: #3f5347;
+    line-height: 1.58;
+  }
+
+  .legal-richtext :global(p) {
+    margin: 0;
+  }
+
+  .legal-richtext :global(blockquote) {
+    margin: 0.45rem 0;
+  }
+
+  .legal-richtext :global(ul) {
+    margin: 0.35rem 0 0 1.2rem;
+    padding: 0;
+  }
+
+  .legal-richtext :global(a) {
+    color: #2e5f32;
+  }
+
+  .legal-richtext :global(figure) {
+    margin: 0.8rem 0;
+  }
+
+  .legal-richtext :global(img) {
+    border-radius: 8px;
+    height: auto;
+    max-width: 100%;
+  }
+
+  @media (max-width: 700px) {
+    .legal-page {
+      padding: 0.85rem 0.8rem 1.7rem;
+    }
+  }
+</style>
