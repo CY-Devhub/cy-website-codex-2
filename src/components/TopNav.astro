@@ -36,6 +36,7 @@ const newsHref = isGerman
 const contactHref = isGerman
   ? `${normalizedBase}de/contact`
   : `${normalizedBase}contact`;
+const appointmentHref = "https://meetings-eu1.hubspot.com/cureosity/terminbuchungstool-de";
 
 const copy = isGerman
   ? {
@@ -50,6 +51,7 @@ const copy = isGerman
       company: "Unternehmen",
       career: "Karriere",
       contact: "KONTAKT",
+      appointment: "Termin buchen",
       login: "LOGIN",
       openMenu: "Menü öffnen",
       switchLanguage: "Zu Englisch wechseln",
@@ -68,6 +70,7 @@ const copy = isGerman
       company: "Company",
       career: "Career",
       contact: "CONTACT",
+      appointment: "Termin buchen",
       login: "LOGIN",
       openMenu: "Open menu",
       switchLanguage: "Switch to German",
@@ -123,6 +126,9 @@ const switchHref = switchPath || (isGerman ? enHref : deHref);
       </div>
 
       <a class="nav-item" href={contactHref}>{copy.contact}</a>
+      <a class="nav-item nav-cta" href={appointmentHref} target="_blank" rel="noopener noreferrer">
+        {copy.appointment}
+      </a>
       <a class="nav-item" href="https://online.cureosity.com" target="_blank" rel="noopener noreferrer">
         {copy.login}
       </a>
@@ -155,6 +161,9 @@ const switchHref = switchPath || (isGerman ? enHref : deHref);
         </details>
 
         <a href={contactHref}>{copy.contact}</a>
+        <a class="mobile-cta" href={appointmentHref} target="_blank" rel="noopener noreferrer">
+          {copy.appointment}
+        </a>
         <a href="https://online.cureosity.com" target="_blank" rel="noopener noreferrer">{copy.login}</a>
         <a class="mobile-lang" href={switchHref}>{copy.languageFlag} {copy.languageCode}</a>
       </div>
@@ -284,6 +293,17 @@ const switchHref = switchPath || (isGerman ? enHref : deHref);
     text-decoration: none;
   }
 
+  .nav-cta {
+    background: #8ebc48;
+    border-radius: 8px;
+    color: #fff;
+    margin-left: 0.25rem;
+  }
+
+  .nav-cta:hover {
+    background: #7ba53e;
+  }
+
   .mobile-nav {
     display: none;
     margin-left: auto;
@@ -389,6 +409,16 @@ const switchHref = switchPath || (isGerman ? enHref : deHref);
   .mobile-lang {
     font-weight: 700;
     margin-top: 0.2rem;
+  }
+
+  .mobile-cta {
+    background: #8ebc48;
+    color: #fff;
+    font-weight: 700;
+  }
+
+  .mobile-cta:hover {
+    background: #7ba53e;
   }
 
   @media (max-width: 1080px) {
