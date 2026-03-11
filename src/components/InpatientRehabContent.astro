@@ -1,9 +1,8 @@
 ---
-import heroImage from "../assets/img/CUREO5/CUREO5_HappyGroupTherapy.webp";
-import groupClinicImage from "../assets/img/CUREO5/CUREO5_Grouptherapy_clinics.jpg";
+import heroImage from "../assets/img/CUREO5/CUREO5_Grouptherapy_clinics.jpg";
+import groupClinicImage from "../assets/img/CUREO5/CUREO5_HappyGroupTherapy.webp";
 import groupUiImage from "../assets/img/CUREO5/CUREO5_GroupTherapyScreenShot.jpeg";
 import navigatorImage from "../assets/img/CUREO5/CUREO5_NavigatorScreenshot.jpeg";
-import singleAltImage from "../assets/img/CUREO5/CUREO5_HappyTherapist_Patient_Alternative.jpg";
 import bedsideImage from "../assets/img/CUREO5/CUREO_Bedsite_Therapy.jpg";
 import reportImage from "../assets/img/CUREO5/CUREO5_Therapy_Report_Mock.jpeg";
 import growthImage from "../assets/img/CUREO5/CUREO5_HappyPatientTherapist.jpg";
@@ -34,28 +33,67 @@ const logos = Object.entries(logoModules)
   .sort((a, b) => a.file.localeCompare(b.file));
 
 const lang = Astro.props.lang === "de" ? "de" : "en";
+const base = import.meta.env.BASE_URL || "/";
+const normalizedBase = base.endsWith("/") ? base : `${base}/`;
+const secondaryHref = lang === "de"
+  ? `${normalizedBase}de/our-therapy-solution`
+  : `${normalizedBase}our-therapy-solution`;
+
 const copy = lang === "de"
   ? {
-      heroTitle: "CUREO VR-Therapie.",
-      heroSubtitle: "Entwickelt, um in Reha- und Akutkliniken echten Mehrwert zu schaffen",
-      efficiencyTitle: "Effizienz mit Gruppentherapie maximieren",
-      efficiencyText:
-        "Führen Sie individualisierte Gruppentherapie in Ihrer Klinik durch und behandeln Sie bis zu 6 Patienten gleichzeitig mit CUREO GROUP.",
-      efficiencyA: "Jeder Patient sieht eigene Instruktionen und trainiert in einer individuellen virtuellen Umgebung.",
-      efficiencyB:
-        "Navigator und Therapieplanung ermöglichen eine strukturierte Behandlung vom Setup bis zur Abschlussdokumentation.",
-      efficiencyC: "Aus einer Gruppensitzung kann flexibel in den Einzelmodus gewechselt werden.",
-      intermediateCtaTitle: "Interesse an CUREO GROUP?",
-      intermediateCta: "Mehr erfahren",
-      effectiveTitle: "Wirksam während und nach der Therapie",
-      effectiveText:
-        "Von der Frühmobilisierung am Bett bis zu spezialisierten Reha-Sequenzen passt sich CUREO Ihren klinischen Versorgungsstufen an.",
-      effectiveB:
-        "Automatisch erstellte Fortschrittsberichte und Administrationsdaten unterstützen Ihr Team bei schnellen, fundierten Entscheidungen.",
-      growthTitle: "Therapieteams in Ihrer Klinik gezielt weiterentwickeln",
-      growthText:
-        "Mit CUREO arbeiten Sie mit einem modernen Systemstandard. Das steigert Teammotivation, unterstützt Schulung und verbessert die Planbarkeit im Klinikalltag.",
-      growthB: "Regelmäßige Content-Updates und neue Virtual-Reality-Features sind ohne Zusatzkosten verfügbar.",
+      heroTitle: "CUREO VR-Therapie für Reha- und Akutkliniken",
+      heroSubtitle: "Entwickelt, um in stationären Versorgungsstrukturen echte Entlastung und messbare Therapieergebnisse zu liefern.",
+      heroPrimaryCta: "Termin buchen",
+      heroSecondaryCta: "Therapielösung ansehen",
+
+      selectorTitle: "Wählen Sie Ihren Klinikfokus",
+      selectorText:
+        "CUREO adressiert stationäre Rehabilitation und Akutversorgung mit jeweils passenden Workflows. Wählen Sie den Bereich und springen Sie direkt zum relevanten Abschnitt.",
+      selectorRehabTitle: "Rehabilitationskliniken",
+      selectorRehabBody: "Fokus auf Einzel-/Gruppentherapie und Therapie-Navigator",
+      selectorRehabImage:
+        "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/69032049a209d4dfd000f27d_DSC02952.jpg",
+      selectorAcuteTitle: "Akutkliniken",
+      selectorAcuteBody: "Fokus auf Bettseitentherapie und Frühphase-Rehabilitation",
+      selectorAcuteImage:
+        "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/68de6d9e0bc26e4b64672f16_PatientenBettJPG.jpg",
+
+      rehabTitle: "Für Rehabilitationskliniken",
+      rehabIntro:
+        "In stationären Rehabilitationskliniken ermöglicht CUREO individualisierte Gruppentherapie mit klaren Prozessen und hoher Behandlungskapazität.",
+      rehabGroupTitle: "Individualisierte Gruppentherapie",
+      rehabGroupBody:
+        "Mit CUREO GROUP können bis zu sechs Patienten gleichzeitig behandelt werden, während jeder Patient in einer eigenen virtuellen Umgebung mit individuellen Instruktionen trainiert.",
+      rehabGroupBenefits: [
+        "Bis zu 6 Patienten parallel behandeln und Therapiezeit effizienter nutzen.",
+        "Einheitliche, indikationsbasierte Trainingspläne für die Gruppe zuweisen oder individuelle Pläne für einzelne Patienten erstellen.",
+        "Therapeuten bleiben jederzeit flexibel zwischen Gruppen- und Einzelmodus.",
+        "Mehr Zeit für Patientenversorgung, weniger Aufwand für Organisation und Dokumentation."
+      ],
+      rehabNavigatorTitle: "Therapie-Navigator und Trainingsplan",
+      rehabNavigatorBody:
+        "Der Therapie-Navigator unterstützt Ihr Team bei Planung, Zuweisung und Steuerung laufender Sitzungen und schafft einen konsistenten Ablauf über alle Therapieräume hinweg.",
+      rehabNavigatorBenefits: [
+        "Der Therapie-Navigator unterstützt Planung, Patientenzuweisung, Sitzungssteuerung und Abschlussdokumentation.",
+        "Die Benutzeroberfläche zeigt aktive Sessions, Verbindungsstatus und verfügbare Headsets auf einen Blick.",
+        "Für Patienten ist klar erkennbar, welches Training aktiv ist; neue Sessions können zum richtigen Zeitpunkt gestartet werden."
+      ],
+
+      acuteTitle: "Für Akutkliniken",
+      acuteIntro:
+        "Für die Akutversorgung liefert CUREO niedrigschwellige, motivierende Therapieeinheiten am Bett und in der Frühphase, abgestimmt auf neurologische und funktionelle Einschränkungen.",
+      acuteBedsideText:
+        "Bettseitentherapie ermöglicht frühe Aktivierung direkt in der klinischen Umgebung und reduziert organisatorischen Aufwand.",
+      acuteEarlyText:
+        "Frühphase-Rehabilitation mit klaren, geführten Übungen unterstützt den schnellen Therapiebeginn und eine sichere Progression.",
+
+      sharedTitle: "Für beide Kliniktypen: ein gemeinsamer Qualitätsstandard",
+      sharedIntro:
+        "CUREO hilft Ihrem Team mit einem modernen Behandlungsstandard, verbessert Sicherheit in der Anwendung und erleichtert Einarbeitung, Skalierung und Planung.",
+      sharedCardA: "Automatisch erstellte Fortschrittsberichte und Administrationsdaten unterstützen schnellere und bessere klinische Entscheidungen.",
+      sharedCardB: "Navigator und Therapieplanung bilden einen strukturierten Prozess von Vorbereitung bis Abschlussdokumentation ab.",
+      sharedCardC: "Der CUREO Hub macht Verläufe transparent, standardisiert Workflows und verbessert die teamübergreifende Abstimmung.",
+
       trustTitle: "Führende medizinische Einrichtungen vertrauen auf CUREO",
       expertTitle: "Rückmeldung aus der Praxis",
       expertQuote:
@@ -65,26 +103,62 @@ const copy = lang === "de"
       finalCta: "Termin vereinbaren"
     }
   : {
-      heroTitle: "CUREO VR Therapy.",
-      heroSubtitle: "Designed to deliver value for rehabilitation and acute clinics",
-      efficiencyTitle: "Maximize efficiency with group therapy",
-      efficiencyText:
-        "Run individualized group therapy in your clinic and treat up to 6 patients simultaneously using CUREO GROUP.",
-      efficiencyA: "Each patient receives dedicated instructions and trains in an individual virtual environment.",
-      efficiencyB:
-        "Navigator and planning tools support a structured process from setup to final documentation.",
-      efficiencyC: "Switch from group mode to single-patient mode at any time when clinically required.",
-      intermediateCtaTitle: "Interested in CUREO GROUP?",
-      intermediateCta: "Learn more",
-      effectiveTitle: "Effective during and after therapy",
-      effectiveText:
-        "From early bedside activation to specialized rehabilitation sequences, CUREO adapts to your clinical care stages.",
-      effectiveB:
-        "Automatically generated progress reports and administration data support faster and better clinical decisions.",
-      growthTitle: "Develop and scale therapeutic staff in your clinic",
-      growthText:
+      heroTitle: "CUREO VR Therapy for Rehabilitation and Acute Clinics",
+      heroSubtitle: "Designed to deliver measurable outcomes and operational relief in inpatient care environments.",
+      heroPrimaryCta: "Book appointment",
+      heroSecondaryCta: "View therapy solution",
+
+      selectorTitle: "Choose your clinic focus",
+      selectorText:
+        "CUREO supports both inpatient rehabilitation and acute-care workflows. Select a path to jump straight to the most relevant section.",
+      selectorRehabTitle: "Rehabilitation Clinics",
+      selectorRehabBody: "Focus on individual/group therapy and therapy navigator",
+      selectorRehabImage:
+        "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/69032049a209d4dfd000f27d_DSC02952.jpg",
+      selectorAcuteTitle: "Acute Clinics",
+      selectorAcuteBody: "Focus on bedside therapy and early-phase rehabilitation",
+      selectorAcuteImage:
+        "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/68de6d9e0bc26e4b64672f16_PatientenBettJPG.jpg",
+
+      rehabTitle: "For rehabilitation clinics",
+      rehabIntro:
+        "In inpatient rehabilitation clinics, CUREO enables individualized group therapy with clear workflows and high treatment capacity.",
+      rehabGroupTitle: "Individualized Group Therapy",
+      rehabGroupBody:
+        "With CUREO GROUP, up to six patients can be treated simultaneously while each patient trains in their own virtual environment with dedicated instructions.",
+      rehabGroupBenefits: [
+        "Treat up to 6 patients in parallel and use therapy time more efficiently.",
+        "Assign one indication-based group plan or create individualized plans for specific patients.",
+        "Therapists can stay flexible between group mode and one-on-one treatment at any time.",
+        "More time for patient care with less operational and documentation overhead."
+      ],
+      rehabNavigatorTitle: "Therapy Navigator and Training Plan",
+      rehabNavigatorBody:
+        "Therapy Navigator helps your team plan, assign, and control ongoing sessions, creating one consistent workflow across treatment rooms.",
+      rehabNavigatorBenefits: [
+        "Therapy Navigator supports planning, patient assignment, session control, and final documentation.",
+        "The interface gives a fast overview of active sessions, connection status, and available headsets.",
+        "Patients can clearly see which training is active, while therapists launch new sessions at the right moment."
+      ],
+
+      acuteTitle: "For acute clinics",
+      acuteIntro:
+        "For acute settings, CUREO provides low-threshold, motivating therapy sessions at bedside and in early rehabilitation phases, adapted to neurological and functional limitations.",
+      acuteBedsideText:
+        "Bedside therapy supports early activation directly in the ward environment and reduces logistical overhead.",
+      acuteEarlyText:
+        "Early-phase rehabilitation with guided exercises enables faster therapy start and safe, trackable progression.",
+
+      sharedTitle: "For both clinic types: one modern treatment standard",
+      sharedIntro:
         "CUREO helps your team work with a modern treatment standard, improving staff confidence, onboarding, and planning reliability.",
-      growthB: "Regular content updates and new virtual-reality features are included without additional charges.",
+      sharedCardA:
+        "Automatically generated progress reports and administration data support faster and better clinical decisions.",
+      sharedCardB:
+        "Navigator and planning tools support a structured process from setup to final documentation.",
+      sharedCardC:
+        "The CUREO Hub increases transparency, standardizes workflows, and improves alignment across teams.",
+
       trustTitle: "Leading medical institutions trust CUREO",
       expertTitle: "Clinical expert feedback",
       expertQuote:
@@ -98,71 +172,118 @@ const copy = lang === "de"
 <section class="inpatient-page" data-reveal>
   <div class="shell">
     <section class="hero">
-      <div class="hero-copy">
-        <h1>{copy.heroTitle}</h1>
-        <p>{copy.heroSubtitle}</p>
+      <div class="hero-media">
+        <img src={heroImage.src} alt={copy.heroSubtitle} loading="eager" />
+        <div class="hero-overlay"></div>
+        <div class="hero-copy">
+          <h1>{copy.heroTitle}</h1>
+          <p>{copy.heroSubtitle}</p>
+
+          <div class="hero-actions">
+            <a
+              class="hero-btn hero-btn-primary"
+              href="https://meetings-eu1.hubspot.com/cureosity/terminbuchungstool-de"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {copy.heroPrimaryCta}
+            </a>
+            <a class="hero-btn hero-btn-secondary" href={secondaryHref}>
+              {copy.heroSecondaryCta}
+            </a>
+          </div>
+        </div>
       </div>
-      <img src={heroImage.src} alt={copy.heroSubtitle} loading="eager" />
     </section>
 
-    <section class="section-card">
-      <h2>{copy.efficiencyTitle}</h2>
-      <div class="two-col intro-grid">
-        <img src={groupClinicImage.src} alt={copy.efficiencyTitle} loading="lazy" />
-        <p>{copy.efficiencyText}</p>
-      </div>
-
-      <div class="two-col detail-grid">
-        <article class="media-note">
-          <img src={groupUiImage.src} alt={copy.efficiencyA} loading="lazy" />
-          <p>{copy.efficiencyA}</p>
-        </article>
-        <article class="media-note">
-          <img src={navigatorImage.src} alt={copy.efficiencyB} loading="lazy" />
-          <p>{copy.efficiencyB}</p>
-        </article>
-        <article class="media-note">
-          <img src={singleAltImage.src} alt={copy.efficiencyC} loading="lazy" />
-          <p>{copy.efficiencyC}</p>
-        </article>
-      </div>
-
-      <div class="sub-cta">
-        <h3>{copy.intermediateCtaTitle}</h3>
-        <a
-          href="https://meetings-eu1.hubspot.com/cureosity/terminbuchungstool-de"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {copy.intermediateCta}
+    <section class="section-card clinic-selector">
+      <h2>{copy.selectorTitle}</h2>
+      <p class="selector-text">{copy.selectorText}</p>
+      <div class="selector-grid">
+        <a class="selector-link" href="#rehab-clinics">
+          <div class="selector-thumb">
+            <img src={copy.selectorRehabImage} alt={copy.selectorRehabTitle} loading="lazy" />
+            <div class="selector-thumb-overlay"></div>
+          </div>
+          <strong>{copy.selectorRehabTitle}</strong>
+          <span>{copy.selectorRehabBody}</span>
+        </a>
+        <a class="selector-link" href="#acute-clinics">
+          <div class="selector-thumb">
+            <img src={copy.selectorAcuteImage} alt={copy.selectorAcuteTitle} loading="lazy" />
+            <div class="selector-thumb-overlay"></div>
+          </div>
+          <strong>{copy.selectorAcuteTitle}</strong>
+          <span>{copy.selectorAcuteBody}</span>
         </a>
       </div>
     </section>
 
-    <section class="section-card">
-      <h2>{copy.effectiveTitle}</h2>
-      <div class="two-col">
-        <article class="media-note">
-          <img src={bedsideImage.src} alt={copy.effectiveText} loading="lazy" />
-          <p>{copy.effectiveText}</p>
+    <section id="rehab-clinics" class="section-card anchor-target">
+      <h2>{copy.rehabTitle}</h2>
+      <p class="section-intro">{copy.rehabIntro}</p>
+
+      <div class="rehab-stack">
+        <article class="rehab-adv-row">
+          <div class="rehab-media">
+            <img src={groupClinicImage.src} alt={copy.rehabGroupTitle} loading="lazy" />
+          </div>
+          <div class="rehab-content">
+            <h3>{copy.rehabGroupTitle}</h3>
+            <p class="section-intro rehab-body">{copy.rehabGroupBody}</p>
+            <ul class="rehab-benefits">
+              {copy.rehabGroupBenefits.map((item) => <li>{item}</li>)}
+            </ul>
+          </div>
         </article>
-        <article class="media-note">
-          <img src={reportImage.src} alt={copy.effectiveB} loading="lazy" />
-          <p>{copy.effectiveB}</p>
+
+        <article class="rehab-adv-row reverse">
+          <div class="rehab-media">
+            <img src={groupUiImage.src} alt={copy.rehabNavigatorTitle} loading="lazy" />
+          </div>
+          <div class="rehab-content">
+            <h3>{copy.rehabNavigatorTitle}</h3>
+            <p class="section-intro rehab-body">{copy.rehabNavigatorBody}</p>
+            <ul class="rehab-benefits">
+              {copy.rehabNavigatorBenefits.map((item) => <li>{item}</li>)}
+            </ul>
+          </div>
         </article>
       </div>
     </section>
 
-    <section class="section-card">
-      <h2>{copy.growthTitle}</h2>
+    <section id="acute-clinics" class="section-card anchor-target">
+      <h2>{copy.acuteTitle}</h2>
+      <p class="section-intro">{copy.acuteIntro}</p>
+
       <div class="two-col">
         <article class="media-note">
-          <img src={growthImage.src} alt={copy.growthText} loading="lazy" />
-          <p>{copy.growthText}</p>
+          <img src={bedsideImage.src} alt={copy.acuteBedsideText} loading="lazy" />
+          <p>{copy.acuteBedsideText}</p>
         </article>
         <article class="media-note">
-          <img src={hubImage.src} alt={copy.growthB} loading="lazy" />
-          <p>{copy.growthB}</p>
+          <img src={growthImage.src} alt={copy.acuteEarlyText} loading="lazy" />
+          <p>{copy.acuteEarlyText}</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="shared-clinic-value" class="section-card">
+      <h2>{copy.sharedTitle}</h2>
+      <p class="section-intro">{copy.sharedIntro}</p>
+
+      <div class="shared-grid">
+        <article class="media-note">
+          <img src={reportImage.src} alt={copy.sharedCardA} loading="lazy" />
+          <p>{copy.sharedCardA}</p>
+        </article>
+        <article class="media-note">
+          <img src={navigatorImage.src} alt={copy.sharedCardB} loading="lazy" />
+          <p>{copy.sharedCardB}</p>
+        </article>
+        <article class="media-note">
+          <img src={hubImage.src} alt={copy.sharedCardC} loading="lazy" />
+          <p>{copy.sharedCardC}</p>
         </article>
       </div>
     </section>
@@ -216,43 +337,94 @@ const copy = lang === "de"
   }
 
   .hero {
-    display: grid;
-    gap: 0.9rem;
-    margin-bottom: 0.2rem;
-    text-align: center;
+    margin-bottom: 0.3rem;
+  }
+
+  .hero-media {
+    border: 1px solid #d9e5d2;
+    border-radius: 8px;
+    min-height: 420px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .hero img {
+    display: block;
+    height: 100%;
+    min-height: 420px;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .hero-overlay {
+    background:
+      linear-gradient(105deg, rgba(20, 42, 24, 0.74) 0%, rgba(20, 42, 24, 0.24) 62%, rgba(20, 42, 24, 0.14) 100%),
+      linear-gradient(180deg, rgba(111, 156, 33, 0.08), transparent 42%);
+    inset: 0;
+    position: absolute;
   }
 
   .hero-copy {
-    margin: 0 auto;
-    max-width: 74ch;
+    bottom: clamp(1.3rem, 4.2vw, 2.4rem);
+    color: #fff;
+    left: clamp(1.1rem, 3.8vw, 2.6rem);
+    max-width: min(700px, 90%);
+    position: absolute;
+    z-index: 1;
   }
 
   .hero h1 {
-    color: #1b2f24;
-    font-size: clamp(2rem, 3.9vw, 3.15rem);
+    color: #fff;
+    font-size: clamp(1.95rem, 4vw, 3.2rem);
     letter-spacing: -0.02em;
     line-height: 1.08;
     margin: 0;
   }
 
   .hero p {
-    color: #44584b;
-    font-size: clamp(1.05rem, 1.45vw, 1.2rem);
+    color: rgba(242, 252, 236, 0.95);
+    font-size: clamp(1rem, 1.35vw, 1.15rem);
     line-height: 1.45;
-    margin: 0.45rem auto 0;
-    max-width: 62ch;
+    margin: 0.45rem 0 0;
+    max-width: 58ch;
   }
 
-  .hero img {
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.58rem;
+    margin-top: 0.95rem;
+  }
+
+  .hero-btn {
     border-radius: 8px;
-    width: 100%;
-    aspect-ratio: 16 / 7;
-    max-height: min(58vw, 560px);
-    object-fit: cover;
+    display: inline-flex;
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1;
+    padding: 0.62rem 1rem;
+    text-decoration: none;
+    transition: transform 160ms ease;
+  }
+
+  .hero-btn:hover {
+    transform: translateY(-1px);
+  }
+
+  .hero-btn-primary {
+    background: #6f9c21;
+    color: #fff;
+  }
+
+  .hero-btn-secondary {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    color: #fff;
   }
 
   .section-card {
-    background: #f7f9f6;
+    background: #fff;
+    border: 1px solid #d9e5d2;
     border-radius: 8px;
     padding: clamp(1rem, 2vw, 1.5rem);
   }
@@ -264,7 +436,130 @@ const copy = lang === "de"
     font-size: clamp(1.35rem, 2.1vw, 2.05rem);
     letter-spacing: -0.01em;
     line-height: 1.2;
+    margin: 0 0 0.75rem;
+  }
+
+  .selector-text,
+  .section-intro {
+    color: #3f5347;
+    line-height: 1.55;
     margin: 0 0 0.9rem;
+  }
+
+  .selector-grid {
+    display: grid;
+    gap: 0.72rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .selector-link {
+    background: linear-gradient(180deg, #ffffff 0%, #f6f9f4 100%);
+    border: 1px solid #d9e5d2;
+    border-radius: 8px;
+    color: inherit;
+    display: grid;
+    gap: 0.5rem;
+    padding: 0.7rem;
+    text-decoration: none;
+    transition: border-color 170ms ease, transform 170ms ease;
+  }
+
+  .selector-thumb {
+    border-radius: 8px;
+    min-height: 140px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .selector-thumb img {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .selector-thumb-overlay {
+    background:
+      linear-gradient(180deg, rgba(10, 28, 15, 0.1) 0%, rgba(10, 28, 15, 0.58) 100%),
+      linear-gradient(115deg, rgba(94, 152, 50, 0.22), rgba(94, 152, 50, 0.04));
+    inset: 0;
+    position: absolute;
+  }
+
+  .selector-link strong {
+    color: #1f3326;
+    font-size: 1.04rem;
+    line-height: 1.2;
+  }
+
+  .selector-link span {
+    color: #4e6357;
+    font-size: 0.94rem;
+    line-height: 1.4;
+  }
+
+  .selector-link:hover {
+    border-color: #9ec46f;
+    transform: translateY(-1px);
+  }
+
+  .anchor-target {
+    scroll-margin-top: 98px;
+  }
+
+  .rehab-stack {
+    display: grid;
+    gap: 0.82rem;
+  }
+
+  .rehab-adv-row {
+    display: grid;
+    gap: clamp(0.75rem, 1.4vw, 1.1rem);
+    grid-template-columns: minmax(320px, 1.05fr) minmax(340px, 1fr);
+  }
+
+  .rehab-adv-row.reverse .rehab-media {
+    order: 2;
+  }
+
+  .rehab-adv-row.reverse .rehab-content {
+    order: 1;
+  }
+
+  .rehab-media img {
+    border-radius: 8px;
+    display: block;
+    height: 100%;
+    min-height: 340px;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .rehab-content {
+    align-self: center;
+  }
+
+  .rehab-content h3 {
+    color: #223628;
+    font-size: clamp(1.1rem, 1.5vw, 1.4rem);
+    line-height: 1.2;
+    margin: 0 0 0.5rem;
+  }
+
+  .rehab-body {
+    margin-bottom: 0.7rem;
+  }
+
+  .rehab-benefits {
+    color: #3f5347;
+    display: grid;
+    gap: 0.36rem;
+    margin: 0;
+    padding-left: 1.05rem;
+  }
+
+  .rehab-benefits li {
+    line-height: 1.48;
   }
 
   .two-col {
@@ -275,31 +570,40 @@ const copy = lang === "de"
   }
 
   .intro-grid {
-    align-items: center;
     margin-bottom: 0.95rem;
   }
 
-  .intro-grid img {
+  .wide-note {
+    align-items: center;
+    background: #f8fbf6;
+    border-radius: 8px;
+    display: grid;
+    gap: 0.7rem;
+    grid-template-columns: minmax(180px, 280px) 1fr;
+    padding: 0.72rem;
+  }
+
+  .wide-note img {
     border-radius: 8px;
     width: 100%;
     aspect-ratio: 16 / 10;
     object-fit: cover;
   }
 
-  .intro-grid p {
+  .wide-note p {
     color: #3f5347;
-    font-size: clamp(0.98rem, 1.1vw, 1.07rem);
-    line-height: 1.55;
+    line-height: 1.5;
     margin: 0;
   }
 
-  .detail-grid {
+  .shared-grid {
+    display: grid;
+    gap: 0.72rem;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    margin-bottom: 1rem;
   }
 
   .media-note {
-    background: #fff;
+    background: #f8fbf6;
     border-radius: 8px;
     display: grid;
     gap: 0.45rem;
@@ -321,36 +625,6 @@ const copy = lang === "de"
     margin: 0;
   }
 
-  .sub-cta {
-    align-items: center;
-    border-top: 1px solid #d9e3d5;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.7rem;
-    justify-content: space-between;
-    padding-top: 0.9rem;
-  }
-
-  .sub-cta h3 {
-    color: #2a3d30;
-    font-size: 1.05rem;
-    margin: 0;
-  }
-
-  .sub-cta a,
-  .final-cta a {
-    background: #6f9c21;
-    border-radius: 8px;
-    color: #fff;
-    display: inline-block;
-    font-size: 0.95rem;
-    font-weight: 700;
-    line-height: 1;
-    padding: 0.62rem 1.05rem;
-    text-decoration: none;
-    transition: background 180ms ease, transform 180ms ease;
-  }
-
   .trust {
     display: grid;
     gap: 0.7rem;
@@ -365,6 +639,7 @@ const copy = lang === "de"
   .logo-card {
     align-items: center;
     background: #fff;
+    border: 1px solid #d9e5d2;
     border-radius: 8px;
     display: flex;
     justify-content: center;
@@ -382,7 +657,7 @@ const copy = lang === "de"
 
   .expert-box {
     align-items: center;
-    background: #fff;
+    background: #f8fbf6;
     border-radius: 8px;
     display: grid;
     gap: 0.95rem;
@@ -430,39 +705,49 @@ const copy = lang === "de"
 
   .final-cta a {
     background: #fff;
+    border-radius: 8px;
     color: #50791a;
+    display: inline-block;
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1;
+    padding: 0.62rem 1.05rem;
+    text-decoration: none;
+    transition: background 180ms ease, transform 180ms ease;
   }
 
   @media (hover: hover) {
-    .sub-cta a:hover,
-    .final-cta a:hover {
-      background: #5f891d;
-      color: #fff;
-      transform: translateY(-1px);
-    }
-
     .final-cta a:hover {
       background: #f4f7ef;
       color: #4d7418;
+      transform: translateY(-1px);
     }
   }
 
   @media (max-width: 1120px) {
-    .detail-grid {
+    .shared-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 
   @media (max-width: 980px) {
+    .rehab-adv-row,
+    .selector-grid,
     .two-col,
-    .detail-grid,
+    .shared-grid,
     .logo-row,
-    .expert-box {
+    .expert-box,
+    .wide-note {
       grid-template-columns: 1fr;
     }
 
     .expert-box p {
       grid-column: 1 / 2;
+    }
+
+    .rehab-adv-row.reverse .rehab-media,
+    .rehab-adv-row.reverse .rehab-content {
+      order: unset;
     }
   }
 
@@ -471,8 +756,13 @@ const copy = lang === "de"
       padding: 0.85rem 0.8rem 1.7rem;
     }
 
+    .hero-media,
     .hero img {
-      aspect-ratio: 16 / 9;
+      min-height: 360px;
+    }
+
+    .hero p {
+      font-size: 0.95rem;
     }
   }
 </style>

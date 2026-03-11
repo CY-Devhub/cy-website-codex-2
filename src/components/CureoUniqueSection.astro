@@ -14,7 +14,8 @@ const copy = lang === "de"
         "Durch gezielte Anreize wie Punkte, Fortschrittsanzeigen und neue Herausforderungen wird Therapie zu einer aktivierenden Erfahrung. Dieser spielerische Ansatz fördert Wiederholungen und hilft, Bewegungsmuster langfristig zu festigen.",
       principlesAria: "Kernprinzipien",
       principles: ["Gamification", "Virtuelle Realität", "Embodiment"],
-      imageAlt: "Therapeutin und Patient in einer CUREO VR-Therapiesitzung"
+      imageAlt: "Therapeutin und Patient in einer CUREO VR-Therapiesitzung",
+      cta: "Termin buchen"
     }
   : {
       heading: "What Makes Virtual Reality Therapy Unique?",
@@ -28,7 +29,8 @@ const copy = lang === "de"
         "Through targeted incentives such as points, progress indicators, and new challenges, therapy becomes an engaging and activating experience. This playful approach encourages repetition, helping to consolidate movement patterns and achieve lasting training results.",
       principlesAria: "Core principles",
       principles: ["Gamification", "Virtual Reality", "Embodiment"],
-      imageAlt: "Therapist and patient using CUREO VR therapy"
+      imageAlt: "Therapist and patient using CUREO VR therapy",
+      cta: "Book appointment"
     };
 ---
 
@@ -45,6 +47,15 @@ const copy = lang === "de"
         <div class="principles" aria-label={copy.principlesAria}>
           {copy.principles.map((principle) => <span>{principle}</span>)}
         </div>
+
+        <a
+          class="book-btn"
+          href="https://meetings-eu1.hubspot.com/cureosity/terminbuchungstool-de"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {copy.cta}
+        </a>
       </div>
 
       <div class="unique-media">
@@ -107,6 +118,23 @@ const copy = lang === "de"
     font-size: 0.84rem;
     font-weight: 600;
     padding: 0.36rem 0.72rem;
+  }
+
+  .book-btn {
+    background: #6f9c21;
+    border: 0;
+    border-radius: 8px;
+    color: #fff;
+    display: inline-block;
+    font-weight: 700;
+    margin-top: 0.7rem;
+    padding: 0.62rem 1rem;
+    text-decoration: none;
+    transition: transform 160ms ease;
+  }
+
+  .book-btn:hover {
+    transform: translateY(-1px);
   }
 
   .unique-media {

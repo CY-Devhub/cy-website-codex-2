@@ -1,13 +1,15 @@
 ---
-import heroImage from "../assets/img/CUREO5/CUREO5_HappyGroupTherapy.webp";
-import introImage from "../assets/img/CUREO5/CUREO5_Tablet_And_Patient.jpg";
-import workflowA from "../assets/img/CUREO5/CUREO5_HappyParallel_therapy.jpg";
-import workflowB from "../assets/img/CUREO5/CUREO5_HappyTherapist_Patient_Alternative.jpg";
-import hubMock from "../assets/img/CUREO5/CUREO5_Hub_Mock.png";
-import reportMock from "../assets/img/CUREO5/CUREO5_Therapy_Report_Mock.jpeg";
-import difficultyMock from "../assets/img/CUREO5/CUREO5_Difficulty_Mock.jpeg";
+import heroImage from "../assets/img/CUREO5/CUREO5_HeadsetRender.png";
+import cureo5Image from "../assets/img/CUREO5/CUREO5_Tablet_And_Patient.jpg";
+import modernRehabImage from "../assets/img/CUREO5/Hand-CUREO-5.jpg";
+import efficientGroupImage from "../assets/img/CUREO5/CUREO5_HappyGroupTherapy.webp";
+import efficientParallelImage from "../assets/img/CUREO5/CUREO5_HappyParallel_therapy.jpg";
+import efficientGroupScreenImage from "../assets/img/CUREO5/CUREO5_GroupTherapyScreenShot.jpeg";
+import hubMockImage from "../assets/img/CUREO5/CUREO5_Hub_Mock.png";
+import reportMockImage from "../assets/img/CUREO5/CUREO5_Therapy_Report_Mock.jpeg";
 import navigatorImage from "../assets/img/CUREO5/CUREO5_NavigatorScreenshot.jpeg";
-import bedsideImage from "../assets/img/CUREO5/CUREO_Bedsite_Therapy.jpg";
+import difficultyMockImage from "../assets/img/CUREO5/CUREO5_Difficulty_Mock.jpeg";
+import bedsideTherapyImage from "../assets/img/CUREO5/CUREO_Bedsite_Therapy.jpg";
 
 import activeLogo from "../assets/img/CUREO5/CUREO5_Module_Active_Logo.svg";
 import handLogo from "../assets/img/CUREO5/CUREO5_Module_Hand_Logo.svg";
@@ -25,41 +27,70 @@ import activitiesShot from "../assets/img/CUREO5/CUREO5_Module_Activities_Screen
 import adlShot from "../assets/img/CUREO5/CUREO5_Module_ADL_Screenshot.png";
 
 const lang = Astro.props.lang === "de" ? "de" : "en";
+const base = import.meta.env.BASE_URL || "/";
+const normalizedBase = base.endsWith("/") ? base : `${base}/`;
+const appointmentHref = "https://meetings-eu1.hubspot.com/cureosity/terminbuchungstool-de";
+const inpatientHref = lang === "de"
+  ? `${normalizedBase}de/for-inpatient-rehab`
+  : `${normalizedBase}for-inpatient-rehab`;
+const patientPageHref = lang === "de"
+  ? `${normalizedBase}de/for-patients`
+  : `${normalizedBase}for-patients`;
+const brochureHref = lang === "de"
+  ? "https://www.cureosity.com/brochure/cureo5/full-de"
+  : "https://www.cureosity.com/brochure/cureo5/full-en";
+const blogHref = lang === "de"
+  ? "https://cureosity.com/de/blogposts/cureo5"
+  : "https://cureosity.com/blogposts/cureo5?_gl=1*zuikab*_gcl_au*MTI3ODEyNDc4NC4xNzY4ODI3NjgxLjE4NDQwNjA5MDkuMTc3MTMyMjEzMy4xNzcxMzIyMTMz*_ga*NDY1MzA0OTY5LjE3NjA5NDM3Mjk.*_ga_2LKVQFN30F*czE3NzI2MTcxNTIkbzUwJGcxJHQxNzcyNjE3MTU1JGo2MCRsMCRoMA..";
+const trailerHref = lang === "de"
+  ? "https://www.youtube.com/watch?v=3eykXFtpc_M"
+  : "https://www.youtube.com/watch?v=wVgszBft1qM";
+const evidenceHref = lang === "de"
+  ? "https://med.cureosity.com/evidenz-paper_de?_gl=1*fp1bwm*_gcl_au*MTI3ODEyNDc4NC4xNzY4ODI3NjgxLjE4NDQwNjA5MDkuMTc3MTMyMjEzMy4xNzcxMzIyMTMz"
+  : "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/661cc94cf83bb22e1aac033e_2024_CUREosity_Evidences%20VR%20and%20CUREO_ENG.pdf";
+const indicationPdfHref = lang === "de"
+  ? "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/684156119a21edc5d8a9f84d_250210_CUREO4_Therapieziele_Indikationen_Anwendungsbereiche_DE.pdf"
+  : "https://cdn.prod.website-files.com/6548c6e5ab9a929dbb64e897/68415617abfd1adb621b6105_250210_CUREO4_Therapieziele_Indikationen_Anwendungsbereiche_EN.pdf";
 
 const copy = lang === "de"
   ? {
       heroTitle: "CUREO Virtual Reality Therapy",
       heroSubtitle:
         "Die digitale Therapielösung für moderne Rehabilitation: strukturiert, effizient und motivierend.",
-      introTitle: "Eine Plattform für Patienten, Therapeuten und Klinikteams",
-      introBody:
-        "CUREO vereint evidenzbasierte VR-Therapie, klare Workflows und transparente Ergebnisdokumentation in einem System.",
-      introBulletA: "Schnelle Einarbeitung für Teams",
-      introBulletB: "Messbare Fortschritte in jeder Sitzung",
-      introBulletC: "Nahtlose Integration in bestehende Prozesse",
-      workflowTitle: "Effizient",
-      workflowBody:
-        "Von der Planung bis zur Dokumentation: CUREO reduziert organisatorischen Aufwand und schafft mehr Therapiezeit.",
-      workflowA: "Therapieeinheiten flexibel steuern",
-      workflowB: "Parallel- und Gruppentherapie sicher koordinieren",
-      platformCardTitle: "CUREO Hub",
-      platformCardBody:
-        "Patientenprofile, Therapieparameter und Module werden in einer zentralen Oberfläche verwaltet.",
-      reportCardTitle: "Automatische Berichte",
-      reportCardBody:
-        "Fortschritte werden in Echtzeit dokumentiert und für Verlaufsgespräche oder Übergaben aufbereitet.",
-      settingsCardTitle: "Individuelle Anpassung",
-      settingsCardBody:
-        "Schwierigkeitsgrad, Wiederholungen und Fokusbereiche lassen sich pro Patient gezielt einstellen.",
-      outcomesTitle: "Wirksam",
+      heroPrimaryCta: "Termin buchen",
+      updateTitle: "Entdecken Sie unser neuestes Update: CUREO5",
+      updateBody:
+        "CUREO5 bringt ein neues Interface, optimierte Workflows und mehr Transparenz in der Therapieplanung.",
+      updateBrochureCta: "CUREO5 Broschüre",
+      updateBlogCta: "Blog lesen",
+      updateTrailerCta: "Trailer ansehen",
+      revolutionTitle: "Revolutionäre VR-Therapie für eine moderne Rehabilitation",
+      revolutionBody:
+        "CUREO bringt Virtual Reality in die Physiotherapie, Ergotherapie und Neuropsychologie. Gamification steigert die Patientenmotivation, während moderne Technologien therapeutische Prozesse effizient, effektiv und vielseitig unterstützen - ideal für Kliniken, Rehabilitationszentren und Therapieeinrichtungen.",
+      efficientTitle: "Effizient",
+      efficientSubtitle:
+        "Maximieren Sie die Effizienz Ihrer Einrichtung und setzen Sie Ihre Ressourcen sinnvoll ein mit CUREO.",
+      efficientBody:
+        "CUREO kann in der individualisierten Gruppentherapie oder in der Parallelbehandlung eingesetzt werden. Es entlastet Ihr Personal und Sie gewinnen wertvolle Zeit für Ihre Patienten. Eine Einzeltherapie ist natürlich auch möglich.",
+      efficientFeatureOneTitle: "Individualisierte Gruppentherapie mit bis zu 6 Patienten",
+      efficientFeatureOneBody:
+        "Führen Sie eine individuelle Gruppentherapie mit bis zu 6 Patienten mit CUREO GROUP durch.",
+      efficientFeatureTwoTitle: "Therapie-Navigator für strukturierte Abläufe",
+      efficientFeatureTwoBody:
+        "Finden Sie mit dem Therapie Navigator ganz einfach die richtigen Übungen und erstellen Sie einen Trainingsplan, der automatisch mit der nächsten Übung fortfährt, sobald die vorherige beendet wurde.",
+      outcomesTitle: "Effektiv",
       outcomesBody:
-        "CUREO stärkt Motivation, Kontinuität und therapeutische Qualität in stationären und ambulanten Settings.",
+        "Bieten Sie erfolgreiche Therapie mit sichtbaren Ergebnissen.",
       statAValue: "95%",
       statALabel: "der Teams berichten über höhere Therapiemotivation",
       statBValue: "97%",
       statBLabel: "bewerten die Workflow-Transparenz als sehr gut",
       statCValue: "84%",
       statCLabel: "sehen schneller sichtbare Fortschritte bei Patienten",
+      outcomesEvidenceCta: "Studien und Statistiken",
+      outcomesHubTitle: "Patienten-, Therapie- und Gerätedaten an einem sicheren Ort: Entdecken Sie den CUREO HUB",
+      outcomesReportTitle:
+        "Automatisch generierte Berichte ermöglichen es Ihnen, den Fortschritt des Patienten im CUREO HUB auszuwerten.",
       modulesTitle: "Vielseitig",
       modulesBody:
         "Sieben Module decken sensomotorische, kognitive und alltagsnahe Anwendungsfelder strukturiert ab.",
@@ -112,28 +143,60 @@ const copy = lang === "de"
             "Die virtuelle Therapieküche unterstützt das Training alltagsnaher Aufgaben mit Werkzeugen und Gegenständen."
         }
       ],
-      platformTitle: "Für den klinischen Alltag entwickelt",
-      platformBody:
-        "CUREO unterstützt Ihr Team in Akutklinik, Reha-Zentrum und Praxis mit konsistenten Prozessen und flexiblen Therapiemodi.",
+      indicationsTitle: "Möchten Sie mehr über die Indikationen, Therapieziele und Anwendungen erfahren?",
+      indicationsCta: "PDF downloaden",
+      indicationsAdaptTitle: "Jeder Patient ist anders: CUREO passt sich individuell an dessen Bedürfnisse an.",
+      indicationsBedsideTitle:
+        "CUREO kann als Therapie am Krankenbett, bei Patienten zu Hause, in der Gruppen- und Paralleltherapie eingesetzt werden - und vieles mehr.",
       ctaTitle: "Jetzt CUREO für Ihre Einrichtung kennenlernen",
       ctaButton: "Termin buchen",
-      faqTitle: "Mehr über CUREO",
+      faqEyebrow: "FAQ",
+      faqTitle: "Erfahren Sie mehr über CUREO",
+      faqSubtitle: "Die meist gestellten Fragen über unser Virtual-Reality-Therapie-System.",
       faqs: [
         {
-          q: "Für welche Einrichtungen ist CUREO geeignet?",
-          a: "CUREO ist für Akutkliniken, Rehabilitationszentren sowie ambulante Praxen entwickelt."
+          q: "Was ist CUREO?",
+          a: "CUREO ist eine Therapiesoftware für die Rehabilitation mit mehr als 50 Trainings in 7 Modulen. Sie nutzt die Möglichkeiten der virtuellen Realität und Gamification, um die Motivation und Therapieadhärenz der Patienten zu erhöhen, und wird bereits in weit mehr als 150 klinischen und ambulanten Einrichtungen für Patienten mit sensomotorischen, kognitiven und perzeptiven Beeinträchtigungen eingesetzt."
         },
         {
-          q: "Wie viele Module sind verfügbar?",
-          a: "Aktuell stehen sieben Module mit mehr als 50 interaktiven Übungen zur Verfügung."
+          q: "Was ist Virtual-Reality-Therapie (VR-Therapie)?",
+          a: "Virtuelle Realität (VR) ist aus der Unterhaltungsindustrie bekannt und wird dort häufig im Gaming eingesetzt. Mit einer VR-Brille tauchen Nutzer in virtuelle Welten ein und sind von diesen umgeben. Diese Technologie bietet aber auch im medizinisch-therapeutischen Bereich vielversprechende Möglichkeiten. Mit dem VR-Therapiesystem CUREO wird dieses Potenzial gezielt für die Rehabilitation genutzt."
         },
         {
-          q: "Kann ich die Therapie individuell anpassen?",
-          a: "Ja, Schwierigkeitsgrad, Inhalte und Trainingsfokus können pro Patient eingestellt werden."
+          q: "Wofür wird CUREO VR-Therapie verwendet?",
+          a: "CUREO wird bei sensomotorischen, kognitiven und perzeptiven Beeinträchtigungen angewandt. Die hochfrequente, immersive Therapie mit multimodalem Feedback wirkt sich positiv auf neuronale Prozesse aus und trägt zur Wiederherstellung motorischer und kognitiver Fähigkeiten sowie zur Verbesserung der Sinneswahrnehmung bei. Erhöhte Motivation durch Gamification, schnell sichtbare Trainingsfortschritte und aktive Entspannungstools unterstützen den Therapieerfolg."
         },
         {
-          q: "Gibt es Berichte zum Therapieverlauf?",
-          a: "Ja, CUREO erstellt automatische Verlaufs- und Ergebnisberichte."
+          q: "Was sind die Vorteile von CUREO VR-Therapie?",
+          a: `CUREO ist effizient, effektiv und vielseitig.<br><br><strong>Effizient</strong><ul><li>Gruppentherapie und Parallelbehandlung für bis zu 6 Patienten</li><li>Trainingsplan für Sitzungen bis zu 60 Minuten mit halbautonomem Ablauf</li><li>Kurze Einrichtungszeiten dank schnellem Systemstart und schneller Kalibrierung</li><li>Moderne Therapieansätze steigern die Attraktivität als Arbeitgeber</li><li>Dank kleiner und leichter Form überall einsetzbar, auch bettseitig</li></ul><strong>Effektiv</strong><ul><li>84 % der Studienteilnehmer zeigen klinisch relevante Verbesserungen der Armfunktionalität</li><li>95 % der CUREO-Patienten sind begeistert</li><li>97 % der Patienten würden die CUREO-Therapie gerne fortsetzen</li></ul><strong>Vielseitig</strong><ul><li>Über 50 Trainingseinheiten in 7 Modulen für Physiotherapie, Ergotherapie und Neuropsychologie</li><li>Sektorenübergreifende Nutzung: von Akut- und Frührehabilitation bis Anschlussrehabilitation</li><li>Regelmäßige Updates mit neuen und erweiterten Funktionen</li></ul>`
+        },
+        {
+          q: "Welche Patienten können mit CUREO VR-Therapie behandelt werden?",
+          a: "CUREO wurde unter anderem für folgende Indikationen entwickelt: Schlaganfall, neurodegenerative Erkrankungen wie Multiple Sklerose, Parkinson-Krankheit und ALS, (infantile) Zerebralparese, Rückenmarksverletzungen, Schädel-Hirn-Trauma, Krankheiten des Bewegungsapparats und Schmerzen."
+        },
+        {
+          q: "Was sagen aktuelle Studien zur VR-Therapie?",
+          a: `In der Therapieforschung hat sich VR in den letzten Jahren zu einem stetig wachsenden Schwerpunkt entwickelt. Studien betonen Vorteile für die neurologische Rehabilitation sowie die hohe Praktikabilität und Anwendungsvielfalt. Muskelkraft und Tonus können durch neuroplastische Veränderungen und erhöhte Motivation verbessert werden, während Schmerzen durch Ablenkung und Neuroregulation reduziert werden. Hier finden Sie <a href="${evidenceHref}" target="_blank" rel="noopener noreferrer">mehr</a>.`
+        },
+        {
+          q: "Wie unterstützt CUREO VR-Therapie stationäre Kliniken bei der Rehabilitation?",
+          a: `CUREO wurde gemeinsam mit klinischen Partnern entwickelt und kontinuierlich anhand von Feedback verbessert. Das System ist robust, mobil, leicht zu desinfizieren und kann über alle Rehabilitationsphasen eingesetzt werden, auch in der frühen Phase am Krankenhausbett. Erfahren Sie <a href="${inpatientHref}">mehr</a>.`
+        },
+        {
+          q: "Wie unterstützt CUREO VR-Therapie ambulante Praxen bei der Rehabilitation?",
+          a: `Ambulante Praxen profitieren von höherer Therapiefrequenz, paralleler Dokumentation und reduzierter Arbeitslast. CUREO unterstützt moderne, motivierende Therapieabläufe für Patienten und Therapeuten. Erfahren Sie <a href="${inpatientHref}">mehr</a>.`
+        },
+        {
+          q: "Wie kann ich als Mediziner CUREO erhalten?",
+          a: `CUREO und CUREO GROUP basieren auf einem Software-as-a-Service-Modell. Vereinbaren Sie einfach einen Termin über unser <a href="${appointmentHref}" target="_blank" rel="noopener noreferrer">Buchungsportal</a>. Wenn Sie Patient oder Angehöriger sind, besuchen Sie bitte unsere <a href="${patientPageHref}">Patientenseite</a>.`
+        },
+        {
+          q: "CUREO und CUREO GROUP - was ist der Unterschied?",
+          a: "CUREO wurde für die Einzeltherapie entwickelt und erlaubt eine individuelle Anpassung je Patient. CUREO GROUP unterstützt Parallelbehandlung und Gruppentherapie mit bis zu 6 Patienten gleichzeitig. Die Trainingsplanfunktion ermöglicht Sequenzen bis zu 60 Minuten mit autonomem Ablauf."
+        },
+        {
+          q: "Ist die Virtual-Reality-Therapie für ältere Patienten oder Kinder geeignet?",
+          a: "Ja. Viele ältere und junge Patienten nutzen CUREO erfolgreich und sind sehr motiviert. Aus therapeutischer Sicht gibt es keine feste Altersbeschränkung, empfohlen wird das System ab 12 Jahren. Für die Therapie sind keine Deutsch- oder Englischkenntnisse erforderlich, der Patient sollte jedoch einfache Anweisungen verstehen können."
         }
       ]
     }
@@ -141,35 +204,40 @@ const copy = lang === "de"
       heroTitle: "CUREO Virtual Reality Therapy",
       heroSubtitle:
         "The digital therapy solution for modern rehabilitation: structured, efficient, and motivating.",
-      introTitle: "One platform for patients, therapists, and clinical teams",
-      introBody:
-        "CUREO combines evidence-based VR therapy, clear workflows, and transparent outcome documentation in one system.",
-      introBulletA: "Fast onboarding for teams",
-      introBulletB: "Measurable progress in every session",
-      introBulletC: "Seamless integration into existing processes",
-      workflowTitle: "Efficient",
-      workflowBody:
-        "From planning to documentation: CUREO reduces organizational overhead and frees up more therapy time.",
-      workflowA: "Manage therapy sessions with flexibility",
-      workflowB: "Coordinate parallel and group therapy safely",
-      platformCardTitle: "CUREO Hub",
-      platformCardBody:
-        "Patient profiles, therapy parameters, and modules are managed in one central interface.",
-      reportCardTitle: "Automated reporting",
-      reportCardBody:
-        "Progress is documented in real time and prepared for handovers and treatment reviews.",
-      settingsCardTitle: "Individual adaptation",
-      settingsCardBody:
-        "Difficulty, repetitions, and target focus can be configured for each patient.",
+      heroPrimaryCta: "Book appointment",
+      updateTitle: "Discover our latest update: CUREO5",
+      updateBody:
+        "CUREO5 introduces a new interface, clearer workflows, and better transparency across therapy planning.",
+      updateBrochureCta: "CUREO5 brochure",
+      updateBlogCta: "Read the blog",
+      updateTrailerCta: "Watch the trailer",
+      revolutionTitle: "Revolutionary VR Therapy for Modern Rehabilitation",
+      revolutionBody:
+        "CUREO brings virtual reality into physiotherapy, occupational therapy, and neuropsychology. Gamification increases patient motivation, while modern technology supports therapeutic processes in an efficient, effective, and versatile way - ideal for clinics, rehabilitation centers, and therapy institutions.",
+      efficientTitle: "Efficient",
+      efficientSubtitle:
+        "Maximize your institution's efficiency and use your resources meaningfully with CUREO.",
+      efficientBody:
+        "CUREO can be used in individualized group therapy or parallel treatment. It reduces staff workload and creates valuable time for your patients. Individual therapy is naturally possible as well.",
+      efficientFeatureOneTitle: "Individualized group therapy with up to 6 patients",
+      efficientFeatureOneBody:
+        "Run individualized group therapy with up to 6 patients using CUREO GROUP.",
+      efficientFeatureTwoTitle: "Therapy Navigator for structured workflows",
+      efficientFeatureTwoBody:
+        "Use the Therapy Navigator to quickly find the right exercises and build a training plan that automatically continues with the next exercise once the previous one is completed.",
       outcomesTitle: "Effective",
       outcomesBody:
-        "CUREO improves motivation, consistency, and therapeutic quality in inpatient and outpatient settings.",
+        "Offer successful therapy with visible results.",
       statAValue: "95%",
       statALabel: "of teams report higher therapy motivation",
       statBValue: "97%",
       statBLabel: "rate workflow transparency as excellent",
       statCValue: "84%",
       statCLabel: "see faster visible progress in patients",
+      outcomesEvidenceCta: "Studies and statistics",
+      outcomesHubTitle: "Patient, therapy, and device data in one secure place: discover the CUREO HUB",
+      outcomesReportTitle:
+        "Automatically generated reports enable you to evaluate patient progress directly in the CUREO HUB.",
       modulesTitle: "Versatile",
       modulesBody:
         "Seven modules cover sensorimotor, cognitive, and daily-life therapy goals in a structured way.",
@@ -224,28 +292,60 @@ const copy = lang === "de"
             "Trains activities of daily living through realistic kitchen and object-based practice scenarios."
         }
       ],
-      platformTitle: "Built for real clinical workflows",
-      platformBody:
-        "CUREO supports your team in acute care, rehabilitation centers, and practices with consistent processes and flexible therapy modes.",
+      indicationsTitle: "Would you like to learn more about indications, therapy goals, and applications?",
+      indicationsCta: "Download PDF",
+      indicationsAdaptTitle: "Every patient is different: CUREO adapts individually to each patient's needs.",
+      indicationsBedsideTitle:
+        "CUREO can be used for bedside therapy, at patients' homes, in group and parallel therapy - and much more.",
       ctaTitle: "See how CUREO fits your institution",
       ctaButton: "Book appointment",
-      faqTitle: "Find out more about CUREO",
+      faqEyebrow: "FAQ",
+      faqTitle: "Learn more about CUREO",
+      faqSubtitle: "The most frequently asked questions about our virtual reality therapy system.",
       faqs: [
         {
-          q: "Which institutions is CUREO built for?",
-          a: "CUREO is designed for acute clinics, rehabilitation centers, and outpatient practices."
+          q: "What is CUREO?",
+          a: "CUREO is rehabilitation therapy software with more than 50 trainings across 7 modules. It combines virtual reality and gamification to increase patient motivation and therapy adherence and is already used in more than 150 clinical and outpatient institutions."
         },
         {
-          q: "How many therapy modules are available?",
-          a: "There are seven modules with more than 50 interactive exercises."
+          q: "What is virtual reality therapy (VR therapy)?",
+          a: "Virtual reality is well known from gaming. With a VR headset, users are immersed in virtual environments. Beyond entertainment, this technology offers strong potential in medical therapy. CUREO applies this potential directly to rehabilitation."
         },
         {
-          q: "Can therapy sessions be adapted to each patient?",
-          a: "Yes, difficulty, exercise focus, and repetition settings are configurable per patient."
+          q: "What is CUREO VR therapy used for?",
+          a: "CUREO is used for sensorimotor, cognitive, and perceptual impairments. High-frequency immersive training with multimodal feedback supports neuroplastic processes and improves functional outcomes. Gamification and active relaxation tools support motivation and continuity."
         },
         {
-          q: "Is there structured progress reporting?",
-          a: "Yes, CUREO provides automated progress and outcome reporting."
+          q: "What are the benefits of CUREO VR therapy?",
+          a: `CUREO is efficient, effective, and versatile.<br><br><strong>Efficient</strong><ul><li>Group and parallel treatment for up to 6 patients</li><li>Training plans up to 60 minutes with semi-autonomous execution</li><li>Fast setup and calibration</li><li>Modern therapy approach for stronger employer attractiveness</li><li>Portable form factor, including bedside use</li></ul><strong>Effective</strong><ul><li>84% of study participants showed clinically relevant arm-function improvements</li><li>95% of CUREO patients reported high acceptance</li><li>97% would like to continue therapy with CUREO</li></ul><strong>Versatile</strong><ul><li>50+ trainings across 7 modules for PT, OT, and neuropsychology</li><li>Cross-sector use from acute and early rehab to follow-up rehab</li><li>Regular feature and content updates</li></ul>`
+        },
+        {
+          q: "Which patients can be treated with CUREO VR therapy?",
+          a: "CUREO was developed for indications including stroke, neurodegenerative diseases such as multiple sclerosis, Parkinson's disease and ALS, cerebral palsy, spinal cord injury, traumatic brain injury, musculoskeletal disorders, and pain."
+        },
+        {
+          q: "What do current studies say about VR therapy?",
+          a: `VR has become a continuously growing focus area in therapy research. Studies highlight meaningful benefits for neurological rehabilitation and practical real-world use. You can find <a href="${evidenceHref}" target="_blank" rel="noopener noreferrer">more</a>.`
+        },
+        {
+          q: "How does CUREO support inpatient clinics in rehabilitation?",
+          a: `CUREO was developed with clinical partners and continuously refined using feedback. It supports all phases of rehabilitation, including early bedside use for immobile patients. Learn <a href="${inpatientHref}">more</a>.`
+        },
+        {
+          q: "How does CUREO support outpatient practices in rehabilitation?",
+          a: `Outpatient practices benefit from higher therapy throughput, parallel documentation, and lower staff load. CUREO supports creative, motivating workflows for both patients and therapists. Learn <a href="${inpatientHref}">more</a>.`
+        },
+        {
+          q: "How can I get CUREO as a medical professional?",
+          a: `CUREO and CUREO GROUP follow a software-as-a-service model. Book a meeting through our <a href="${appointmentHref}" target="_blank" rel="noopener noreferrer">booking portal</a>. If you are a patient or family member, please visit our <a href="${patientPageHref}">patient page</a>.`
+        },
+        {
+          q: "CUREO and CUREO GROUP - what is the difference?",
+          a: "CUREO is designed for individual therapy and individualized patient needs. CUREO GROUP supports parallel and group therapy for up to 6 patients and includes training plans with up to 60-minute autonomous sequences."
+        },
+        {
+          q: "Is VR therapy suitable for older patients or children?",
+          a: "Yes. Many older and younger patients use CUREO successfully. From a therapeutic perspective there is no strict age limit, but use is recommended from age 12. For therapy use, no specific German or English skills are required as long as simple therapist instructions can be understood."
         }
       ]
     };
@@ -257,58 +357,60 @@ const copy = lang === "de"
       <div class="hero-text">
         <h1>{copy.heroTitle}</h1>
         <p>{copy.heroSubtitle}</p>
+        <a href={appointmentHref} target="_blank" rel="noopener noreferrer">
+          {copy.heroPrimaryCta}
+        </a>
       </div>
       <img src={heroImage.src} alt={copy.heroTitle} loading="eager" />
     </section>
 
-    <section class="intro card">
-      <div class="intro-callout">
-        <h2>{copy.introTitle}</h2>
-        <p>{copy.introBody}</p>
-        <ul>
-          <li>{copy.introBulletA}</li>
-          <li>{copy.introBulletB}</li>
-          <li>{copy.introBulletC}</li>
-        </ul>
+    <section class="update card">
+      <div class="update-copy">
+        <h2>{copy.updateTitle}</h2>
+        <p>{copy.updateBody}</p>
+        <div class="update-actions">
+          <a href={brochureHref} target="_blank" rel="noopener noreferrer">{copy.updateBrochureCta}</a>
+          <a href={blogHref} target="_blank" rel="noopener noreferrer">{copy.updateBlogCta}</a>
+          <a href={trailerHref} target="_blank" rel="noopener noreferrer">{copy.updateTrailerCta}</a>
+        </div>
       </div>
-      <img src={introImage.src} alt={copy.introTitle} loading="lazy" />
+      <img src={cureo5Image.src} alt={copy.updateTitle} loading="lazy" />
     </section>
 
-    <section class="workflow card">
-      <h2>{copy.workflowTitle}</h2>
-      <p>{copy.workflowBody}</p>
-      <div class="two-up">
-        <article>
-          <img src={workflowA.src} alt={copy.workflowA} loading="lazy" />
-          <p>{copy.workflowA}</p>
-        </article>
-        <article>
-          <img src={workflowB.src} alt={copy.workflowB} loading="lazy" />
-          <p>{copy.workflowB}</p>
-        </article>
+    <section class="revolution card">
+      <div class="revolution-grid">
+        <img src={modernRehabImage.src} alt={copy.revolutionTitle} loading="lazy" />
+        <div>
+          <h2>{copy.revolutionTitle}</h2>
+          <p>{copy.revolutionBody}</p>
+        </div>
       </div>
-      <div class="platform-grid">
-        <article class="platform-card wide">
-          <img src={hubMock.src} alt={copy.platformCardTitle} loading="lazy" />
-          <div>
-            <h3>{copy.platformCardTitle}</h3>
-            <p>{copy.platformCardBody}</p>
-          </div>
-        </article>
-        <article class="platform-card">
-          <img src={reportMock.src} alt={copy.reportCardTitle} loading="lazy" />
-          <div>
-            <h3>{copy.reportCardTitle}</h3>
-            <p>{copy.reportCardBody}</p>
-          </div>
-        </article>
-        <article class="platform-card">
-          <img src={difficultyMock.src} alt={copy.settingsCardTitle} loading="lazy" />
-          <div>
-            <h3>{copy.settingsCardTitle}</h3>
-            <p>{copy.settingsCardBody}</p>
-          </div>
-        </article>
+    </section>
+
+    <section class="efficient card">
+      <h2>{copy.efficientTitle}</h2>
+      <p class="efficient-subtitle">{copy.efficientSubtitle}</p>
+      <div class="efficient-gallery">
+        <img src={efficientGroupImage.src} alt={copy.efficientTitle} loading="lazy" />
+        <img src={efficientParallelImage.src} alt={copy.efficientTitle} loading="lazy" />
+      </div>
+      <p class="efficient-body">{copy.efficientBody}</p>
+
+      <div class="efficient-feature">
+        <div class="feature-copy">
+          <h3>{copy.efficientFeatureOneTitle}</h3>
+          <p>{copy.efficientFeatureOneBody}</p>
+          <a href={appointmentHref} target="_blank" rel="noopener noreferrer">{copy.ctaButton}</a>
+        </div>
+        <img src={efficientGroupScreenImage.src} alt={copy.efficientFeatureOneTitle} loading="lazy" />
+      </div>
+
+      <div class="efficient-feature is-reversed">
+        <img src={navigatorImage.src} alt={copy.efficientFeatureTwoTitle} loading="lazy" />
+        <div class="feature-copy">
+          <h3>{copy.efficientFeatureTwoTitle}</h3>
+          <p>{copy.efficientFeatureTwoBody}</p>
+        </div>
       </div>
     </section>
 
@@ -328,6 +430,24 @@ const copy = lang === "de"
           <strong>{copy.statCValue}</strong>
           <span>{copy.statCLabel}</span>
         </article>
+      </div>
+
+      <a class="outcomes-cta" href={evidenceHref} target="_blank" rel="noopener noreferrer">
+        {copy.outcomesEvidenceCta}
+      </a>
+
+      <div class="outcomes-feature">
+        <div class="feature-copy">
+          <h3>{copy.outcomesHubTitle}</h3>
+        </div>
+        <img src={hubMockImage.src} alt={copy.outcomesHubTitle} loading="lazy" />
+      </div>
+
+      <div class="outcomes-feature is-reversed">
+        <img src={reportMockImage.src} alt={copy.outcomesReportTitle} loading="lazy" />
+        <div class="feature-copy">
+          <h3>{copy.outcomesReportTitle}</h3>
+        </div>
       </div>
     </section>
 
@@ -364,25 +484,37 @@ const copy = lang === "de"
       </div>
     </section>
 
-    <section class="platform-final card">
-      <div class="text">
-        <h2>{copy.platformTitle}</h2>
-        <p>{copy.platformBody}</p>
+    <section class="indications card">
+      <h2>{copy.indicationsTitle}</h2>
+      <a class="indications-cta" href={indicationPdfHref} target="_blank" rel="noopener noreferrer">
+        {copy.indicationsCta}
+      </a>
+
+      <div class="indications-feature">
+        <div class="feature-copy">
+          <h3>{copy.indicationsAdaptTitle}</h3>
+        </div>
+        <img src={difficultyMockImage.src} alt={copy.indicationsAdaptTitle} loading="lazy" />
       </div>
-      <div class="images">
-        <img src={navigatorImage.src} alt={copy.platformTitle} loading="lazy" />
-        <img src={bedsideImage.src} alt={copy.platformTitle} loading="lazy" />
+
+      <div class="indications-feature is-reversed">
+        <img src={bedsideTherapyImage.src} alt={copy.indicationsBedsideTitle} loading="lazy" />
+        <div class="feature-copy">
+          <h3>{copy.indicationsBedsideTitle}</h3>
+        </div>
       </div>
     </section>
 
     <section class="faq card">
+      <p class="faq-eyebrow">{copy.faqEyebrow}</p>
       <h2>{copy.faqTitle}</h2>
+      <p class="faq-subtitle">{copy.faqSubtitle}</p>
       <div class="faq-list">
         {
           copy.faqs.map((item, index) => (
             <details open={index === 0}>
               <summary>{item.q}</summary>
-              <p>{item.a}</p>
+              <div class="faq-answer" set:html={item.a}></div>
             </details>
           ))
         }
@@ -391,11 +523,7 @@ const copy = lang === "de"
 
     <section class="cta-band">
       <h2>{copy.ctaTitle}</h2>
-      <a
-        href="https://meetings-eu1.hubspot.com/cureosity/terminbuchungstool-de"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <a href={appointmentHref} target="_blank" rel="noopener noreferrer">
         {copy.ctaButton}
       </a>
     </section>
@@ -408,13 +536,42 @@ const copy = lang === "de"
     stacks.forEach((stack) => {
       const rows = Array.from(stack.querySelectorAll("[data-module-row]"));
       if (rows.length === 0) return;
+      let autoIndex = 0;
+      let autoLockedUntil = 0;
+      let cycleTimer;
 
       const clearActive = () => {
         rows.forEach((row) => {
           row.classList.remove("is-active");
+          row.classList.remove("is-auto");
           const toggle = row.querySelector("[data-module-toggle]");
           if (toggle) toggle.setAttribute("aria-pressed", "false");
         });
+      };
+
+      const queueCycle = (delay = 900) => {
+        window.clearTimeout(cycleTimer);
+        cycleTimer = window.setTimeout(runCycle, delay);
+      };
+
+      const runCycle = () => {
+        if (Date.now() < autoLockedUntil || document.hidden) {
+          queueCycle(1200);
+          return;
+        }
+        if (rows.some((row) => row.classList.contains("is-active"))) {
+          queueCycle(1200);
+          return;
+        }
+
+        const row = rows[autoIndex % rows.length];
+        row.classList.add("is-auto");
+
+        window.setTimeout(() => {
+          row.classList.remove("is-auto");
+          autoIndex = (autoIndex + 1) % rows.length;
+          queueCycle(600);
+        }, 4000);
       };
 
       rows.forEach((row) => {
@@ -424,17 +581,25 @@ const copy = lang === "de"
         toggle.addEventListener("click", () => {
           const wasActive = row.classList.contains("is-active");
           clearActive();
+          autoLockedUntil = Date.now() + 10000;
           if (!wasActive) {
             row.classList.add("is-active");
             toggle.setAttribute("aria-pressed", "true");
           }
+          queueCycle(10500);
         });
       });
 
       document.addEventListener("pointerdown", (event) => {
         if (!(event.target instanceof Node)) return;
-        if (!stack.contains(event.target)) clearActive();
+        if (!stack.contains(event.target)) {
+          clearActive();
+          autoLockedUntil = Date.now();
+          queueCycle(1000);
+        }
       });
+
+      queueCycle(1300);
     });
   })();
 </script>
@@ -451,31 +616,68 @@ const copy = lang === "de"
   }
 
   .hero {
-    display: grid;
-    gap: 1rem;
+    background: #ffffff;
+    border-radius: 8px;
     margin-bottom: 1rem;
+    min-height: 420px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .hero::after {
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.75) 34%, rgba(255, 255, 255, 0) 70%);
+    content: "";
+    inset: 0;
+    pointer-events: none;
+    position: absolute;
+    z-index: 1;
   }
 
   .hero h1 {
-    color: #19301d;
+    color: #1a2b1d;
     font-size: clamp(1.8rem, 4vw, 3rem);
-    line-height: 1.08;
+    line-height: 1.1;
     margin: 0;
   }
 
   .hero p {
-    color: #4d6153;
+    color: #3f5347;
     font-size: clamp(1rem, 1.5vw, 1.2rem);
-    margin: 0.5rem 0 0;
-    max-width: 62ch;
+    margin: 0.55rem 0 0;
+    max-width: 34ch;
+  }
+
+  .hero-text {
+    bottom: clamp(1rem, 3.4vw, 2rem);
+    left: clamp(1rem, 3.4vw, 2rem);
+    max-width: min(44%, 560px);
+    position: absolute;
+    z-index: 2;
+  }
+
+  .hero-text a {
+    background: #6f9c21;
+    border-radius: 8px;
+    color: #ffffff;
+    display: inline-block;
+    font-weight: 700;
+    margin-top: 0.9rem;
+    padding: 0.72rem 1.2rem;
+    text-decoration: none;
+    transition: background-color 180ms ease;
+  }
+
+  .hero-text a:hover {
+    background: #5d841b;
   }
 
   .hero img {
-    border-radius: 8px;
     display: block;
+    height: 100%;
+    min-height: 420px;
+    object-fit: contain;
+    object-position: center;
     width: 100%;
-    aspect-ratio: 16 / 7;
-    object-fit: cover;
   }
 
   .card {
@@ -485,121 +687,156 @@ const copy = lang === "de"
     padding: 1rem;
   }
 
-  .intro {
+  .update {
     display: grid;
     gap: 1rem;
     grid-template-columns: minmax(280px, 1fr) minmax(280px, 1fr);
     align-items: stretch;
   }
 
-  .intro-callout {
-    background: #6f9c21;
-    border-radius: 8px;
-    color: #fff;
-    padding: 1rem;
-  }
-
-  .intro-callout h2,
-  .workflow h2,
+  .update h2,
+  .revolution h2,
+  .efficient h2,
   .outcomes h2,
   .modules h2,
-  .platform-final h2,
   .faq h2 {
     margin: 0 0 0.6rem;
     color: #19301d;
     font-size: clamp(1.35rem, 2vw, 2rem);
   }
 
-  .intro-callout h2 {
-    color: #fff;
+  .update-copy {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
-  .intro-callout p {
-    color: rgba(255, 255, 255, 0.96);
-    margin: 0 0 0.7rem;
-  }
-
-  .intro-callout ul {
-    margin: 0;
-    padding-left: 1.1rem;
-  }
-
-  .intro img {
-    border-radius: 8px;
-    width: 100%;
-    height: 100%;
-    min-height: 260px;
-    object-fit: cover;
-  }
-
-  .workflow > p,
+  .update p,
+  .revolution p,
   .outcomes > p,
-  .modules > p,
-  .platform-final p {
+  .modules > p {
     color: #4d6153;
     margin: 0 0 0.8rem;
   }
 
-  .two-up {
-    display: grid;
-    gap: 0.8rem;
-    grid-template-columns: repeat(2, minmax(220px, 1fr));
-    margin-bottom: 0.9rem;
-  }
-
-  .two-up article {
-    background: #fff;
-    border-radius: 8px;
-    padding: 0.55rem;
-  }
-
-  .two-up img {
+  .update img {
     border-radius: 8px;
     width: 100%;
-    aspect-ratio: 16 / 10;
+    min-height: 300px;
     object-fit: cover;
   }
 
-  .two-up p {
-    color: #304334;
-    font-size: 0.95rem;
-    margin: 0.45rem 0 0;
+  .update-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    margin-top: 0.35rem;
   }
 
-  .platform-grid {
+  .update-actions a,
+  .feature-copy a {
+    background: #6f9c21;
+    border-radius: 8px;
+    color: #ffffff;
+    display: inline-block;
+    font-weight: 700;
+    padding: 0.62rem 1rem;
+    text-decoration: none;
+    transition: background-color 180ms ease;
+  }
+
+  .update-actions a:hover,
+  .feature-copy a:hover {
+    background: #5d841b;
+  }
+
+  .revolution-grid {
+    align-items: stretch;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: minmax(280px, 1fr) minmax(280px, 1fr);
+  }
+
+  .revolution-grid img {
+    border-radius: 8px;
+    min-height: 260px;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .revolution-grid > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .efficient-subtitle {
+    color: #304334;
+    font-size: clamp(1.08rem, 1.8vw, 1.35rem);
+    margin: 0 0 0.9rem;
+  }
+
+  .efficient-body {
+    color: #3f5347;
+    margin: 0.8rem 0 1rem;
+  }
+
+  .efficient-gallery {
     display: grid;
     gap: 0.8rem;
-    grid-template-columns: repeat(2, minmax(220px, 1fr));
+    grid-template-columns: repeat(2, minmax(240px, 1fr));
   }
 
-  .platform-card {
-    background: #fff;
-    border-radius: 8px;
-    padding: 0.55rem;
-  }
-
-  .platform-card.wide {
-    grid-column: 1 / -1;
-  }
-
-  .platform-card img {
+  .efficient-gallery img {
     border-radius: 8px;
     width: 100%;
     aspect-ratio: 16 / 9;
-    object-fit: contain;
+    object-fit: cover;
+  }
+
+  .efficient-feature {
+    align-items: stretch;
+    display: grid;
+    gap: 0.8rem;
+    grid-template-columns: minmax(260px, 1fr) minmax(260px, 1fr);
+    margin-top: 0.9rem;
+  }
+
+  .efficient-feature img {
+    border-radius: 8px;
+    width: 100%;
+    min-height: 250px;
+    object-fit: cover;
+  }
+
+  .feature-copy {
     background: #fff;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
   }
 
-  .platform-card h3 {
-    color: #213724;
-    font-size: 1.03rem;
-    margin: 0.55rem 0 0.2rem;
+  .feature-copy h3 {
+    color: #234128;
+    font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+    margin: 0 0 0.45rem;
   }
 
-  .platform-card p {
-    color: #4d6153;
+  .feature-copy p {
+    color: #3f5347;
     margin: 0;
-    font-size: 0.93rem;
+  }
+
+  .feature-copy a {
+    margin-top: 0.9rem;
+    width: fit-content;
+  }
+
+  .efficient-feature.is-reversed {
+    grid-template-columns: minmax(260px, 1fr) minmax(260px, 1fr);
   }
 
   .stats {
@@ -629,6 +866,35 @@ const copy = lang === "de"
     line-height: 1.35;
   }
 
+  .outcomes-cta,
+  .indications-cta {
+    background: #6f9c21;
+    border-radius: 8px;
+    color: #ffffff;
+    display: inline-block;
+    font-weight: 700;
+    margin-top: 0.85rem;
+    padding: 0.62rem 1rem;
+    text-decoration: none;
+  }
+
+  .outcomes-feature,
+  .indications-feature {
+    align-items: stretch;
+    display: grid;
+    gap: 0.8rem;
+    grid-template-columns: minmax(260px, 1fr) minmax(260px, 1fr);
+    margin-top: 0.9rem;
+  }
+
+  .outcomes-feature img,
+  .indications-feature img {
+    border-radius: 8px;
+    min-height: 240px;
+    object-fit: cover;
+    width: 100%;
+  }
+
   .module-stack {
     display: grid;
     gap: 1rem;
@@ -656,7 +922,8 @@ const copy = lang === "de"
 
   .module-row:hover,
   .module-row:focus-within,
-  .module-row.is-active {
+  .module-row.is-active,
+  .module-row.is-auto {
     background: #fcfefb;
     border-color: #b9c9b2;
     transform: translateY(-2px);
@@ -746,34 +1013,36 @@ const copy = lang === "de"
 
   .module-logo:hover .logo-preview,
   .module-logo:focus-visible .logo-preview,
-  .module-row.is-active .logo-preview {
+  .module-row.is-active .logo-preview,
+  .module-row.is-auto .logo-preview {
     opacity: 1;
     transform: scale(1.01);
   }
 
   .module-logo:hover .logo-brand,
   .module-logo:focus-visible .logo-brand,
-  .module-row.is-active .logo-brand {
+  .module-row.is-active .logo-brand,
+  .module-row.is-auto .logo-brand {
     opacity: 0;
     transform: translateY(4px);
   }
 
-  .platform-final {
-    display: grid;
-    gap: 0.85rem;
+  .indications h2 {
+    margin-bottom: 0.35rem;
   }
 
-  .images {
-    display: grid;
-    gap: 0.8rem;
-    grid-template-columns: repeat(2, minmax(220px, 1fr));
+  .faq-eyebrow {
+    color: #6f9c21;
+    font-size: 0.84rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin: 0 0 0.35rem;
+    text-transform: uppercase;
   }
 
-  .images img {
-    border-radius: 8px;
-    width: 100%;
-    aspect-ratio: 16 / 10;
-    object-fit: cover;
+  .faq-subtitle {
+    color: #4d6153;
+    margin: 0 0 0.8rem;
   }
 
   .faq-list details {
@@ -789,9 +1058,23 @@ const copy = lang === "de"
     font-weight: 600;
   }
 
-  .faq-list p {
+  .faq-answer {
     color: #4d6153;
     margin: 0.5rem 0 0;
+  }
+
+  .faq-answer ul {
+    margin: 0.35rem 0 0.35rem 1.1rem;
+    padding: 0;
+  }
+
+  .faq-answer li {
+    margin: 0 0 0.25rem;
+  }
+
+  .faq-answer a {
+    color: #496f13;
+    font-weight: 600;
   }
 
   .cta-band {
@@ -840,11 +1123,14 @@ const copy = lang === "de"
   }
 
   @media (max-width: 980px) {
-    .intro,
-    .two-up,
-    .platform-grid,
+    .update,
+    .revolution-grid,
+    .efficient-gallery,
+    .efficient-feature,
     .stats,
-    .images {
+    .outcomes-feature,
+    .indications-feature,
+    .efficient-feature.is-reversed {
       grid-template-columns: 1fr;
     }
 
@@ -858,12 +1144,25 @@ const copy = lang === "de"
   }
 
   @media (max-width: 700px) {
+    .hero {
+      background: #ffffff;
+      min-height: 340px;
+    }
+
+    .hero-text {
+      bottom: 0.85rem;
+      left: 0.85rem;
+      max-width: 72%;
+    }
+
     .solution-page {
       padding: 0.85rem 0.8rem 1.6rem;
     }
 
     .hero img {
-      aspect-ratio: 16 / 9;
+      min-height: 340px;
+      object-position: center;
+      width: 100%;
     }
   }
 </style>
